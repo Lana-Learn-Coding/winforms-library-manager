@@ -1,5 +1,5 @@
 ﻿
-namespace WinformsLibraryManager
+namespace WinFormsLibraryManager
 {
     partial class AppForm
     {

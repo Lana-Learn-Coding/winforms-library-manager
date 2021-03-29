@@ -100,15 +100,15 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppForm.cs">
+    <Compile Include="UI\AppForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AppForm.Designer.cs">
+    <Compile Include="UI\AppForm.Designer.cs">
       <DependentUpon>AppForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AppForm.resx">
+    <EmbeddedResource Include="UI\AppForm.resx">
       <DependentUpon>AppForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
