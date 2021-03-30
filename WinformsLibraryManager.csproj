@@ -101,7 +101,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\DatabaseInitializer.cs" />
+    <Compile Include="Model\Book.cs" />
+    <Compile Include="Model\Model.cs" />
     <Compile Include="Model\ModelContext.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="UI\AppForm.cs">
       <SubType>Form</SubType>
     </Compile>
