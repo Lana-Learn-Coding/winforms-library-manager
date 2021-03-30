@@ -4,9 +4,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WinformsLibraryManager.Model;
+using WinFormsLibraryManager.Model;
 
-namespace WinformsLibraryManager.Database
+namespace WinFormsLibraryManager.Database
 {
     public class DatabaseInitializer : CreateDatabaseIfNotExists<ModelContext>
     {

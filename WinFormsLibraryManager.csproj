@@ -7,8 +7,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F20263E8-7E64-4A96-8472-9B3F85F0FA56}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WinformsLibraryManager</RootNamespace>
-    <AssemblyName>WinformsLibraryManager</AssemblyName>
+    <RootNamespace>WinFormsLibraryManager</RootNamespace>
+    <AssemblyName>WinFormsLibraryManager</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

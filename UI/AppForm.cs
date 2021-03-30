@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinFormsLibraryManager
+namespace WinFormsLibraryManager.UI
 {
     public partial class AppForm : Form
     {

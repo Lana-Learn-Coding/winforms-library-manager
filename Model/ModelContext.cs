@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using WinformsLibraryManager.Database;
+using WinFormsLibraryManager.Database;
 
-namespace WinformsLibraryManager.Model
+namespace WinFormsLibraryManager.Model
 {
     public class ModelContext : DbContext
     {

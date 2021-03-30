@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WinformsLibraryManager.Model
+namespace WinFormsLibraryManager.Model
 {
     public class BookItem : Model
     {
