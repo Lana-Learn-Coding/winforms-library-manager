@@ -52,7 +52,7 @@ namespace WinFormsLibraryManager.Model
         {
             foreach (var entity in ChangeTracker.Entries().Where(p => p.State == EntityState.Added))
             {
-                if (entity.Entity is Model created)
+                if (entity.Entity is IAuditable created)
                 {
                     created.CreatedAt = DateTime.Now;
                 }
@@ -60,7 +60,7 @@ namespace WinFormsLibraryManager.Model
 
             foreach (var entity in ChangeTracker.Entries().Where(p => p.State == EntityState.Modified))
             {
-                if (entity.Entity is Model updated)
+                if (entity.Entity is IAuditable updated)
                 {
                     updated.UpdatedAt = DateTime.Now;
                 }

@@ -109,7 +109,7 @@
     <Compile Include="Model\Meta\Publisher.cs" />
     <Compile Include="Model\Meta\Series.cs" />
     <Compile Include="Model\Meta\Storage.cs" />
-    <Compile Include="Model\Model.cs" />
+    <Compile Include="Model\ModelBase.cs" />
     <Compile Include="Model\ModelContext.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="UI\AppForm.cs">

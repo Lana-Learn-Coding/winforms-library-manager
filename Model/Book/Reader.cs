@@ -5,8 +5,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WinFormsLibraryManager.Model.Book
 {
-    public class Reader : Model
+    public class Reader : IAuditable
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        public DateTime CreatedAt { get; set; }
+
+        public DateTime UpdatedAt { get; set; }
+        
         [Required] public string email { get; set; }
 
         public string phoneNumber { get; set; }

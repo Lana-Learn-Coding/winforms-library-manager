@@ -1,22 +1,39 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WinFormsLibraryManager.Model
 {
-    public class User : Model
+    public class User : IAuditable
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        public DateTime CreatedAt { get; set; }
+
+        public DateTime UpdatedAt { get; set; }
+
         [Required] public string Name { get; set; }
 
         [Required] public string Username { get; set; }
 
         [Required] public string Password { get; set; }
-        
+
         public virtual ICollection<Permission> Permissions { get; set; }
     }
 
-    public class Permission : Model, INamed
+    public class Permission : IAuditable, INamed
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        public DateTime CreatedAt { get; set; }
+
+        public DateTime UpdatedAt { get; set; }
+
         [Index(IsUnique = true), Required] public string Name { get; set; }
     }
 }
