@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using WinFormsLibraryManager.Model.Meta;
 
 namespace WinFormsLibraryManager.Model.Book
@@ -16,14 +17,22 @@ namespace WinFormsLibraryManager.Model.Book
         public Category Category { get; set; }
 
         public string Image { get; set; }
+
+        public virtual ICollection<BookItem> Items { get; set; }
     }
 
     public class BookItem : Model
     {
-        private string Note { get; set; }
+        public string Note { get; set; }
 
-        private string Position { get; set; }
+        public string Position { get; set; }
 
-        private Storage Storage { get; set; }
+        [Required] public Storage Storage { get; set; }
+
+        [Required] public Book book { get; set; }
+
+        public Ticket BorrowingTicket { get; set; }
+
+        public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }

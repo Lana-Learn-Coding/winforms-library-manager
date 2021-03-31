@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -21,5 +22,7 @@ namespace WinFormsLibraryManager.Model.Book
         [Required] public int limit { get; set; } = 0;
 
         [Column(TypeName = "Date")] public DateTime birth { get; set; }
+
+        public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }

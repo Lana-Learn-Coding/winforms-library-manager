@@ -103,6 +103,7 @@
     <Compile Include="Database\DatabaseInitializer.cs" />
     <Compile Include="Model\Book\Book.cs" />
     <Compile Include="Model\Book\Reader.cs" />
+    <Compile Include="Model\Book\Ticket.cs" />
     <Compile Include="Model\Meta\Author.cs" />
     <Compile Include="Model\Meta\Category.cs" />
     <Compile Include="Model\Meta\Publisher.cs" />
