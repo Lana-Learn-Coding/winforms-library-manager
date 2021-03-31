@@ -23,10 +23,11 @@ namespace WinFormsLibraryManager.Model.Book
 
         [Column(TypeName = "Date")] public DateTime ReturnedDate { get; set; }
 
-        public ICollection<BookItem> BookItems { get; set; }
+        [InverseProperty("Tickets")]
+        public virtual ICollection<BookItem> BookItems { get; set; }
 
-        public Reader Reader { get; set; }
+        public virtual Reader Reader { get; set; }
 
-        public Ticket Parent { get; set; }
+        public virtual Ticket Parent { get; set; }
     }
 }

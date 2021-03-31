@@ -51,8 +51,8 @@ namespace WinFormsLibraryManager.Model.Book
 
         [Required] public BookMeta BookMeta { get; set; }
 
-        public Ticket BorrowingTicket { get; set; }
-
         public virtual ICollection<Ticket> Tickets { get; set; }
+
+        public virtual Ticket BorrowingTicket { get; set; }
     }
 }
