@@ -4,7 +4,7 @@ using WinFormsLibraryManager.Model.Meta;
 
 namespace WinFormsLibraryManager.Model.Book
 {
-    public class Book
+    public class BookMeta
     {
         [Required] public string Title { get; set; }
 
@@ -15,6 +15,8 @@ namespace WinFormsLibraryManager.Model.Book
         public Publisher Publisher { get; set; }
 
         public Category Category { get; set; }
+        
+        public Series Series { get; set; }
 
         public string Image { get; set; }
 
@@ -29,7 +31,7 @@ namespace WinFormsLibraryManager.Model.Book
 
         [Required] public Storage Storage { get; set; }
 
-        [Required] public Book book { get; set; }
+        [Required] public BookMeta BookMeta { get; set; }
 
         public Ticket BorrowingTicket { get; set; }
 
