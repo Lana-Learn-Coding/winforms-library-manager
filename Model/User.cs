@@ -34,6 +34,7 @@ namespace WinFormsLibraryManager.Model
 
         public DateTime UpdatedAt { get; set; }
 
-        [Index(IsUnique = true), Required] public string Name { get; set; }
+        [Required, Index(IsUnique = true), Column(TypeName = "VARCHAR"), MaxLength(256)]
+        public string Name { get; set; }
     }
 }
