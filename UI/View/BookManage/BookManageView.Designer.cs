@@ -1,7 +1,7 @@
 ﻿
-namespace WinFormsLibraryManager.UI
+namespace WinFormsLibraryManager.UI.View.BookManage
 {
-    partial class AppForm
+    partial class BookManageView
     {
         /// <summary>
         /// Required designer variable.
@@ -29,20 +29,12 @@ namespace WinFormsLibraryManager.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // AppForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "AppForm";
-            this.Text = "Library Manager Application";
-            this.ResumeLayout(false);
-
+            this.Text = "BookManageView";
         }
 
         #endregion
     }
 }
-
