@@ -116,7 +116,7 @@ namespace WinFormsLibraryManager.UI
             this.ClientSize = new System.Drawing.Size(954, 781);
             this.Controls.Add(this.splitContainer1);
             this.Name = "AppView";
-            this.Text = "Library Manager Application";
+            this.Text = "LibMan - Library Manage Application";
             this.splitContainer1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);

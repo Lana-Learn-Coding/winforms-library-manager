@@ -1,13 +1,6 @@
-﻿using ReactiveUI;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reactive.Disposables;
 using System.Windows.Forms;
+using ReactiveUI;
 
 namespace WinFormsLibraryManager.UI
 {
@@ -16,10 +9,34 @@ namespace WinFormsLibraryManager.UI
         public AppView()
         {
             InitializeComponent();
+            this.WhenActivated(disposables =>
+            {
+                this.OneWayBind(ViewModel, model => model.Router, view => view.routedControlHost.Router)
+                    .DisposeWith(disposables);
+
+                this.OneWayBind(ViewModel, model => model.ApplicationTitle, view => view.Text)
+                    .DisposeWith(disposables);
+
+                this.BindCommand(ViewModel, model => model.ShowBookManageCommand, view => view.btnBookManage)
+                    .DisposeWith(disposables);
+
+                this.BindCommand(ViewModel, model => model.ShowReaderManageCommand, view => view.btnReaderManage)
+                    .DisposeWith(disposables);
+
+                this.BindCommand(ViewModel, model => model.ShowTicketManageCommand, view => view.btnTicketManage)
+                    .DisposeWith(disposables);
+
+                this.BindCommand(ViewModel, model => model.ShowUserManageCommand, view => view.btnUserManage)
+                    .DisposeWith(disposables);
+            });
         }
 
         public AppViewModel ViewModel { get; set; }
 
-        object IViewFor.ViewModel { get => ViewModel; set => ViewModel = (AppViewModel)(value); }
+        object IViewFor.ViewModel
+        {
+            get => ViewModel;
+            set => ViewModel = (AppViewModel) value;
+        }
     }
 }

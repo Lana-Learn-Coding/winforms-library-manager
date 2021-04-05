@@ -1,9 +1,10 @@
-﻿using ReactiveUI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using System.Reactive;
+using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
+using WinFormsLibraryManager.UI.View.BookManage;
+using WinFormsLibraryManager.UI.View.ReaderManage;
+using WinFormsLibraryManager.UI.View.UserManage;
 
 namespace WinFormsLibraryManager.UI
 {
@@ -13,19 +14,46 @@ namespace WinFormsLibraryManager.UI
 
         public AppViewModel()
         {
-            // Initialize the Router.
             Router = new RoutingState();
-            // Manage the routing state. Use the Router.Navigate.Execute
-            // command to navigate to different view models. 
-            //
-            // Note, that the Navigate.Execute method accepts an instance 
-            // of a view model, this allows you to pass parameters to 
-            // your view models, or to reuse existing view models.
-            //
-            //GoNext = ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new FirstViewModel()));
 
-            // You can also ask the router to go back.
-            //GoBack = Router.NavigateBack;
+            ShowBookManageCommand = ReactiveCommand.CreateFromObservable(ShowBookManage);
+            ShowReaderManageCommand = ReactiveCommand.CreateFromObservable(ShowReaderManage);
+            ShowTicketManageCommand = ReactiveCommand.CreateFromObservable(ShowTicketManage);
+            ShowUserManageCommand = ReactiveCommand.CreateFromObservable(ShowUserManage);
+
+            ShowBookManage();
+        }
+
+        [Reactive] public string ApplicationTitle { get; private set; }
+
+        public ReactiveCommand<Unit, IRoutableViewModel> ShowBookManageCommand { get; }
+        public ReactiveCommand<Unit, IRoutableViewModel> ShowReaderManageCommand { get; }
+        public ReactiveCommand<Unit, IRoutableViewModel> ShowTicketManageCommand { get; }
+        public ReactiveCommand<Unit, IRoutableViewModel> ShowUserManageCommand { get; }
+
+
+        private IObservable<IRoutableViewModel> ShowBookManage()
+        {
+            ApplicationTitle = "LibMan - Book Manage";
+            return Router.Navigate.Execute(new BookManageViewModel());
+        }
+
+        private IObservable<IRoutableViewModel> ShowReaderManage()
+        {
+            ApplicationTitle = "LibMan - Reader Manage";
+            return Router.Navigate.Execute(new ReaderManageViewModel());
+        }
+
+        private IObservable<IRoutableViewModel> ShowTicketManage()
+        {
+            ApplicationTitle = "LibMan - Ticket Manage";
+            return Router.Navigate.Execute(new TicketManageViewModel());
+        }
+
+        private IObservable<IRoutableViewModel> ShowUserManage()
+        {
+            ApplicationTitle = "LibMan - User Manage";
+            return Router.Navigate.Execute(new UserManageViewModel());
         }
     }
 }
