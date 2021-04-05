@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\ReactiveUI.Fody.13.2.10\build\ReactiveUI.Fody.props" Condition="Exists('packages\ReactiveUI.Fody.13.2.10\build\ReactiveUI.Fody.props')" />
   <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -52,10 +53,13 @@
       <HintPath>packages\Pharmacist.Common.2.0.6\lib\net472\Pharmacist.Common.dll</HintPath>
     </Reference>
     <Reference Include="ReactiveUI, Version=13.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\ReactiveUI.13.2.2\lib\net472\ReactiveUI.dll</HintPath>
+      <HintPath>packages\ReactiveUI.13.2.10\lib\net472\ReactiveUI.dll</HintPath>
     </Reference>
     <Reference Include="ReactiveUI.Events.Winforms, Version=13.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\ReactiveUI.Events.Winforms.13.2.2\lib\net472\ReactiveUI.Events.Winforms.dll</HintPath>
+    </Reference>
+    <Reference Include="ReactiveUI.Fody.Helpers, Version=13.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ReactiveUI.Fody.13.2.10\lib\net472\ReactiveUI.Fody.Helpers.dll</HintPath>
     </Reference>
     <Reference Include="ReactiveUI.Validation, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\ReactiveUI.Validation.2.1.1\lib\net472\ReactiveUI.Validation.dll</HintPath>
@@ -155,6 +159,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
     <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('packages\Fody.6.5.0\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Fody.6.5.0\build\Fody.targets'))" />
+    <Error Condition="!Exists('packages\ReactiveUI.Fody.13.2.10\build\ReactiveUI.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\ReactiveUI.Fody.13.2.10\build\ReactiveUI.Fody.props'))" />
   </Target>
   <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="packages\Fody.6.5.0\build\Fody.targets" Condition="Exists('packages\Fody.6.5.0\build\Fody.targets')" />
 </Project>
