@@ -30,8 +30,20 @@ namespace WinFormsLibraryManager.UI.View.BookManage
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialTextBox9 = new MaterialSkin.Controls.MaterialTextBox();
+            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
+            this.ID = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialTextBox8 = new MaterialSkin.Controls.MaterialTextBox();
+            this.txtAuthor = new MaterialSkin.Controls.MaterialTextBox();
+            this.materialTextBox5 = new MaterialSkin.Controls.MaterialTextBox();
+            this.materialTextBox4 = new MaterialSkin.Controls.MaterialTextBox();
+            this.heading = new MaterialSkin.Controls.MaterialLabel();
             this.materialListView1 = new MaterialSkin.Controls.MaterialListView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
@@ -39,16 +51,187 @@ namespace WinFormsLibraryManager.UI.View.BookManage
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Location = new System.Drawing.Point(10, 10);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.materialLabel1);
+            this.splitContainer1.Panel1.Controls.Add(this.materialTextBox9);
+            this.splitContainer1.Panel1.Controls.Add(this.materialLabel5);
+            this.splitContainer1.Panel1.Controls.Add(this.ID);
+            this.splitContainer1.Panel1.Controls.Add(this.materialLabel3);
+            this.splitContainer1.Panel1.Controls.Add(this.materialLabel2);
+            this.splitContainer1.Panel1.Controls.Add(this.materialTextBox8);
+            this.splitContainer1.Panel1.Controls.Add(this.txtAuthor);
+            this.splitContainer1.Panel1.Controls.Add(this.materialTextBox5);
+            this.splitContainer1.Panel1.Controls.Add(this.materialTextBox4);
+            this.splitContainer1.Panel1.Controls.Add(this.heading);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.materialListView1);
-            this.splitContainer1.Size = new System.Drawing.Size(900, 700);
-            this.splitContainer1.SplitterDistance = 400;
+            this.splitContainer1.Size = new System.Drawing.Size(1180, 780);
+            this.splitContainer1.SplitterDistance = 445;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.Location = new System.Drawing.Point(263, 111);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(58, 19);
+            this.materialLabel1.TabIndex = 19;
+            this.materialLabel1.Text = "Pulisher";
+            // 
+            // materialTextBox9
+            // 
+            this.materialTextBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialTextBox9.Depth = 0;
+            this.materialTextBox9.Font = new System.Drawing.Font("Roboto", 12F);
+            this.materialTextBox9.Hint = "Enter book title";
+            this.materialTextBox9.Location = new System.Drawing.Point(118, 72);
+            this.materialTextBox9.MaxLength = 50;
+            this.materialTextBox9.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialTextBox9.Multiline = false;
+            this.materialTextBox9.Name = "materialTextBox9";
+            this.materialTextBox9.Size = new System.Drawing.Size(275, 36);
+            this.materialTextBox9.TabIndex = 18;
+            this.materialTextBox9.Text = "";
+            this.materialTextBox9.UseAccent = false;
+            this.materialTextBox9.UseTallSize = false;
+            // 
+            // materialLabel5
+            // 
+            this.materialLabel5.AutoSize = true;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel5.Location = new System.Drawing.Point(4, 111);
+            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(48, 19);
+            this.materialLabel5.TabIndex = 16;
+            this.materialLabel5.Text = "Author";
+            // 
+            // ID
+            // 
+            this.ID.AutoSize = true;
+            this.ID.Depth = 0;
+            this.ID.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.ID.Location = new System.Drawing.Point(4, 50);
+            this.ID.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ID.Name = "ID";
+            this.ID.Size = new System.Drawing.Size(16, 19);
+            this.ID.TabIndex = 13;
+            this.ID.Text = "ID";
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel3.Location = new System.Drawing.Point(115, 50);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(32, 19);
+            this.materialLabel3.TabIndex = 12;
+            this.materialLabel3.Text = "Tilte";
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.Location = new System.Drawing.Point(405, 50);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(33, 19);
+            this.materialLabel2.TabIndex = 11;
+            this.materialLabel2.Text = "Year";
+            // 
+            // materialTextBox8
+            // 
+            this.materialTextBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialTextBox8.Depth = 0;
+            this.materialTextBox8.Font = new System.Drawing.Font("Roboto", 12F);
+            this.materialTextBox8.Hint = "Book ID";
+            this.materialTextBox8.Location = new System.Drawing.Point(3, 72);
+            this.materialTextBox8.MaxLength = 50;
+            this.materialTextBox8.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialTextBox8.Multiline = false;
+            this.materialTextBox8.Name = "materialTextBox8";
+            this.materialTextBox8.Size = new System.Drawing.Size(100, 36);
+            this.materialTextBox8.TabIndex = 10;
+            this.materialTextBox8.Text = "";
+            this.materialTextBox8.UseAccent = false;
+            this.materialTextBox8.UseTallSize = false;
+            // 
+            // txtAuthor
+            // 
+            this.txtAuthor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAuthor.Depth = 0;
+            this.txtAuthor.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txtAuthor.Hint = "Enter Book Authors";
+            this.txtAuthor.Location = new System.Drawing.Point(3, 133);
+            this.txtAuthor.MaxLength = 50;
+            this.txtAuthor.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtAuthor.Multiline = false;
+            this.txtAuthor.Name = "txtAuthor";
+            this.txtAuthor.Size = new System.Drawing.Size(246, 36);
+            this.txtAuthor.TabIndex = 9;
+            this.txtAuthor.Text = "";
+            this.txtAuthor.UseAccent = false;
+            this.txtAuthor.UseTallSize = false;
+            // 
+            // materialTextBox5
+            // 
+            this.materialTextBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialTextBox5.Depth = 0;
+            this.materialTextBox5.Font = new System.Drawing.Font("Roboto", 12F);
+            this.materialTextBox5.Hint = "Enter Book Publisher";
+            this.materialTextBox5.Location = new System.Drawing.Point(266, 133);
+            this.materialTextBox5.MaxLength = 50;
+            this.materialTextBox5.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialTextBox5.Multiline = false;
+            this.materialTextBox5.Name = "materialTextBox5";
+            this.materialTextBox5.Size = new System.Drawing.Size(252, 36);
+            this.materialTextBox5.TabIndex = 7;
+            this.materialTextBox5.Text = "";
+            this.materialTextBox5.UseTallSize = false;
+            // 
+            // materialTextBox4
+            // 
+            this.materialTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialTextBox4.Depth = 0;
+            this.materialTextBox4.Font = new System.Drawing.Font("Roboto", 12F);
+            this.materialTextBox4.Hint = "Publish Year";
+            this.materialTextBox4.Location = new System.Drawing.Point(408, 72);
+            this.materialTextBox4.MaxLength = 50;
+            this.materialTextBox4.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialTextBox4.Multiline = false;
+            this.materialTextBox4.Name = "materialTextBox4";
+            this.materialTextBox4.Size = new System.Drawing.Size(110, 36);
+            this.materialTextBox4.TabIndex = 6;
+            this.materialTextBox4.Text = "";
+            this.materialTextBox4.UseAccent = false;
+            this.materialTextBox4.UseTallSize = false;
+            // 
+            // heading
+            // 
+            this.heading.AutoSize = true;
+            this.heading.Depth = 0;
+            this.heading.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.heading.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
+            this.heading.Location = new System.Drawing.Point(0, 0);
+            this.heading.MouseState = MaterialSkin.MouseState.HOVER;
+            this.heading.Name = "heading";
+            this.heading.Size = new System.Drawing.Size(209, 41);
+            this.heading.TabIndex = 1;
+            this.heading.Text = "Book Manage";
             // 
             // materialListView1
             // 
@@ -65,7 +248,7 @@ namespace WinFormsLibraryManager.UI.View.BookManage
             this.materialListView1.MouseState = MaterialSkin.MouseState.OUT;
             this.materialListView1.Name = "materialListView1";
             this.materialListView1.OwnerDraw = true;
-            this.materialListView1.Size = new System.Drawing.Size(900, 296);
+            this.materialListView1.Size = new System.Drawing.Size(1180, 331);
             this.materialListView1.TabIndex = 0;
             this.materialListView1.UseCompatibleStateImageBehavior = false;
             this.materialListView1.View = System.Windows.Forms.View.Details;
@@ -76,7 +259,10 @@ namespace WinFormsLibraryManager.UI.View.BookManage
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer1);
             this.Name = "BookManageView";
-            this.Size = new System.Drawing.Size(900, 700);
+            this.Padding = new System.Windows.Forms.Padding(10);
+            this.Size = new System.Drawing.Size(1200, 800);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -88,5 +274,16 @@ namespace WinFormsLibraryManager.UI.View.BookManage
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private MaterialSkin.Controls.MaterialListView materialListView1;
+        private MaterialSkin.Controls.MaterialLabel heading;
+        private MaterialSkin.Controls.MaterialLabel ID;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private MaterialSkin.Controls.MaterialTextBox materialTextBox8;
+        private MaterialSkin.Controls.MaterialTextBox txtAuthor;
+        private MaterialSkin.Controls.MaterialTextBox materialTextBox5;
+        private MaterialSkin.Controls.MaterialTextBox materialTextBox4;
+        private MaterialSkin.Controls.MaterialTextBox materialTextBox9;
+        private MaterialSkin.Controls.MaterialLabel materialLabel5;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
     }
 }
