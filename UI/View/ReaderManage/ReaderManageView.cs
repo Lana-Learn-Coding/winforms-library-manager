@@ -1,5 +1,4 @@
-﻿using ReactiveUI;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,22 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ReactiveUI;
 
-namespace WinFormsLibraryManager.UI.View.BookManage
+namespace WinFormsLibraryManager.UI.View.ReaderManage
 {
-    public partial class BookManageView : Form, IViewFor<BookManageViewModel>
+    public partial class ReaderManageView : Form, IViewFor<ReaderManageViewModel>
     {
-        public BookManageView()
+        public ReaderManageView()
         {
             InitializeComponent();
         }
 
-        public BookManageViewModel ViewModel { get; set; }
+        public ReaderManageViewModel ViewModel { get; set; }
 
         object IViewFor.ViewModel
         {
             get => ViewModel;
-            set => ViewModel = (BookManageViewModel) value;
+            set => ViewModel = (ReaderManageViewModel) value;
         }
     }
 }

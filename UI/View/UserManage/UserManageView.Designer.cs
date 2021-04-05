@@ -1,7 +1,7 @@
 ﻿
-namespace WinFormsLibraryManager.UI.View.BookManage
+namespace WinFormsLibraryManager.UI.View.UserManage
 {
-    partial class BookManageView
+    partial class UserManageView
     {
         /// <summary>
         /// Required designer variable.
@@ -31,13 +31,13 @@ namespace WinFormsLibraryManager.UI.View.BookManage
         {
             this.SuspendLayout();
             // 
-            // BookManageView
+            // UserManageView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 761);
-            this.Name = "BookManageView";
-            this.Text = "Book Manage";
+            this.Name = "UserManageView";
+            this.Text = "User Manage";
             this.ResumeLayout(false);
 
         }
