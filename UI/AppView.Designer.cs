@@ -40,18 +40,22 @@ namespace WinFormsLibraryManager.UI
             this.ticketManageView = new WinFormsLibraryManager.UI.View.ReaderManage.TicketManageView();
             this.tabUserManage = new System.Windows.Forms.TabPage();
             this.userManageView = new WinFormsLibraryManager.UI.View.UserManage.UserManageView();
-            this.drawerIconList = new System.Windows.Forms.ImageList(this.components);
             this.tabSetting = new System.Windows.Forms.TabPage();
+            this.drawerIconList = new System.Windows.Forms.ImageList(this.components);
+            this.tabBookItemManage = new System.Windows.Forms.TabPage();
+            this.bookItemManageView = new WinFormsLibraryManager.UI.View.BookManage.BookItemManageView();
             this.mainTabControl.SuspendLayout();
             this.tabBookManage.SuspendLayout();
             this.tabReaderManage.SuspendLayout();
             this.tabTicketManage.SuspendLayout();
             this.tabUserManage.SuspendLayout();
+            this.tabBookItemManage.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainTabControl
             // 
             this.mainTabControl.Controls.Add(this.tabBookManage);
+            this.mainTabControl.Controls.Add(this.tabBookItemManage);
             this.mainTabControl.Controls.Add(this.tabReaderManage);
             this.mainTabControl.Controls.Add(this.tabTicketManage);
             this.mainTabControl.Controls.Add(this.tabUserManage);
@@ -152,6 +156,17 @@ namespace WinFormsLibraryManager.UI
             this.userManageView.TabIndex = 3;
             this.userManageView.ViewModel = null;
             // 
+            // tabSetting
+            // 
+            this.tabSetting.ImageKey = "baseline_settings_black_24dp.png";
+            this.tabSetting.Location = new System.Drawing.Point(4, 23);
+            this.tabSetting.Name = "tabSetting";
+            this.tabSetting.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSetting.Size = new System.Drawing.Size(886, 705);
+            this.tabSetting.TabIndex = 4;
+            this.tabSetting.Text = "Setting";
+            this.tabSetting.UseVisualStyleBackColor = true;
+            // 
             // drawerIconList
             // 
             this.drawerIconList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("drawerIconList.ImageStream")));
@@ -163,17 +178,28 @@ namespace WinFormsLibraryManager.UI
             this.drawerIconList.Images.SetKeyName(4, "baseline_search_black_24dp.png");
             this.drawerIconList.Images.SetKeyName(5, "baseline_settings_black_24dp.png");
             this.drawerIconList.Images.SetKeyName(6, "outline_event_note_black_24dp.png");
+            this.drawerIconList.Images.SetKeyName(7, "outline_library_books_black_24dp.png");
             // 
-            // tabSetting
+            // tabBookItemManage
             // 
-            this.tabSetting.ImageKey = "baseline_settings_black_24dp.png";
-            this.tabSetting.Location = new System.Drawing.Point(4, 23);
-            this.tabSetting.Name = "tabSetting";
-            this.tabSetting.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSetting.Size = new System.Drawing.Size(886, 705);
-            this.tabSetting.TabIndex = 4;
-            this.tabSetting.Text = "Setting";
-            this.tabSetting.UseVisualStyleBackColor = true;
+            this.tabBookItemManage.Controls.Add(this.bookItemManageView);
+            this.tabBookItemManage.ImageKey = "outline_library_books_black_24dp.png";
+            this.tabBookItemManage.Location = new System.Drawing.Point(4, 23);
+            this.tabBookItemManage.Name = "tabBookItemManage";
+            this.tabBookItemManage.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBookItemManage.Size = new System.Drawing.Size(886, 705);
+            this.tabBookItemManage.TabIndex = 5;
+            this.tabBookItemManage.Text = "Book Items";
+            this.tabBookItemManage.UseVisualStyleBackColor = true;
+            // 
+            // bookItemManageView
+            // 
+            this.bookItemManageView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bookItemManageView.Location = new System.Drawing.Point(3, 3);
+            this.bookItemManageView.Name = "bookItemManageView";
+            this.bookItemManageView.Size = new System.Drawing.Size(880, 699);
+            this.bookItemManageView.TabIndex = 0;
+            this.bookItemManageView.ViewModel = null;
             // 
             // AppView
             // 
@@ -191,6 +217,7 @@ namespace WinFormsLibraryManager.UI
             this.tabReaderManage.ResumeLayout(false);
             this.tabTicketManage.ResumeLayout(false);
             this.tabUserManage.ResumeLayout(false);
+            this.tabBookItemManage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -208,5 +235,7 @@ namespace WinFormsLibraryManager.UI
         private View.UserManage.UserManageView userManageView;
         private System.Windows.Forms.ImageList drawerIconList;
         private System.Windows.Forms.TabPage tabSetting;
+        private System.Windows.Forms.TabPage tabBookItemManage;
+        private View.BookManage.BookItemManageView bookItemManageView;
     }
 }

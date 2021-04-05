@@ -114,24 +114,31 @@
     <Compile Include="Model\ModelBase.cs" />
     <Compile Include="Model\ModelContext.cs" />
     <Compile Include="Model\User.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Program.cs"/>
+    <Compile Include="Properties\AssemblyInfo.cs"/>
     <Compile Include="UI\AppView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\AppView.Designer.cs">
       <DependentUpon>AppView.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\AppViewModel.cs" />
-    <Compile Include="UI\ConventionalViewLocator.cs" />
+    <Compile Include="UI\AppViewModel.cs"/>
+    <Compile Include="UI\ConventionalViewLocator.cs"/>
     <Compile Include="UI\IAppViewModel.cs"/>
+    <Compile Include="UI\View\BookManage\BookItemManageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\View\BookManage\BookItemManageView.Designer.cs">
+      <DependentUpon>BookItemManageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\View\BookManage\BookItemManageViewModel.cs"/>
     <Compile Include="UI\View\BookManage\BookManageView.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\View\BookManage\BookManageView.Designer.cs">
       <DependentUpon>BookManageView.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\View\BookManage\BookManageViewModel.cs" />
+    <Compile Include="UI\View\BookManage\BookManageViewModel.cs"/>
     <Compile Include="UI\View\ReaderManage\ReaderManageView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -164,6 +171,9 @@
     </Compile>
     <EmbeddedResource Include="UI\AppView.resx">
       <DependentUpon>AppView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\View\BookManage\BookItemManageView.resx">
+      <DependentUpon>BookItemManageView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\View\BookManage\BookManageView.resx">
       <DependentUpon>BookManageView.cs</DependentUpon>
@@ -199,6 +209,7 @@
     <Content Include="Resources\baseline_search_black_24dp.png"/>
     <Content Include="Resources\baseline_settings_black_24dp.png"/>
     <Content Include="Resources\outline_event_note_black_24dp.png"/>
+    <Content Include="Resources\outline_library_books_black_24dp.png"/>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
