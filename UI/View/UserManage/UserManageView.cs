@@ -3,7 +3,7 @@ using ReactiveUI;
 
 namespace WinFormsLibraryManager.UI.View.UserManage
 {
-    public partial class UserManageView : Form, IViewFor<UserManageViewModel>
+    public partial class UserManageView : UserControl, IViewFor<UserManageViewModel>
     {
         public UserManageView()
         {

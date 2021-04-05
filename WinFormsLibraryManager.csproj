@@ -124,29 +124,30 @@
     </Compile>
     <Compile Include="UI\AppViewModel.cs" />
     <Compile Include="UI\ConventionalViewLocator.cs" />
+    <Compile Include="UI\IAppViewModel.cs"/>
     <Compile Include="UI\View\BookManage\BookManageView.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\View\BookManage\BookManageView.Designer.cs">
       <DependentUpon>BookManageView.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\View\BookManage\BookManageViewModel.cs" />
     <Compile Include="UI\View\ReaderManage\ReaderManageView.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\View\ReaderManage\ReaderManageView.Designer.cs">
       <DependentUpon>ReaderManageView.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\View\ReaderManage\ReaderManageViewModel.cs" />
     <Compile Include="UI\View\ReaderManage\TicketManageView.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\View\ReaderManage\TicketManageView.Designer.cs">
       <DependentUpon>TicketManageView.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\View\ReaderManage\TicketManageViewModel.cs" />
     <Compile Include="UI\View\UserManage\UserManageView.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\View\UserManage\UserManageView.Designer.cs">
       <DependentUpon>UserManageView.cs</DependentUpon>

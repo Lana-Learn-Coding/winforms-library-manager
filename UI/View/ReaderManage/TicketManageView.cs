@@ -3,7 +3,7 @@ using ReactiveUI;
 
 namespace WinFormsLibraryManager.UI.View.ReaderManage
 {
-    public partial class TicketManageView : Form, IViewFor<TicketManageViewModel>
+    public partial class TicketManageView : UserControl, IViewFor<TicketManageViewModel>
     {
         public TicketManageView()
         {

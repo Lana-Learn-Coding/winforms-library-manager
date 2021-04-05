@@ -3,7 +3,7 @@ using ReactiveUI;
 
 namespace WinFormsLibraryManager.UI.View.BookManage
 {
-    public partial class BookManageView : Form, IViewFor<BookManageViewModel>
+    public partial class BookManageView : UserControl, IViewFor<BookManageViewModel>
     {
         public BookManageView()
         {
