@@ -1,6 +1,6 @@
-﻿using ReactiveUI;
+﻿using System.Windows.Forms;
+using ReactiveUI;
 using Splat;
-using System.Windows.Forms;
 using WinFormsLibraryManager.UI;
 
 namespace WinFormsLibraryManager
@@ -25,8 +25,8 @@ namespace WinFormsLibraryManager
         public void Run()
         {
             var viewModel = new AppViewModel();
-            Locator.CurrentMutable.RegisterConstant(viewModel, typeof(IScreen));
-            
+            Locator.CurrentMutable.RegisterConstant(viewModel, typeof(IAppViewModel));
+
             var view = ViewLocator.Current.ResolveView(viewModel);
             view.ViewModel = viewModel;
             Application.Run((Form) view);

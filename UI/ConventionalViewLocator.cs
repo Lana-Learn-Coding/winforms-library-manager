@@ -1,10 +1,6 @@
-﻿using ReactiveUI;
+﻿using System;
+using ReactiveUI;
 using Splat;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WinFormsLibraryManager.UI
 {
@@ -20,12 +16,9 @@ namespace WinFormsLibraryManager.UI
             try
             {
                 var viewType = Type.GetType(viewTypeName);
-                if (viewType == null)
-                {
-                    this.Log().Error($"Could not find the view {viewTypeName} for view model {viewModelName}.");
-                    return null;
-                }
-                return Activator.CreateInstance(viewType) as IViewFor;
+                if (viewType != null) return Activator.CreateInstance(viewType) as IViewFor;
+                this.Log().Error($"Could not find the view {viewTypeName} for view model {viewModelName}.");
+                return null;
             }
             catch (Exception)
             {
