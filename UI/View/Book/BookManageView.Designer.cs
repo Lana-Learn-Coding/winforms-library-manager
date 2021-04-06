@@ -31,6 +31,8 @@ namespace WinFormsLibraryManager.UI.View.Book
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialTextBox9 = new MaterialSkin.Controls.MaterialTextBox();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
@@ -43,10 +45,8 @@ namespace WinFormsLibraryManager.UI.View.Book
             this.materialTextBox4 = new MaterialSkin.Controls.MaterialTextBox();
             this.heading = new MaterialSkin.Controls.MaterialLabel();
             this.materialListView1 = new MaterialSkin.Controls.MaterialListView();
-            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
-            this.createableComboBox1 = new WinFormsLibraryManager.UI.Component.CreateableComboBox(this.components);
-            this.createableComboBox2 = new WinFormsLibraryManager.UI.Component.CreateableComboBox(this.components);
+            this.selectSeries = new WinFormsLibraryManager.UI.Component.CreateableComboBox(this.components);
+            this.selectCategory = new WinFormsLibraryManager.UI.Component.CreateableComboBox(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -62,8 +62,8 @@ namespace WinFormsLibraryManager.UI.View.Book
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.createableComboBox2);
-            this.splitContainer1.Panel1.Controls.Add(this.createableComboBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.selectSeries);
+            this.splitContainer1.Panel1.Controls.Add(this.selectCategory);
             this.splitContainer1.Panel1.Controls.Add(this.materialLabel6);
             this.splitContainer1.Panel1.Controls.Add(this.materialLabel4);
             this.splitContainer1.Panel1.Controls.Add(this.materialLabel1);
@@ -84,6 +84,30 @@ namespace WinFormsLibraryManager.UI.View.Book
             this.splitContainer1.Size = new System.Drawing.Size(1180, 780);
             this.splitContainer1.SplitterDistance = 445;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // materialLabel6
+            // 
+            this.materialLabel6.AutoSize = true;
+            this.materialLabel6.Depth = 0;
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel6.Location = new System.Drawing.Point(263, 176);
+            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel6.Name = "materialLabel6";
+            this.materialLabel6.Size = new System.Drawing.Size(44, 19);
+            this.materialLabel6.TabIndex = 22;
+            this.materialLabel6.Text = "Series";
+            // 
+            // materialLabel4
+            // 
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel4.Location = new System.Drawing.Point(4, 176);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(64, 19);
+            this.materialLabel4.TabIndex = 21;
+            this.materialLabel4.Text = "Category";
             // 
             // materialLabel1
             // 
@@ -210,6 +234,7 @@ namespace WinFormsLibraryManager.UI.View.Book
             this.materialTextBox5.Size = new System.Drawing.Size(252, 36);
             this.materialTextBox5.TabIndex = 7;
             this.materialTextBox5.Text = "";
+            this.materialTextBox5.UseAccent = false;
             this.materialTextBox5.UseTallSize = false;
             // 
             // materialTextBox4
@@ -262,75 +287,59 @@ namespace WinFormsLibraryManager.UI.View.Book
             this.materialListView1.UseCompatibleStateImageBehavior = false;
             this.materialListView1.View = System.Windows.Forms.View.Details;
             // 
-            // materialLabel4
+            // selectSeries
             // 
-            this.materialLabel4.AutoSize = true;
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel4.Location = new System.Drawing.Point(4, 176);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(48, 19);
-            this.materialLabel4.TabIndex = 21;
-            this.materialLabel4.Text = "Author";
+            this.selectSeries.AutoResize = false;
+            this.selectSeries.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.selectSeries.CreateSelectionText = "--- Create new item ---";
+            this.selectSeries.DefaultSelectionText = "--- (None) ---";
+            this.selectSeries.Depth = 0;
+            this.selectSeries.DisplayMember = "Text";
+            this.selectSeries.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.selectSeries.DropDownHeight = 118;
+            this.selectSeries.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.selectSeries.DropDownWidth = 121;
+            this.selectSeries.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.selectSeries.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.selectSeries.FormattingEnabled = true;
+            this.selectSeries.IntegralHeight = false;
+            this.selectSeries.ItemHeight = 29;
+            this.selectSeries.Location = new System.Drawing.Point(266, 198);
+            this.selectSeries.MaxDropDownItems = 4;
+            this.selectSeries.MouseState = MaterialSkin.MouseState.OUT;
+            this.selectSeries.Name = "selectSeries";
+            this.selectSeries.Size = new System.Drawing.Size(252, 35);
+            this.selectSeries.StartIndex = 0;
+            this.selectSeries.TabIndex = 24;
+            this.selectSeries.UseAccent = false;
+            this.selectSeries.UseTallSize = false;
             // 
-            // materialLabel6
+            // selectCategory
             // 
-            this.materialLabel6.AutoSize = true;
-            this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel6.Location = new System.Drawing.Point(263, 176);
-            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(48, 19);
-            this.materialLabel6.TabIndex = 22;
-            this.materialLabel6.Text = "Author";
-            // 
-            // createableComboBox1
-            // 
-            this.createableComboBox1.AutoResize = false;
-            this.createableComboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.createableComboBox1.Depth = 0;
-            this.createableComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.createableComboBox1.DropDownHeight = 118;
-            this.createableComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.createableComboBox1.DropDownWidth = 121;
-            this.createableComboBox1.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.createableComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.createableComboBox1.FormattingEnabled = true;
-            this.createableComboBox1.IntegralHeight = false;
-            this.createableComboBox1.ItemHeight = 29;
-            this.createableComboBox1.Location = new System.Drawing.Point(3, 198);
-            this.createableComboBox1.MaxDropDownItems = 4;
-            this.createableComboBox1.MouseState = MaterialSkin.MouseState.OUT;
-            this.createableComboBox1.Name = "createableComboBox1";
-            this.createableComboBox1.Size = new System.Drawing.Size(246, 35);
-            this.createableComboBox1.StartIndex = 0;
-            this.createableComboBox1.TabIndex = 23;
-            this.createableComboBox1.UseTallSize = false;
-            // 
-            // createableComboBox2
-            // 
-            this.createableComboBox2.AutoResize = false;
-            this.createableComboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.createableComboBox2.Depth = 0;
-            this.createableComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.createableComboBox2.DropDownHeight = 118;
-            this.createableComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.createableComboBox2.DropDownWidth = 121;
-            this.createableComboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.createableComboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.createableComboBox2.FormattingEnabled = true;
-            this.createableComboBox2.IntegralHeight = false;
-            this.createableComboBox2.ItemHeight = 29;
-            this.createableComboBox2.Location = new System.Drawing.Point(266, 198);
-            this.createableComboBox2.MaxDropDownItems = 4;
-            this.createableComboBox2.MouseState = MaterialSkin.MouseState.OUT;
-            this.createableComboBox2.Name = "createableComboBox2";
-            this.createableComboBox2.Size = new System.Drawing.Size(252, 35);
-            this.createableComboBox2.StartIndex = 0;
-            this.createableComboBox2.TabIndex = 24;
-            this.createableComboBox2.UseTallSize = false;
+            this.selectCategory.AutoResize = false;
+            this.selectCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.selectCategory.CreateSelectionText = "--- Create new item ---";
+            this.selectCategory.DefaultSelectionText = "--- (None) ---";
+            this.selectCategory.Depth = 0;
+            this.selectCategory.DisplayMember = "Text";
+            this.selectCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.selectCategory.DropDownHeight = 118;
+            this.selectCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.selectCategory.DropDownWidth = 121;
+            this.selectCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.selectCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.selectCategory.FormattingEnabled = true;
+            this.selectCategory.IntegralHeight = false;
+            this.selectCategory.ItemHeight = 29;
+            this.selectCategory.Location = new System.Drawing.Point(3, 198);
+            this.selectCategory.MaxDropDownItems = 4;
+            this.selectCategory.MouseState = MaterialSkin.MouseState.OUT;
+            this.selectCategory.Name = "selectCategory";
+            this.selectCategory.Size = new System.Drawing.Size(246, 35);
+            this.selectCategory.StartIndex = 0;
+            this.selectCategory.TabIndex = 23;
+            this.selectCategory.UseAccent = false;
+            this.selectCategory.UseTallSize = false;
             // 
             // BookManageView
             // 
@@ -366,7 +375,7 @@ namespace WinFormsLibraryManager.UI.View.Book
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
-        private Component.CreateableComboBox createableComboBox2;
-        private Component.CreateableComboBox createableComboBox1;
+        private Component.CreateableComboBox selectSeries;
+        private Component.CreateableComboBox selectCategory;
     }
 }
