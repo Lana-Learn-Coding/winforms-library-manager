@@ -125,6 +125,12 @@
       <DependentUpon>AppView.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\AppViewModel.cs" />
+    <Compile Include="UI\Component\CreateableComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Component\CreateableComboBox.Designer.cs">
+      <DependentUpon>CreateableComboBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ConventionalViewLocator.cs" />
     <Compile Include="UI\IAppViewModel.cs" />
     <Compile Include="UI\View\Book\BookItemManageView.cs">
@@ -205,6 +211,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\baseline_account_circle_black_24dp.png" />
+    <Content Include="Resources\baseline_add_black_24dp.png" />
     <Content Include="Resources\baseline_auto_stories_black_24dp.png" />
     <Content Include="Resources\baseline_history_black_24dp.png" />
     <Content Include="Resources\baseline_person_black_24dp.png" />
@@ -212,11 +219,8 @@
     <Content Include="Resources\baseline_settings_black_24dp.png" />
     <Content Include="Resources\outline_event_note_black_24dp.png" />
     <Content Include="Resources\outline_library_books_black_24dp.png" />
-    <Content Include="UI\Component\.gitkeep" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UI\Component\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
