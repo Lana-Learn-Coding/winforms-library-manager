@@ -33,15 +33,15 @@ namespace WinFormsLibraryManager.UI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppView));
             this.mainTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabBookManage = new System.Windows.Forms.TabPage();
-            this.bookManageView = new WinFormsLibraryManager.UI.View.BookManage.BookManageView();
+            this.bookManageView = new WinFormsLibraryManager.UI.View.Book.BookManageView();
             this.tabBookItemManage = new System.Windows.Forms.TabPage();
-            this.bookItemManageView = new WinFormsLibraryManager.UI.View.BookManage.BookItemManageView();
+            this.bookItemManageView = new WinFormsLibraryManager.UI.View.Book.BookItemManageView();
             this.tabReaderManage = new System.Windows.Forms.TabPage();
-            this.readerManageView = new WinFormsLibraryManager.UI.View.ReaderManage.ReaderManageView();
+            this.readerManageView = new WinFormsLibraryManager.UI.View.Reader.ReaderManageView();
             this.tabTicketManage = new System.Windows.Forms.TabPage();
-            this.ticketManageView = new WinFormsLibraryManager.UI.View.ReaderManage.TicketManageView();
+            this.ticketManageView = new WinFormsLibraryManager.UI.View.Reader.TicketManageView();
             this.tabUserManage = new System.Windows.Forms.TabPage();
-            this.userManageView = new WinFormsLibraryManager.UI.View.UserManage.UserManageView();
+            this.userManageView = new WinFormsLibraryManager.UI.View.User.UserManageView();
             this.tabSetting = new System.Windows.Forms.TabPage();
             this.drawerIconList = new System.Windows.Forms.ImageList(this.components);
             this.mainTabControl.SuspendLayout();
@@ -229,13 +229,13 @@ namespace WinFormsLibraryManager.UI
         private System.Windows.Forms.TabPage tabReaderManage;
         private System.Windows.Forms.TabPage tabTicketManage;
         private System.Windows.Forms.TabPage tabUserManage;
-        private View.BookManage.BookManageView bookManageView;
-        private View.ReaderManage.TicketManageView ticketManageView;
-        private View.ReaderManage.ReaderManageView readerManageView;
-        private View.UserManage.UserManageView userManageView;
+        private View.Book.BookManageView bookManageView;
+        private View.Book.BookItemManageView bookItemManageView;
+        private View.Reader.ReaderManageView readerManageView;
+        private View.Reader.TicketManageView ticketManageView;
+        private View.User.UserManageView userManageView;
         private System.Windows.Forms.ImageList drawerIconList;
         private System.Windows.Forms.TabPage tabSetting;
         private System.Windows.Forms.TabPage tabBookItemManage;
-        private View.BookManage.BookItemManageView bookItemManageView;
     }
 }

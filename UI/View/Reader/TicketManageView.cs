@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
 using ReactiveUI;
 
-namespace WinFormsLibraryManager.UI.View.ReaderManage
+namespace WinFormsLibraryManager.UI.View.Reader
 {
     public partial class TicketManageView : UserControl, IViewFor<TicketManageViewModel>
     {

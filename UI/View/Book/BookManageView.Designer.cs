@@ -1,5 +1,5 @@
 ﻿
-namespace WinFormsLibraryManager.UI.View.BookManage
+namespace WinFormsLibraryManager.UI.View.Book
 {
     partial class BookManageView
     {

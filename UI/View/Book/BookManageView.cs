@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
 using ReactiveUI;
 
-namespace WinFormsLibraryManager.UI.View.BookManage
+namespace WinFormsLibraryManager.UI.View.Book
 {
     public partial class BookManageView : UserControl, IViewFor<BookManageViewModel>
     {

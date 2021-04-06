@@ -1,5 +1,5 @@
 ﻿
-namespace WinFormsLibraryManager.UI.View.UserManage
+namespace WinFormsLibraryManager.UI.View.User
 {
     partial class UserManageView
     {
