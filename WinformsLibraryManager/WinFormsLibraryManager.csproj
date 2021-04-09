@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="packages\ReactiveUI.Fody.13.2.10\build\ReactiveUI.Fody.props" Condition="Exists('packages\ReactiveUI.Fody.13.2.10\build\ReactiveUI.Fody.props')"/>
+    <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')"/>
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{F20263E8-7E64-4A96-8472-9B3F85F0FA56}</ProjectGuid>
+        <OutputType>WinExe</OutputType>
+        <RootNamespace>WinFormsLibraryManager</RootNamespace>
+        <AssemblyName>WinFormsLibraryManager</AssemblyName>
+        <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <Deterministic>true</Deterministic>
+        <NuGetPackageImportStamp>
+        </NuGetPackageImportStamp>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="DynamicData, Version=7.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+            <HintPath>packages\DynamicData.7.1.1\lib\net461\DynamicData.dll</HintPath>
+        </Reference>
+        <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+            <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+        </Reference>
+        <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+            <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+        </Reference>
+        <Reference Include="MaterialSkin, Version=2.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+            <HintPath>packages\MaterialSkin.2.2.1.4\lib\net461\MaterialSkin.dll</HintPath>
+        </Reference>
+        <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+            <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+        </Reference>
+        <Reference Include="Pharmacist.Common, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+            <HintPath>packages\Pharmacist.Common.2.0.6\lib\net472\Pharmacist.Common.dll</HintPath>
+        </Reference>
+        <Reference Include="ReactiveUI, Version=13.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+            <HintPath>packages\ReactiveUI.13.2.10\lib\net472\ReactiveUI.dll</HintPath>
+        </Reference>
+        <Reference Include="ReactiveUI.Events.Winforms, Version=13.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+            <HintPath>packages\ReactiveUI.Events.Winforms.13.2.2\lib\net472\ReactiveUI.Events.Winforms.dll</HintPath>
+        </Reference>
+        <Reference Include="ReactiveUI.Fody.Helpers, Version=13.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+            <HintPath>packages\ReactiveUI.Fody.13.2.10\lib\net472\ReactiveUI.Fody.Helpers.dll</HintPath>
+        </Reference>
+        <Reference Include="ReactiveUI.Validation, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+            <HintPath>packages\ReactiveUI.Validation.2.1.1\lib\net472\ReactiveUI.Validation.dll</HintPath>
+        </Reference>
+        <Reference Include="ReactiveUI.Winforms, Version=13.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+            <HintPath>packages\ReactiveUI.WinForms.13.2.2\lib\net472\ReactiveUI.Winforms.dll</HintPath>
+        </Reference>
+        <Reference Include="Splat, Version=10.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+            <HintPath>packages\Splat.10.0.1\lib\net461\Splat.dll</HintPath>
+        </Reference>
+        <Reference Include="System"/>
+        <Reference Include="System.ComponentModel.DataAnnotations"/>
+        <Reference Include="System.Core"/>
+        <Reference Include="System.Reactive, Version=5.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+            <HintPath>packages\System.Reactive.5.0.0\lib\net472\System.Reactive.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+            <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+            <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+        </Reference>
+        <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+            <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Windows"/>
+        <Reference Include="System.Xml.Linq"/>
+        <Reference Include="System.Data.DataSetExtensions"/>
+        <Reference Include="Microsoft.CSharp"/>
+        <Reference Include="System.Data"/>
+        <Reference Include="System.Deployment"/>
+        <Reference Include="System.Drawing"/>
+        <Reference Include="System.Net.Http"/>
+        <Reference Include="System.Windows.Forms">
+            <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Windows.Forms.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Xml"/>
+        <Reference Include="WindowsBase"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Bootstrapper.cs"/>
+        <Compile Include="Database\DatabaseInitializer.cs"/>
+        <Compile Include="Model\Book\Book.cs"/>
+        <Compile Include="Model\Book\Reader.cs"/>
+        <Compile Include="Model\Book\Ticket.cs"/>
+        <Compile Include="Model\Meta\Author.cs"/>
+        <Compile Include="Model\Meta\Category.cs"/>
+        <Compile Include="Model\Meta\Publisher.cs"/>
+        <Compile Include="Model\Meta\Series.cs"/>
+        <Compile Include="Model\Meta\Storage.cs"/>
+        <Compile Include="Model\ModelBase.cs"/>
+        <Compile Include="Model\ModelContext.cs"/>
+        <Compile Include="Model\User.cs"/>
+        <Compile Include="Program.cs"/>
+        <Compile Include="Properties\AssemblyInfo.cs"/>
+        <Compile Include="UI\AppView.cs">
+            <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="UI\AppView.Designer.cs">
+            <DependentUpon>AppView.cs</DependentUpon>
+        </Compile>
+        <Compile Include="UI\AppViewModel.cs"/>
+        <Compile Include="UI\Component\ComboboxControl.cs">
+            <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="UI\Component\ComboboxControl.Designer.cs">
+            <DependentUpon>ComboboxControl.cs</DependentUpon>
+        </Compile>
+        <Compile Include="UI\Component\TextboxControl.cs">
+            <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="UI\Component\TextboxControl.Designer.cs">
+            <DependentUpon>TextboxControl.cs</DependentUpon>
+        </Compile>
+        <Compile Include="UI\ConventionalViewLocator.cs"/>
+        <Compile Include="UI\IAppViewModel.cs"/>
+        <Compile Include="UI\View\Book\BookItemManageView.cs">
+            <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="UI\View\Book\BookItemManageView.Designer.cs">
+            <DependentUpon>BookItemManageView.cs</DependentUpon>
+        </Compile>
+        <Compile Include="UI\View\Book\BookItemManageViewModel.cs"/>
+        <Compile Include="UI\View\Book\BookManageView.cs">
+            <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="UI\View\Book\BookManageView.Designer.cs">
+            <DependentUpon>BookManageView.cs</DependentUpon>
+        </Compile>
+        <Compile Include="UI\View\Book\BookManageViewModel.cs"/>
+        <Compile Include="UI\View\Reader\ReaderManageView.cs">
+            <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="UI\View\Reader\ReaderManageView.Designer.cs">
+            <DependentUpon>ReaderManageView.cs</DependentUpon>
+        </Compile>
+        <Compile Include="UI\View\Reader\ReaderManageViewModel.cs"/>
+        <Compile Include="UI\View\Reader\TicketManageView.cs">
+            <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="UI\View\Reader\TicketManageView.Designer.cs">
+            <DependentUpon>TicketManageView.cs</DependentUpon>
+        </Compile>
+        <Compile Include="UI\View\Reader\TicketManageViewModel.cs"/>
+        <Compile Include="UI\View\User\UserManageView.cs">
+            <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="UI\View\User\UserManageView.Designer.cs">
+            <DependentUpon>UserManageView.cs</DependentUpon>
+        </Compile>
+        <Compile Include="UI\View\User\UserManageViewModel.cs"/>
+        <EmbeddedResource Include="Properties\Resources.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+            <SubType>Designer</SubType>
+        </EmbeddedResource>
+        <Compile Include="Properties\Resources.Designer.cs">
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+        <EmbeddedResource Include="UI\AppView.resx">
+            <DependentUpon>AppView.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="UI\Component\ComboboxControl.resx">
+            <DependentUpon>ComboboxControl.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="UI\Component\TextboxControl.resx">
+            <DependentUpon>TextboxControl.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="UI\View\Book\BookItemManageView.resx">
+            <DependentUpon>BookItemManageView.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="UI\View\Book\BookManageView.resx">
+            <DependentUpon>BookManageView.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="UI\View\Reader\ReaderManageView.resx">
+            <DependentUpon>ReaderManageView.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="UI\View\Reader\TicketManageView.resx">
+            <DependentUpon>TicketManageView.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="UI\View\User\UserManageView.resx">
+            <DependentUpon>UserManageView.cs</DependentUpon>
+        </EmbeddedResource>
+        <None Include="packages.config"/>
+        <None Include="Properties\Settings.settings">
+            <Generator>SettingsSingleFileGenerator</Generator>
+            <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+        </None>
+        <Compile Include="Properties\Settings.Designer.cs">
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Settings.settings</DependentUpon>
+            <DesignTimeSharedInput>True</DesignTimeSharedInput>
+        </Compile>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="App.config"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="Resources\baseline_account_circle_black_24dp.png"/>
+        <Content Include="Resources\baseline_add_black_24dp.png"/>
+        <Content Include="Resources\baseline_auto_stories_black_24dp.png"/>
+        <Content Include="Resources\baseline_history_black_24dp.png"/>
+        <Content Include="Resources\baseline_person_black_24dp.png"/>
+        <Content Include="Resources\baseline_search_black_24dp.png"/>
+        <Content Include="Resources\baseline_settings_black_24dp.png"/>
+        <Content Include="Resources\outline_event_note_black_24dp.png"/>
+        <Content Include="Resources\outline_library_books_black_24dp.png"/>
+    </ItemGroup>
+    <ItemGroup/>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
+    <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+        <PropertyGroup>
+            <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them. For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+        </PropertyGroup>
+        <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))"/>
+        <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))"/>
+        <Error Condition="!Exists('packages\Fody.6.5.0\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Fody.6.5.0\build\Fody.targets'))"/>
+        <Error Condition="!Exists('packages\ReactiveUI.Fody.13.2.10\build\ReactiveUI.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\ReactiveUI.Fody.13.2.10\build\ReactiveUI.Fody.props'))"/>
+    </Target>
+    <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')"/>
+    <Import Project="packages\Fody.6.5.0\build\Fody.targets" Condition="Exists('packages\Fody.6.5.0\build\Fody.targets')"/>
+</Project>
