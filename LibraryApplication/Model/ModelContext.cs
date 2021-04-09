@@ -55,6 +55,7 @@ namespace LibraryApplication.Model
                 if (entity.Entity is IAuditable created)
                 {
                     created.CreatedAt = DateTime.Now;
+                    created.UpdatedAt = DateTime.Now;
                 }
             }
 
