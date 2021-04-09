@@ -30,7 +30,7 @@ namespace WinFormsLibraryManager.UI.Component
         private void InitializeComponent()
         {
             this.textBox = new MaterialSkin.Controls.MaterialTextBox();
-            this.lblTextBox = new MaterialSkin.Controls.MaterialLabel();
+            this.lbl = new MaterialSkin.Controls.MaterialLabel();
             this.lblError = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
@@ -53,20 +53,20 @@ namespace WinFormsLibraryManager.UI.Component
             this.textBox.UseAccent = false;
             this.textBox.UseTallSize = false;
             // 
-            // lblTextBox
+            // lbl
             // 
-            this.lblTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTextBox.AutoSize = true;
-            this.lblTextBox.Depth = 0;
-            this.lblTextBox.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblTextBox.Location = new System.Drawing.Point(3, 0);
-            this.lblTextBox.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.lblTextBox.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblTextBox.Name = "lblTextBox";
-            this.lblTextBox.Size = new System.Drawing.Size(35, 19);
-            this.lblTextBox.TabIndex = 3;
-            this.lblTextBox.Text = "label";
+            this.lbl.AutoSize = true;
+            this.lbl.Depth = 0;
+            this.lbl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lbl.Location = new System.Drawing.Point(3, 0);
+            this.lbl.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.lbl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(35, 19);
+            this.lbl.TabIndex = 3;
+            this.lbl.Text = "label";
             // 
             // lblError
             // 
@@ -82,9 +82,8 @@ namespace WinFormsLibraryManager.UI.Component
             this.lblError.MinimumSize = new System.Drawing.Size(0, 12);
             this.lblError.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(82, 12);
+            this.lblError.Size = new System.Drawing.Size(1, 12);
             this.lblError.TabIndex = 2;
-            this.lblError.Text = "materialLabel2";
             this.lblError.UseAccent = true;
             // 
             // FormControl
@@ -92,7 +91,7 @@ namespace WinFormsLibraryManager.UI.Component
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblError);
-            this.Controls.Add(this.lblTextBox);
+            this.Controls.Add(this.lbl);
             this.Controls.Add(this.textBox);
             this.Name = "FormControl";
             this.Size = new System.Drawing.Size(200, 60);
@@ -104,7 +103,7 @@ namespace WinFormsLibraryManager.UI.Component
         #endregion
 
         private MaterialSkin.Controls.MaterialTextBox textBox;
-        private MaterialSkin.Controls.MaterialLabel lblTextBox;
+        private MaterialSkin.Controls.MaterialLabel lbl;
         private MaterialSkin.Controls.MaterialLabel lblError;
     }
 }
