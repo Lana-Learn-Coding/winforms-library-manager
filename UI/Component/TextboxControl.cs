@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace WinFormsLibraryManager.UI.Component
 {
-    public partial class FormControl : UserControl
+    public partial class TextboxControl : UserControl
     {
         [Description("Hint of the textbox"), Category("Material Skin")]
         public string Hint
@@ -45,7 +45,7 @@ namespace WinFormsLibraryManager.UI.Component
             set => textBox.Text = value;
         }
 
-        public FormControl()
+        public TextboxControl()
         {
             InitializeComponent();
         }

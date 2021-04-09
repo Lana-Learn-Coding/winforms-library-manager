@@ -1,7 +1,7 @@
 ﻿
 namespace WinFormsLibraryManager.UI.Component
 {
-    partial class ComboboxFormControl
+    partial class ComboboxControl
     {
         /// <summary> 
         /// Required designer variable.

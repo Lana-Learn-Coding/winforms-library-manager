@@ -106,16 +106,16 @@
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Database\DatabaseInitializer.cs" />
-    <Compile Include="Model\Book\Book.cs" />
-    <Compile Include="Model\Book\Reader.cs" />
-    <Compile Include="Model\Book\Ticket.cs" />
-    <Compile Include="Model\Meta\Author.cs" />
-    <Compile Include="Model\Meta\Category.cs" />
-    <Compile Include="Model\Meta\Publisher.cs" />
-    <Compile Include="Model\Meta\Series.cs" />
-    <Compile Include="Model\Meta\Storage.cs" />
-    <Compile Include="Model\ModelBase.cs" />
-    <Compile Include="Model\ModelContext.cs" />
+    <Compile Include="Model\Book\Book.cs"/>
+    <Compile Include="Model\Book\Reader.cs"/>
+    <Compile Include="Model\Book\Ticket.cs"/>
+    <Compile Include="Model\Meta\Author.cs"/>
+    <Compile Include="Model\Meta\Category.cs"/>
+    <Compile Include="Model\Meta\Publisher.cs"/>
+    <Compile Include="Model\Meta\Series.cs"/>
+    <Compile Include="Model\Meta\Storage.cs"/>
+    <Compile Include="Model\ModelBase.cs"/>
+    <Compile Include="Model\ModelContext.cs"/>
     <Compile Include="Model\User.cs"/>
     <Compile Include="Program.cs"/>
     <Compile Include="Properties\AssemblyInfo.cs"/>
@@ -126,17 +126,17 @@
       <DependentUpon>AppView.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\AppViewModel.cs"/>
-    <Compile Include="UI\Component\ComboboxFormControl.cs">
+    <Compile Include="UI\Component\ComboboxControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Component\ComboboxFormControl.Designer.cs">
-      <DependentUpon>ComboboxFormControl.cs</DependentUpon>
+    <Compile Include="UI\Component\ComboboxControl.Designer.cs">
+      <DependentUpon>ComboboxControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Component\FormControl.cs">
+    <Compile Include="UI\Component\TextboxControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Component\FormControl.Designer.cs">
-      <DependentUpon>FormControl.cs</DependentUpon>
+    <Compile Include="UI\Component\TextboxControl.Designer.cs">
+      <DependentUpon>TextboxControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ConventionalViewLocator.cs"/>
     <Compile Include="UI\IAppViewModel.cs"/>
@@ -146,7 +146,7 @@
     <Compile Include="UI\View\Book\BookItemManageView.Designer.cs">
       <DependentUpon>BookItemManageView.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\View\Book\BookItemManageViewModel.cs" />
+    <Compile Include="UI\View\Book\BookItemManageViewModel.cs"/>
     <Compile Include="UI\View\Book\BookManageView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -187,11 +187,11 @@
     <EmbeddedResource Include="UI\AppView.resx">
       <DependentUpon>AppView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Component\ComboboxFormControl.resx">
-      <DependentUpon>ComboboxFormControl.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Component\ComboboxControl.resx">
+      <DependentUpon>ComboboxControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Component\FormControl.resx">
-      <DependentUpon>FormControl.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Component\TextboxControl.resx">
+      <DependentUpon>TextboxControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\View\Book\BookItemManageView.resx">
       <DependentUpon>BookItemManageView.cs</DependentUpon>

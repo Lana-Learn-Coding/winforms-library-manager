@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace WinFormsLibraryManager.UI.Component
 {
-    public partial class ComboboxFormControl : UserControl
+    public partial class ComboboxControl : UserControl
     {
         [Description("Hint of the combobox"), Category("Material Skin")]
         public string Hint
@@ -45,7 +45,7 @@ namespace WinFormsLibraryManager.UI.Component
             set => comboBox.Text = value;
         }
 
-        public ComboboxFormControl()
+        public ComboboxControl()
         {
             InitializeComponent();
             comboBox.Items.Insert(0, ComboboxSelection.None);

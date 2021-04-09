@@ -1,7 +1,7 @@
 ﻿
 namespace WinFormsLibraryManager.UI.Component
 {
-    partial class FormControl
+    partial class TextboxControl
     {
         /// <summary> 
         /// Required designer variable.
