@@ -14,22 +14,22 @@ namespace WinFormsLibraryManager.Model.Book
         public DateTime CreatedAt { get; set; }
 
         public DateTime UpdatedAt { get; set; }
-        
-        [Required] public string email { get; set; }
 
-        public string phoneNumber { get; set; }
+        [Required] public string Email { get; set; }
 
-        [Required] public string name { get; set; }
+        public string PhoneNumber { get; set; }
 
-        public string address { get; set; }
+        [Required] public string Name { get; set; }
 
-        public string avatar { get; set; }
+        public string Address { get; set; }
 
-        [Required] public string gender { get; set; } = "male";
+        public string Avatar { get; set; }
 
-        [Required] public int limit { get; set; } = 0;
+        [Required] public string Gender { get; set; } = "male";
 
-        [Column(TypeName = "Date")] public DateTime birth { get; set; }
+        [Required] public int Limit { get; set; } = 0;
+
+        [Column(TypeName = "Date")] public DateTime Birth { get; set; }
 
         public virtual ICollection<Ticket> Tickets { get; set; }
     }
