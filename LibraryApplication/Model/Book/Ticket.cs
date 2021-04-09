@@ -1,4 +1,9 @@
-﻿namespace WinFormsLibraryManager.Model.Book
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace LibraryApplication.Model.Book
 {
     public class Ticket : IAuditable
     {

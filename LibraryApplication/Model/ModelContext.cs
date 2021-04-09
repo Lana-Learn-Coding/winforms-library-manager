@@ -1,8 +1,13 @@
-﻿using WinFormsLibraryManager.Database;
-using WinFormsLibraryManager.Model.Book;
-using WinFormsLibraryManager.Model.Meta;
+﻿using System;
+using System.Data.Entity;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using LibraryApplication.Database;
+using LibraryApplication.Model.Book;
+using LibraryApplication.Model.Meta;
 
-namespace WinFormsLibraryManager.Model
+namespace LibraryApplication.Model
 {
     public class ModelContext : DbContext
     {

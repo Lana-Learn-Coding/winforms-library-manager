@@ -1,4 +1,8 @@
-﻿namespace WinFormsLibraryManager.Model.Meta
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace LibraryApplication.Model.Meta
 {
     public class Author : IAuditable, INamed
     {

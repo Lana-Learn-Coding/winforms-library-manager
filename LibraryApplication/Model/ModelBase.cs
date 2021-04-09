@@ -1,4 +1,6 @@
-﻿namespace WinFormsLibraryManager.Model
+﻿using System;
+
+namespace LibraryApplication.Model
 {
     public interface IAuditable
     {

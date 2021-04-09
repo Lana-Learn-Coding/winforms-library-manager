@@ -1,6 +1,10 @@
-﻿using WinFormsLibraryManager.Model.Meta;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using LibraryApplication.Model.Meta;
 
-namespace WinFormsLibraryManager.Model.Book
+namespace LibraryApplication.Model.Book
 {
     public class BookMeta : IAuditable
     {

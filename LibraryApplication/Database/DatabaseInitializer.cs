@@ -1,7 +1,9 @@
-﻿using WinFormsLibraryManager.Model;
-using WinFormsLibraryManager.Model.Meta;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
+using LibraryApplication.Model;
+using LibraryApplication.Model.Meta;
 
-namespace WinFormsLibraryManager.Database
+namespace LibraryApplication.Database
 {
     public class DatabaseInitializer : CreateDatabaseIfNotExists<ModelContext>
     {
