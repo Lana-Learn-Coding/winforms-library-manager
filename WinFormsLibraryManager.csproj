@@ -16,6 +16,7 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -115,21 +116,21 @@
     <Compile Include="Model\Meta\Storage.cs" />
     <Compile Include="Model\ModelBase.cs" />
     <Compile Include="Model\ModelContext.cs" />
-    <Compile Include="Model\User.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Model\User.cs"/>
+    <Compile Include="Program.cs"/>
+    <Compile Include="Properties\AssemblyInfo.cs"/>
     <Compile Include="UI\AppView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\AppView.Designer.cs">
       <DependentUpon>AppView.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\AppViewModel.cs" />
-    <Compile Include="UI\Component\CreateableComboBox.cs">
-      <SubType>Component</SubType>
+    <Compile Include="UI\AppViewModel.cs"/>
+    <Compile Include="UI\Component\ComboboxFormControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Component\CreateableComboBox.Designer.cs">
-      <DependentUpon>CreateableComboBox.cs</DependentUpon>
+    <Compile Include="UI\Component\ComboboxFormControl.Designer.cs">
+      <DependentUpon>ComboboxFormControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Component\FormControl.cs">
       <SubType>UserControl</SubType>
@@ -137,14 +138,8 @@
     <Compile Include="UI\Component\FormControl.Designer.cs">
       <DependentUpon>FormControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Component\NamedEntityCombobox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UI\Component\NamedEntityCombobox.Designer.cs">
-      <DependentUpon>NamedEntityCombobox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\ConventionalViewLocator.cs" />
-    <Compile Include="UI\IAppViewModel.cs" />
+    <Compile Include="UI\ConventionalViewLocator.cs"/>
+    <Compile Include="UI\IAppViewModel.cs"/>
     <Compile Include="UI\View\Book\BookItemManageView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -191,6 +186,9 @@
     </Compile>
     <EmbeddedResource Include="UI\AppView.resx">
       <DependentUpon>AppView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Component\ComboboxFormControl.resx">
+      <DependentUpon>ComboboxFormControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Component\FormControl.resx">
       <DependentUpon>FormControl.cs</DependentUpon>
