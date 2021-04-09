@@ -14,7 +14,7 @@ namespace LibraryApplication
             ConfigureServices();
         }
 
-        private void ConfigureServices()
+        private static void ConfigureServices()
         {
             // Make sure Splat and ReactiveUI are already configured in the locator
             // so that our override runs last

@@ -24,44 +24,44 @@ namespace LibraryApplication.Database
         {
             var authors = new List<Author>
             {
-                new Author {Name = "Toan Nguyen"},
-                new Author {Name = "Ke Huy Diet"},
-                new Author {Name = "Super Author"},
+                new() {Name = "Toan Nguyen"},
+                new() {Name = "Ke Huy Diet"},
+                new() {Name = "Super Author"}
             };
             context.Authors.AddRange(authors);
 
 
             var publishers = new List<Publisher>
             {
-                new Publisher {Name = "Publisher Toan Nguyen"},
-                new Publisher {Name = "Kim Dong"},
-                new Publisher {Name = "Super Pulisher"},
+                new() {Name = "Publisher Toan Nguyen"},
+                new() {Name = "Kim Dong"},
+                new() {Name = "Super Pulisher"}
             };
             context.Publishers.AddRange(publishers);
 
             var categories = new List<Category>
             {
-                new Category {Name = "Fantasy"},
-                new Category {Name = "Scifi"},
-                new Category {Name = "Romance"},
-                new Category {Name = "Horror"},
-                new Category {Name = "Commic"},
-                new Category {Name = "History"},
+                new() {Name = "Fantasy"},
+                new() {Name = "Scifi"},
+                new() {Name = "Romance"},
+                new() {Name = "Horror"},
+                new() {Name = "Commic"},
+                new() {Name = "History"}
             };
             context.Categories.AddRange(categories);
 
             var series = new List<Series>
             {
-                new Series {Name = "Doraemon"},
-                new Series {Name = "Harry Potter"},
-                new Series {Name = "Canh sat hinh su"},
+                new() {Name = "Doraemon"},
+                new() {Name = "Harry Potter"},
+                new() {Name = "Canh sat hinh su"}
             };
             context.Series.AddRange(series);
 
             var storages = new List<Storage>
             {
-                new Storage {Name = "On shelf"},
-                new Storage {Name = "In Storage"},
+                new() {Name = "On shelf"},
+                new() {Name = "In Storage"}
             };
             context.Storages.AddRange(storages);
         }
