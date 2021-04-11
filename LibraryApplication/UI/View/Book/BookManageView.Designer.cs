@@ -30,6 +30,8 @@ namespace LibraryApplication.UI.View.Book
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.comboboxControl4 = new LibraryApplication.UI.Component.ComboboxControl();
+            this.selectAuthor = new LibraryApplication.UI.Component.ComboboxControl();
             this.comboboxControl2 = new LibraryApplication.UI.Component.ComboboxControl();
             this.comboboxControl1 = new LibraryApplication.UI.Component.ComboboxControl();
             this.txtYear = new LibraryApplication.UI.Component.NumericControl();
@@ -37,8 +39,7 @@ namespace LibraryApplication.UI.View.Book
             this.txtID = new LibraryApplication.UI.Component.TextboxControl();
             this.heading = new MaterialSkin.Controls.MaterialLabel();
             this.materialListView1 = new MaterialSkin.Controls.MaterialListView();
-            this.selectAuthor = new LibraryApplication.UI.Component.ComboboxControl();
-            this.comboboxControl4 = new LibraryApplication.UI.Component.ComboboxControl();
+            this.imagePickerControl1 = new LibraryApplication.UI.Component.ImagePickerControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -55,6 +56,7 @@ namespace LibraryApplication.UI.View.Book
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.imagePickerControl1);
             this.splitContainer1.Panel1.Controls.Add(this.comboboxControl4);
             this.splitContainer1.Panel1.Controls.Add(this.selectAuthor);
             this.splitContainer1.Panel1.Controls.Add(this.comboboxControl2);
@@ -71,6 +73,28 @@ namespace LibraryApplication.UI.View.Book
             this.splitContainer1.SplitterDistance = 437;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // comboboxControl4
+            // 
+            this.comboboxControl4.Error = "";
+            this.comboboxControl4.Hint = "Select Publisher";
+            this.comboboxControl4.Label = "Publisher";
+            this.comboboxControl4.Location = new System.Drawing.Point(271, 133);
+            this.comboboxControl4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.comboboxControl4.Name = "comboboxControl4";
+            this.comboboxControl4.Size = new System.Drawing.Size(256, 69);
+            this.comboboxControl4.TabIndex = 31;
+            // 
+            // selectAuthor
+            // 
+            this.selectAuthor.Error = "";
+            this.selectAuthor.Hint = "Select Author";
+            this.selectAuthor.Label = "Author";
+            this.selectAuthor.Location = new System.Drawing.Point(0, 133);
+            this.selectAuthor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.selectAuthor.Name = "selectAuthor";
+            this.selectAuthor.Size = new System.Drawing.Size(244, 69);
+            this.selectAuthor.TabIndex = 30;
             // 
             // comboboxControl2
             // 
@@ -162,27 +186,13 @@ namespace LibraryApplication.UI.View.Book
             this.materialListView1.UseCompatibleStateImageBehavior = false;
             this.materialListView1.View = System.Windows.Forms.View.Details;
             // 
-            // selectAuthor
+            // imagePickerControl1
             // 
-            this.selectAuthor.Error = "";
-            this.selectAuthor.Hint = "Select Author";
-            this.selectAuthor.Label = "Author";
-            this.selectAuthor.Location = new System.Drawing.Point(0, 133);
-            this.selectAuthor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.selectAuthor.Name = "selectAuthor";
-            this.selectAuthor.Size = new System.Drawing.Size(244, 69);
-            this.selectAuthor.TabIndex = 30;
-            // 
-            // comboboxControl4
-            // 
-            this.comboboxControl4.Error = "";
-            this.comboboxControl4.Hint = "Select Publisher";
-            this.comboboxControl4.Label = "Publisher";
-            this.comboboxControl4.Location = new System.Drawing.Point(271, 133);
-            this.comboboxControl4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.comboboxControl4.Name = "comboboxControl4";
-            this.comboboxControl4.Size = new System.Drawing.Size(256, 69);
-            this.comboboxControl4.TabIndex = 31;
+            this.imagePickerControl1.Location = new System.Drawing.Point(567, 58);
+            this.imagePickerControl1.Name = "imagePickerControl1";
+            this.imagePickerControl1.Padding = new System.Windows.Forms.Padding(1, 1, 1, 10);
+            this.imagePickerControl1.Size = new System.Drawing.Size(135, 219);
+            this.imagePickerControl1.TabIndex = 32;
             // 
             // BookManageView
             // 
@@ -214,5 +224,6 @@ namespace LibraryApplication.UI.View.Book
         private Component.NumericControl txtYear;
         private Component.ComboboxControl comboboxControl4;
         private Component.ComboboxControl selectAuthor;
+        private Component.ImagePickerControl imagePickerControl1;
     }
 }
