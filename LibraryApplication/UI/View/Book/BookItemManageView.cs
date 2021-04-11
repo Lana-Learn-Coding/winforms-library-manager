@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.ComponentModel;
+using System.Windows.Forms;
 using ReactiveUI;
 
 namespace LibraryApplication.UI.View.Book
@@ -10,6 +11,8 @@ namespace LibraryApplication.UI.View.Book
             InitializeComponent();
         }
 
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public BookItemManageViewModel ViewModel { get; set; }
 
         object IViewFor.ViewModel

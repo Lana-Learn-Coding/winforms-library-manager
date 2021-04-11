@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.ComponentModel;
+using System.Windows.Forms;
 using ReactiveUI;
 
 namespace LibraryApplication.UI.View.Reader
@@ -10,6 +11,8 @@ namespace LibraryApplication.UI.View.Reader
             InitializeComponent();
         }
 
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public TicketManageViewModel ViewModel { get; set; }
 
         object IViewFor.ViewModel
