@@ -36,20 +36,21 @@ namespace LibraryApplication.UI.Component
             // 
             // btnSelectImage
             // 
+            this.btnSelectImage.AutoSize = false;
             this.btnSelectImage.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnSelectImage.Depth = 0;
             this.btnSelectImage.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnSelectImage.DrawShadows = true;
-            this.btnSelectImage.HighEmphasis = true;
-            this.btnSelectImage.Icon = null;
+            this.btnSelectImage.HighEmphasis = false;
+            this.btnSelectImage.Icon = global::LibraryApplication.Properties.Resources.outline_insert_photo_black_24dp;
             this.btnSelectImage.Location = new System.Drawing.Point(1, 204);
             this.btnSelectImage.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSelectImage.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSelectImage.Name = "btnSelectImage";
-            this.btnSelectImage.Size = new System.Drawing.Size(138, 36);
+            this.btnSelectImage.Size = new System.Drawing.Size(158, 36);
             this.btnSelectImage.TabIndex = 1;
             this.btnSelectImage.Text = "Select Image";
-            this.btnSelectImage.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnSelectImage.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.btnSelectImage.UseAccentColor = false;
             this.btnSelectImage.UseVisualStyleBackColor = true;
             // 
@@ -61,7 +62,7 @@ namespace LibraryApplication.UI.Component
             this.imgBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.imgBox.Location = new System.Drawing.Point(1, 1);
             this.imgBox.Name = "imgBox";
-            this.imgBox.Size = new System.Drawing.Size(138, 194);
+            this.imgBox.Size = new System.Drawing.Size(158, 194);
             this.imgBox.TabIndex = 0;
             this.imgBox.TabStop = false;
             this.imgBox.Click += new System.EventHandler(this.imgBox_Click);
@@ -74,11 +75,10 @@ namespace LibraryApplication.UI.Component
             this.Controls.Add(this.imgBox);
             this.Name = "ImagePickerControl";
             this.Padding = new System.Windows.Forms.Padding(1, 1, 1, 10);
-            this.Size = new System.Drawing.Size(140, 250);
+            this.Size = new System.Drawing.Size(160, 250);
             this.Tag = "image";
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
