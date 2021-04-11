@@ -29,22 +29,16 @@ namespace LibraryApplication.UI.View.Book
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialTextBox9 = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
-            this.ID = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialTextBox8 = new MaterialSkin.Controls.MaterialTextBox();
-            this.txtAuthor = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialTextBox5 = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialTextBox4 = new MaterialSkin.Controls.MaterialTextBox();
+            this.comboboxControl2 = new LibraryApplication.UI.Component.ComboboxControl();
+            this.comboboxControl1 = new LibraryApplication.UI.Component.ComboboxControl();
+            this.txtYear = new LibraryApplication.UI.Component.NumericControl();
+            this.txtTitle = new LibraryApplication.UI.Component.TextboxControl();
+            this.txtID = new LibraryApplication.UI.Component.TextboxControl();
             this.heading = new MaterialSkin.Controls.MaterialLabel();
             this.materialListView1 = new MaterialSkin.Controls.MaterialListView();
+            this.selectAuthor = new LibraryApplication.UI.Component.ComboboxControl();
+            this.comboboxControl4 = new LibraryApplication.UI.Component.ComboboxControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -54,201 +48,84 @@ namespace LibraryApplication.UI.View.Book
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(10, 10);
+            this.splitContainer1.Location = new System.Drawing.Point(12, 12);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.materialLabel6);
-            this.splitContainer1.Panel1.Controls.Add(this.materialLabel4);
-            this.splitContainer1.Panel1.Controls.Add(this.materialLabel1);
-            this.splitContainer1.Panel1.Controls.Add(this.materialTextBox9);
-            this.splitContainer1.Panel1.Controls.Add(this.materialLabel5);
-            this.splitContainer1.Panel1.Controls.Add(this.ID);
-            this.splitContainer1.Panel1.Controls.Add(this.materialLabel3);
-            this.splitContainer1.Panel1.Controls.Add(this.materialLabel2);
-            this.splitContainer1.Panel1.Controls.Add(this.materialTextBox8);
-            this.splitContainer1.Panel1.Controls.Add(this.txtAuthor);
-            this.splitContainer1.Panel1.Controls.Add(this.materialTextBox5);
-            this.splitContainer1.Panel1.Controls.Add(this.materialTextBox4);
+            this.splitContainer1.Panel1.Controls.Add(this.comboboxControl4);
+            this.splitContainer1.Panel1.Controls.Add(this.selectAuthor);
+            this.splitContainer1.Panel1.Controls.Add(this.comboboxControl2);
+            this.splitContainer1.Panel1.Controls.Add(this.comboboxControl1);
+            this.splitContainer1.Panel1.Controls.Add(this.txtYear);
+            this.splitContainer1.Panel1.Controls.Add(this.txtTitle);
+            this.splitContainer1.Panel1.Controls.Add(this.txtID);
             this.splitContainer1.Panel1.Controls.Add(this.heading);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.materialListView1);
-            this.splitContainer1.Size = new System.Drawing.Size(1180, 780);
-            this.splitContainer1.SplitterDistance = 380;
+            this.splitContainer1.Size = new System.Drawing.Size(1376, 899);
+            this.splitContainer1.SplitterDistance = 437;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
-            // materialLabel6
+            // comboboxControl2
             // 
-            this.materialLabel6.AutoSize = true;
-            this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel6.Location = new System.Drawing.Point(263, 176);
-            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(44, 19);
-            this.materialLabel6.TabIndex = 22;
-            this.materialLabel6.Text = "Series";
+            this.comboboxControl2.Error = "";
+            this.comboboxControl2.Hint = "Select series";
+            this.comboboxControl2.Label = "Series";
+            this.comboboxControl2.Location = new System.Drawing.Point(271, 208);
+            this.comboboxControl2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.comboboxControl2.Name = "comboboxControl2";
+            this.comboboxControl2.Size = new System.Drawing.Size(256, 69);
+            this.comboboxControl2.TabIndex = 29;
             // 
-            // materialLabel4
+            // comboboxControl1
             // 
-            this.materialLabel4.AutoSize = true;
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel4.Location = new System.Drawing.Point(4, 176);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(64, 19);
-            this.materialLabel4.TabIndex = 21;
-            this.materialLabel4.Text = "Category";
+            this.comboboxControl1.Error = "";
+            this.comboboxControl1.Hint = "Select category";
+            this.comboboxControl1.Label = "Category";
+            this.comboboxControl1.Location = new System.Drawing.Point(0, 208);
+            this.comboboxControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.comboboxControl1.Name = "comboboxControl1";
+            this.comboboxControl1.Size = new System.Drawing.Size(244, 69);
+            this.comboboxControl1.TabIndex = 28;
             // 
-            // materialLabel1
+            // txtYear
             // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(263, 111);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(58, 19);
-            this.materialLabel1.TabIndex = 19;
-            this.materialLabel1.Text = "Pulisher";
+            this.txtYear.Error = "";
+            this.txtYear.Hint = "Publish year";
+            this.txtYear.Label = "Year";
+            this.txtYear.Location = new System.Drawing.Point(400, 58);
+            this.txtYear.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(127, 69);
+            this.txtYear.TabIndex = 27;
             // 
-            // materialTextBox9
+            // txtTitle
             // 
-            this.materialTextBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox9.Depth = 0;
-            this.materialTextBox9.Font = new System.Drawing.Font("Roboto", 12F);
-            this.materialTextBox9.Hint = "Enter book title";
-            this.materialTextBox9.Location = new System.Drawing.Point(118, 72);
-            this.materialTextBox9.MaxLength = 50;
-            this.materialTextBox9.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox9.Multiline = false;
-            this.materialTextBox9.Name = "materialTextBox9";
-            this.materialTextBox9.Size = new System.Drawing.Size(275, 36);
-            this.materialTextBox9.TabIndex = 18;
-            this.materialTextBox9.Text = "";
-            this.materialTextBox9.UseAccent = false;
-            this.materialTextBox9.UseTallSize = false;
+            this.txtTitle.Error = "";
+            this.txtTitle.Hint = "Enter book title";
+            this.txtTitle.Label = "Title";
+            this.txtTitle.Location = new System.Drawing.Point(147, 58);
+            this.txtTitle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(233, 69);
+            this.txtTitle.TabIndex = 24;
             // 
-            // materialLabel5
+            // txtID
             // 
-            this.materialLabel5.AutoSize = true;
-            this.materialLabel5.Depth = 0;
-            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel5.Location = new System.Drawing.Point(4, 111);
-            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(48, 19);
-            this.materialLabel5.TabIndex = 16;
-            this.materialLabel5.Text = "Author";
-            // 
-            // ID
-            // 
-            this.ID.AutoSize = true;
-            this.ID.Depth = 0;
-            this.ID.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.ID.Location = new System.Drawing.Point(4, 50);
-            this.ID.MouseState = MaterialSkin.MouseState.HOVER;
-            this.ID.Name = "ID";
-            this.ID.Size = new System.Drawing.Size(16, 19);
-            this.ID.TabIndex = 13;
-            this.ID.Text = "ID";
-            // 
-            // materialLabel3
-            // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.Location = new System.Drawing.Point(115, 50);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(32, 19);
-            this.materialLabel3.TabIndex = 12;
-            this.materialLabel3.Text = "Tilte";
-            // 
-            // materialLabel2
-            // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(405, 50);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(33, 19);
-            this.materialLabel2.TabIndex = 11;
-            this.materialLabel2.Text = "Year";
-            // 
-            // materialTextBox8
-            // 
-            this.materialTextBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox8.Depth = 0;
-            this.materialTextBox8.Font = new System.Drawing.Font("Roboto", 12F);
-            this.materialTextBox8.Hint = "Book ID";
-            this.materialTextBox8.Location = new System.Drawing.Point(3, 72);
-            this.materialTextBox8.MaxLength = 50;
-            this.materialTextBox8.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox8.Multiline = false;
-            this.materialTextBox8.Name = "materialTextBox8";
-            this.materialTextBox8.Size = new System.Drawing.Size(100, 36);
-            this.materialTextBox8.TabIndex = 10;
-            this.materialTextBox8.Text = "";
-            this.materialTextBox8.UseAccent = false;
-            this.materialTextBox8.UseTallSize = false;
-            // 
-            // txtAuthor
-            // 
-            this.txtAuthor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtAuthor.Depth = 0;
-            this.txtAuthor.Font = new System.Drawing.Font("Roboto", 12F);
-            this.txtAuthor.Hint = "Enter Book Authors";
-            this.txtAuthor.Location = new System.Drawing.Point(3, 133);
-            this.txtAuthor.MaxLength = 50;
-            this.txtAuthor.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtAuthor.Multiline = false;
-            this.txtAuthor.Name = "txtAuthor";
-            this.txtAuthor.Size = new System.Drawing.Size(246, 36);
-            this.txtAuthor.TabIndex = 9;
-            this.txtAuthor.Text = "";
-            this.txtAuthor.UseAccent = false;
-            this.txtAuthor.UseTallSize = false;
-            // 
-            // materialTextBox5
-            // 
-            this.materialTextBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox5.Depth = 0;
-            this.materialTextBox5.Font = new System.Drawing.Font("Roboto", 12F);
-            this.materialTextBox5.Hint = "Enter Book Publisher";
-            this.materialTextBox5.Location = new System.Drawing.Point(266, 133);
-            this.materialTextBox5.MaxLength = 50;
-            this.materialTextBox5.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox5.Multiline = false;
-            this.materialTextBox5.Name = "materialTextBox5";
-            this.materialTextBox5.Size = new System.Drawing.Size(252, 36);
-            this.materialTextBox5.TabIndex = 7;
-            this.materialTextBox5.Text = "";
-            this.materialTextBox5.UseAccent = false;
-            this.materialTextBox5.UseTallSize = false;
-            // 
-            // materialTextBox4
-            // 
-            this.materialTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox4.Depth = 0;
-            this.materialTextBox4.Font = new System.Drawing.Font("Roboto", 12F);
-            this.materialTextBox4.Hint = "Publish Year";
-            this.materialTextBox4.Location = new System.Drawing.Point(408, 72);
-            this.materialTextBox4.MaxLength = 50;
-            this.materialTextBox4.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox4.Multiline = false;
-            this.materialTextBox4.Name = "materialTextBox4";
-            this.materialTextBox4.Size = new System.Drawing.Size(110, 36);
-            this.materialTextBox4.TabIndex = 6;
-            this.materialTextBox4.Text = "";
-            this.materialTextBox4.UseAccent = false;
-            this.materialTextBox4.UseTallSize = false;
+            this.txtID.Error = "";
+            this.txtID.Hint = "Book ID";
+            this.txtID.Label = "ID";
+            this.txtID.Location = new System.Drawing.Point(0, 58);
+            this.txtID.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(130, 69);
+            this.txtID.TabIndex = 23;
             // 
             // heading
             // 
@@ -257,6 +134,7 @@ namespace LibraryApplication.UI.View.Book
             this.heading.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.heading.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
             this.heading.Location = new System.Drawing.Point(0, 0);
+            this.heading.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.heading.MouseState = MaterialSkin.MouseState.HOVER;
             this.heading.Name = "heading";
             this.heading.Size = new System.Drawing.Size(209, 41);
@@ -273,24 +151,48 @@ namespace LibraryApplication.UI.View.Book
             this.materialListView1.FullRowSelect = true;
             this.materialListView1.HideSelection = false;
             this.materialListView1.Location = new System.Drawing.Point(0, 0);
-            this.materialListView1.MinimumSize = new System.Drawing.Size(200, 100);
+            this.materialListView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.materialListView1.MinimumSize = new System.Drawing.Size(233, 115);
             this.materialListView1.MouseLocation = new System.Drawing.Point(-1, -1);
             this.materialListView1.MouseState = MaterialSkin.MouseState.OUT;
             this.materialListView1.Name = "materialListView1";
             this.materialListView1.OwnerDraw = true;
-            this.materialListView1.Size = new System.Drawing.Size(1180, 396);
+            this.materialListView1.Size = new System.Drawing.Size(1376, 457);
             this.materialListView1.TabIndex = 0;
             this.materialListView1.UseCompatibleStateImageBehavior = false;
             this.materialListView1.View = System.Windows.Forms.View.Details;
             // 
+            // selectAuthor
+            // 
+            this.selectAuthor.Error = "";
+            this.selectAuthor.Hint = "Select Author";
+            this.selectAuthor.Label = "Author";
+            this.selectAuthor.Location = new System.Drawing.Point(0, 133);
+            this.selectAuthor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.selectAuthor.Name = "selectAuthor";
+            this.selectAuthor.Size = new System.Drawing.Size(244, 69);
+            this.selectAuthor.TabIndex = 30;
+            // 
+            // comboboxControl4
+            // 
+            this.comboboxControl4.Error = "";
+            this.comboboxControl4.Hint = "Select Publisher";
+            this.comboboxControl4.Label = "Publisher";
+            this.comboboxControl4.Location = new System.Drawing.Point(271, 133);
+            this.comboboxControl4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.comboboxControl4.Name = "comboboxControl4";
+            this.comboboxControl4.Size = new System.Drawing.Size(256, 69);
+            this.comboboxControl4.TabIndex = 31;
+            // 
             // BookManageView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer1);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "BookManageView";
-            this.Padding = new System.Windows.Forms.Padding(10);
-            this.Size = new System.Drawing.Size(1200, 800);
+            this.Padding = new System.Windows.Forms.Padding(12);
+            this.Size = new System.Drawing.Size(1400, 923);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -305,17 +207,12 @@ namespace LibraryApplication.UI.View.Book
         private System.Windows.Forms.SplitContainer splitContainer1;
         private MaterialSkin.Controls.MaterialListView materialListView1;
         private MaterialSkin.Controls.MaterialLabel heading;
-        private MaterialSkin.Controls.MaterialLabel ID;
-        private MaterialSkin.Controls.MaterialLabel materialLabel3;
-        private MaterialSkin.Controls.MaterialLabel materialLabel2;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox8;
-        private MaterialSkin.Controls.MaterialTextBox txtAuthor;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox5;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox4;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox9;
-        private MaterialSkin.Controls.MaterialLabel materialLabel5;
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialLabel materialLabel4;
-        private MaterialSkin.Controls.MaterialLabel materialLabel6;
+        private Component.TextboxControl txtTitle;
+        private Component.TextboxControl txtID;
+        private Component.ComboboxControl comboboxControl2;
+        private Component.ComboboxControl comboboxControl1;
+        private Component.NumericControl txtYear;
+        private Component.ComboboxControl comboboxControl4;
+        private Component.ComboboxControl selectAuthor;
     }
 }
