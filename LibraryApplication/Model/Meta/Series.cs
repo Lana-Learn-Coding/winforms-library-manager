@@ -16,5 +16,10 @@ namespace LibraryApplication.Model.Meta
 
         [Required, Index(IsUnique = true), Column(TypeName = "VARCHAR"), MaxLength(256)]
         public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

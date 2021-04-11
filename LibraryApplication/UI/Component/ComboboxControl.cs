@@ -60,24 +60,21 @@ namespace LibraryApplication.UI.Component
 
         public static readonly ComboboxSelection None = new()
         {
-            Text = NoneSelectionText,
-            Name = NoneSelectionText,
-            Title = NoneSelectionText,
+            Text = NoneSelectionText
         };
 
         public static readonly ComboboxSelection Create = new()
         {
-            Text = CreateSelectionText,
-            Name = CreateSelectionText,
-            Title = CreateSelectionText,
+            Text = CreateSelectionText
         };
 
         public string Id { get; }
 
         public string Text { get; set; }
 
-        public string Name { get; set; }
-
-        public string Title { get; set; }
+        public override string ToString()
+        {
+            return Text;
+        }
     }
 }
