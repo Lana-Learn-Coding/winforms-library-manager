@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using System.Data.Entity;
+using System.Windows.Forms;
+using LibraryApplication.Model;
 using LibraryApplication.UI;
 using MaterialSkin;
 using MaterialSkin.Controls;
@@ -23,6 +25,22 @@ namespace LibraryApplication
 
             Locator.CurrentMutable.RegisterLazySingleton(() => new ConventionalViewLocator(), typeof(IViewLocator));
             Locator.CurrentMutable.RegisterConstant(MaterialSkinManager.Instance, typeof(MaterialSkinManager));
+
+
+            // Initialize database
+            var modelContext = new ModelContext();
+            Locator.CurrentMutable.RegisterConstant(modelContext, typeof(ModelContext));
+            modelContext.Authors.Load();
+            modelContext.Series.Load();
+            modelContext.Storages.Load();
+            modelContext.Categories.Load();
+            modelContext.Publishers.Load();
+            modelContext.Users.Load();
+            modelContext.Books.Load();
+            modelContext.BookItems.Load();
+            modelContext.Permissions.Load();
+            modelContext.Tickets.Load();
+            modelContext.Readers.Load();
         }
 
         public void Run()
