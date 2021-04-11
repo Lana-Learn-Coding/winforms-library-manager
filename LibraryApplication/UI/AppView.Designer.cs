@@ -33,6 +33,7 @@ namespace LibraryApplication.UI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppView));
             this.mainTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabBookManage = new System.Windows.Forms.TabPage();
+            this.bookManageView = new LibraryApplication.UI.View.Book.BookManageView();
             this.tabReaderManage = new System.Windows.Forms.TabPage();
             this.readerManageView = new LibraryApplication.UI.View.Reader.ReaderManageView();
             this.tabTicketManage = new System.Windows.Forms.TabPage();
@@ -41,7 +42,6 @@ namespace LibraryApplication.UI
             this.userManageView = new LibraryApplication.UI.View.User.UserManageView();
             this.tabSetting = new System.Windows.Forms.TabPage();
             this.drawerIconList = new System.Windows.Forms.ImageList(this.components);
-            this.bookManageView = new LibraryApplication.UI.View.Book.BookManageView();
             this.mainTabControl.SuspendLayout();
             this.tabBookManage.SuspendLayout();
             this.tabReaderManage.SuspendLayout();
@@ -65,7 +65,7 @@ namespace LibraryApplication.UI
             this.mainTabControl.Multiline = true;
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
-            this.mainTabControl.Size = new System.Drawing.Size(1066, 846);
+            this.mainTabControl.Size = new System.Drawing.Size(1046, 834);
             this.mainTabControl.TabIndex = 0;
             // 
             // tabBookManage
@@ -76,7 +76,7 @@ namespace LibraryApplication.UI
             this.tabBookManage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabBookManage.Name = "tabBookManage";
             this.tabBookManage.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabBookManage.Size = new System.Drawing.Size(1058, 818);
+            this.tabBookManage.Size = new System.Drawing.Size(1038, 806);
             this.tabBookManage.TabIndex = 0;
             this.tabBookManage.Text = "Book Manage";
             this.tabBookManage.UseVisualStyleBackColor = true;
@@ -88,7 +88,7 @@ namespace LibraryApplication.UI
             this.bookManageView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.bookManageView.Name = "bookManageView";
             this.bookManageView.Padding = new System.Windows.Forms.Padding(12);
-            this.bookManageView.Size = new System.Drawing.Size(1050, 812);
+            this.bookManageView.Size = new System.Drawing.Size(1030, 800);
             this.bookManageView.TabIndex = 0;
             // 
             // tabReaderManage
@@ -99,7 +99,7 @@ namespace LibraryApplication.UI
             this.tabReaderManage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabReaderManage.Name = "tabReaderManage";
             this.tabReaderManage.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabReaderManage.Size = new System.Drawing.Size(1058, 818);
+            this.tabReaderManage.Size = new System.Drawing.Size(1008, 806);
             this.tabReaderManage.TabIndex = 1;
             this.tabReaderManage.Text = "Reader Manage";
             this.tabReaderManage.UseVisualStyleBackColor = true;
@@ -110,7 +110,7 @@ namespace LibraryApplication.UI
             this.readerManageView.Location = new System.Drawing.Point(4, 3);
             this.readerManageView.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.readerManageView.Name = "readerManageView";
-            this.readerManageView.Size = new System.Drawing.Size(1050, 812);
+            this.readerManageView.Size = new System.Drawing.Size(1000, 800);
             this.readerManageView.TabIndex = 1;
             // 
             // tabTicketManage
@@ -121,7 +121,7 @@ namespace LibraryApplication.UI
             this.tabTicketManage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabTicketManage.Name = "tabTicketManage";
             this.tabTicketManage.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabTicketManage.Size = new System.Drawing.Size(1058, 818);
+            this.tabTicketManage.Size = new System.Drawing.Size(1008, 806);
             this.tabTicketManage.TabIndex = 2;
             this.tabTicketManage.Text = "Ticket Manage";
             this.tabTicketManage.UseVisualStyleBackColor = true;
@@ -132,7 +132,7 @@ namespace LibraryApplication.UI
             this.ticketManageView.Location = new System.Drawing.Point(4, 3);
             this.ticketManageView.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.ticketManageView.Name = "ticketManageView";
-            this.ticketManageView.Size = new System.Drawing.Size(1050, 812);
+            this.ticketManageView.Size = new System.Drawing.Size(1000, 800);
             this.ticketManageView.TabIndex = 2;
             // 
             // tabUserManage
@@ -143,7 +143,7 @@ namespace LibraryApplication.UI
             this.tabUserManage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabUserManage.Name = "tabUserManage";
             this.tabUserManage.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabUserManage.Size = new System.Drawing.Size(1058, 818);
+            this.tabUserManage.Size = new System.Drawing.Size(1008, 806);
             this.tabUserManage.TabIndex = 3;
             this.tabUserManage.Text = "User  Manage";
             this.tabUserManage.UseVisualStyleBackColor = true;
@@ -154,7 +154,7 @@ namespace LibraryApplication.UI
             this.userManageView.Location = new System.Drawing.Point(4, 3);
             this.userManageView.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.userManageView.Name = "userManageView";
-            this.userManageView.Size = new System.Drawing.Size(1050, 812);
+            this.userManageView.Size = new System.Drawing.Size(1000, 800);
             this.userManageView.TabIndex = 3;
             // 
             // tabSetting
@@ -164,7 +164,7 @@ namespace LibraryApplication.UI
             this.tabSetting.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabSetting.Name = "tabSetting";
             this.tabSetting.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabSetting.Size = new System.Drawing.Size(1058, 818);
+            this.tabSetting.Size = new System.Drawing.Size(1008, 806);
             this.tabSetting.TabIndex = 4;
             this.tabSetting.Text = "Setting";
             this.tabSetting.UseVisualStyleBackColor = true;
@@ -187,7 +187,7 @@ namespace LibraryApplication.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1140, 923);
+            this.ClientSize = new System.Drawing.Size(1120, 911);
             this.Controls.Add(this.mainTabControl);
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.mainTabControl;
@@ -217,6 +217,5 @@ namespace LibraryApplication.UI
         private View.User.UserManageView userManageView;
         private System.Windows.Forms.ImageList drawerIconList;
         private System.Windows.Forms.TabPage tabSetting;
-        private View.Book.BookManageView bookManageView1;
     }
 }
