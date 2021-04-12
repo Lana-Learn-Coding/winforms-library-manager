@@ -3,13 +3,20 @@ using System.Windows.Forms;
 
 namespace LibraryApplication.UI.Component
 {
-    public partial class TextboxControl : UserControl
+    public partial class TextboxControl : UserControl, INotifyPropertyChanged
     {
         [Description("Hint of the textbox"), Category("Material Skin")]
         public string Hint
         {
             get => textBox.Hint;
             set => textBox.Hint = value;
+        }
+
+        [Description("Enable"), Category("Material Skin")]
+        public bool Enabled
+        {
+            get => textBox.Enabled;
+            set => textBox.Enabled = value;
         }
 
         [Description("Error of the textbox"), Category("Material Skin")]
@@ -37,17 +44,18 @@ namespace LibraryApplication.UI.Component
             set => lbl.Text = value;
         }
 
-        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always), Bindable(true)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        public override string Text
+        public string Value
         {
-            get => textBox.Text;
-            set => textBox.Text = value;
+            get => textBox.Text ?? "";
+            set => textBox.Text = value ?? "";
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public TextboxControl()
         {
             InitializeComponent();
+            textBox.TextChanged += (_, _) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Value)));
         }
     }
 }

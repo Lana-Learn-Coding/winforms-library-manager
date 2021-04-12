@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel;
 using System.Windows.Forms;
+using MaterialSkin.Controls;
 
 namespace LibraryApplication.UI.Component
 {
-    public partial class ComboboxControl : UserControl
+    public partial class ComboboxControl : UserControl, INotifyPropertyChanged
     {
         [Description("Hint of the combobox"), Category("Material Skin")]
         public string Hint
@@ -56,7 +57,7 @@ namespace LibraryApplication.UI.Component
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public object SelectedItem
+        public object? Value
         {
             get => comboBox.SelectedItem;
             set
@@ -66,11 +67,13 @@ namespace LibraryApplication.UI.Component
             }
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public ComboboxControl()
         {
             InitializeComponent();
-            comboBox.Items.Insert(0, ComboboxSelection.None);
-            comboBox.Items.Insert(1, ComboboxSelection.Create);
+            comboBox.SelectedIndexChanged += (_, _) =>
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Value)));
         }
     }
 

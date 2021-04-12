@@ -49,5 +49,16 @@ namespace LibraryApplication.UI.Component
         {
             InitializeComponent();
         }
+
+        private void ShowPicker()
+        {
+            datePicker.Select();
+            SendKeys.Send("%{DOWN}");
+        }
+
+        private void textBox_Click(object sender, System.EventArgs e)
+        {
+            ShowPicker();
+        }
     }
 }

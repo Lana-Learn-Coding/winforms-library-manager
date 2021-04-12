@@ -41,12 +41,13 @@ namespace LibraryApplication.UI.Component
             this.lblError.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblError.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption;
             this.lblError.HighEmphasis = true;
-            this.lblError.Location = new System.Drawing.Point(0, 46);
-            this.lblError.MaximumSize = new System.Drawing.Size(0, 12);
-            this.lblError.MinimumSize = new System.Drawing.Size(0, 12);
+            this.lblError.Location = new System.Drawing.Point(0, 53);
+            this.lblError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblError.MaximumSize = new System.Drawing.Size(0, 14);
+            this.lblError.MinimumSize = new System.Drawing.Size(0, 14);
             this.lblError.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(1, 12);
+            this.lblError.Size = new System.Drawing.Size(1, 0);
             this.lblError.TabIndex = 1;
             this.lblError.UseAccent = true;
             // 
@@ -57,10 +58,10 @@ namespace LibraryApplication.UI.Component
             this.lbl.AutoSize = true;
             this.lbl.Depth = 0;
             this.lbl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lbl.Location = new System.Drawing.Point(3, 0);
-            this.lbl.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.lbl.MaximumSize = new System.Drawing.Size(0, 17);
-            this.lbl.MinimumSize = new System.Drawing.Size(0, 17);
+            this.lbl.Location = new System.Drawing.Point(4, 0);
+            this.lbl.Margin = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.lbl.MaximumSize = new System.Drawing.Size(0, 20);
+            this.lbl.MinimumSize = new System.Drawing.Size(0, 20);
             this.lbl.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl.Name = "lbl";
             this.lbl.Size = new System.Drawing.Size(35, 19);
@@ -78,29 +79,31 @@ namespace LibraryApplication.UI.Component
             this.comboBox.DropDownHeight = 118;
             this.comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox.DropDownWidth = 121;
-            this.comboBox.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.comboBox.FormattingEnabled = true;
             this.comboBox.IntegralHeight = false;
             this.comboBox.ItemHeight = 29;
-            this.comboBox.Location = new System.Drawing.Point(0, 20);
+            this.comboBox.Location = new System.Drawing.Point(0, 23);
+            this.comboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.comboBox.MaxDropDownItems = 4;
             this.comboBox.MouseState = MaterialSkin.MouseState.OUT;
             this.comboBox.Name = "comboBox";
-            this.comboBox.Size = new System.Drawing.Size(200, 35);
+            this.comboBox.Size = new System.Drawing.Size(233, 35);
             this.comboBox.StartIndex = 0;
             this.comboBox.TabIndex = 3;
             this.comboBox.UseTallSize = false;
             // 
-            // ComboboxFormControl
+            // ComboboxControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.lbl);
             this.Controls.Add(this.comboBox);
-            this.Name = "ComboboxFormControl";
-            this.Size = new System.Drawing.Size(200, 60);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Name = "ComboboxControl";
+            this.Size = new System.Drawing.Size(233, 69);
             this.ResumeLayout(false);
             this.PerformLayout();
 

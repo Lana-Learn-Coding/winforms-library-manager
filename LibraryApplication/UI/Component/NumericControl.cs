@@ -1,9 +1,10 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace LibraryApplication.UI.Component
 {
-    public partial class NumericControl : UserControl
+    public partial class NumericControl : UserControl, INotifyPropertyChanged
     {
         [Description("Hint of the textbox"), Category("Material Skin")]
         public string Hint
@@ -37,17 +38,51 @@ namespace LibraryApplication.UI.Component
             set => lbl.Text = value;
         }
 
+        private int? _number;
+
         [Browsable(true), EditorBrowsable(EditorBrowsableState.Always), Bindable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        public override string Text
+        public int? Value
         {
-            get => textBox.Text;
-            set => textBox.Text = value;
+            get => _number;
+            set
+            {
+                if (value == null)
+                {
+                    textBox.Text = "";
+                    _number = null;
+                    return;
+                }
+
+                textBox.Text = value.ToString();
+                _number = value;
+            }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
 
         public NumericControl()
         {
             InitializeComponent();
+            textBox.TextChanged += (_, _) =>
+            {
+                try
+                {
+                    _number = int.Parse(textBox.Text);
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Value)));
+                }
+                catch (Exception e)
+                {
+                    if (_number == null)
+                    {
+                        textBox.Text = "";
+                        return;
+                    }
+
+                    textBox.Text = _number.ToString();
+                }
+            };
         }
     }
 }
