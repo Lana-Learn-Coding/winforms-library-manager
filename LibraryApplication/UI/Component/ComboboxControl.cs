@@ -59,7 +59,11 @@ namespace LibraryApplication.UI.Component
         public object SelectedItem
         {
             get => comboBox.SelectedItem;
-            set => comboBox.SelectedItem = value;
+            set
+            {
+                comboBox.SelectedItem = value;
+                comboBox.Refresh();
+            }
         }
 
         public ComboboxControl()
