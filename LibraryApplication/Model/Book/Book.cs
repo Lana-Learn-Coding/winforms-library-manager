@@ -10,7 +10,7 @@ namespace LibraryApplication.Model.Book
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         public DateTime CreatedAt { get; set; }
 
@@ -18,7 +18,7 @@ namespace LibraryApplication.Model.Book
 
         [Required] public string Title { get; set; }
 
-        [Required] public int Year { get; set; }
+        [Required] public int? Year { get; set; }
 
         public Author Author { get; set; }
 
@@ -30,7 +30,7 @@ namespace LibraryApplication.Model.Book
 
         public string Image { get; set; }
 
-        public virtual ICollection<BookItem> Items { get; set; }
+        public virtual ICollection<BookItem> Items { get; set; } = new List<BookItem>();
     }
 
     public class BookItem : IAuditable
