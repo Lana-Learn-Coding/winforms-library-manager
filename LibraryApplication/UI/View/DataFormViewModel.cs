@@ -5,7 +5,6 @@ using System.Reactive;
 using System.Reactive.Disposables;
 using System.Windows.Forms;
 using LibraryApplication.Model;
-using MaterialSkin.Controls;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using ReactiveUI.Validation.Abstractions;
@@ -71,7 +70,8 @@ namespace LibraryApplication.UI.View
 
         private void DeleteSelection()
         {
-            var result = MaterialMessageBox.Show("Are you sure delete?", "Warning", MessageBoxButtons.YesNo);
+            var result = MessageBox.Show($"Are you sure delete ${SelectedItem.Id}?", "Warning",
+                MessageBoxButtons.YesNo);
             if (result != DialogResult.Yes) return;
             Items.Remove(SelectedItem);
             Context.SaveChanges();
