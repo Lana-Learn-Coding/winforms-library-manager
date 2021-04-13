@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Reactive.Disposables;
 using System.Windows.Forms;
 using LibraryApplication.Model;
@@ -11,7 +10,7 @@ using Splat;
 
 namespace LibraryApplication.UI.View.Book
 {
-    public partial class BookManageView : DataFormViewUserControl<BookMeta>
+    public partial class BookManageView : DataFormViewUserControl<BookMeta, BookManageViewModel>
     {
         public BookManageView()
         {
@@ -77,12 +76,7 @@ namespace LibraryApplication.UI.View.Book
                         view => view.selectPublisher.Error)
                     .DisposeWith(disposable);
             });
-            ViewModel = new BookManageViewModel();
         }
-
-        [Browsable(false)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public sealed override DataFormViewModel<BookMeta> ViewModel { get; set; }
 
         protected override MaterialButton BtnSave => btnSave;
         protected override MaterialButton BtnDelete => btnDelete;
