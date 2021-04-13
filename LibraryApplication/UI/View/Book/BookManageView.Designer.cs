@@ -227,6 +227,7 @@ namespace LibraryApplication.UI.View.Book
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(117, 69);
             this.txtYear.TabIndex = 27;
+            this.txtYear.Value = null;
             // 
             // txtTitle
             // 
@@ -238,9 +239,11 @@ namespace LibraryApplication.UI.View.Book
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(270, 69);
             this.txtTitle.TabIndex = 24;
+            this.txtTitle.Value = "";
             // 
             // txtID
             // 
+            this.txtID.Enabled = false;
             this.txtID.Error = "";
             this.txtID.Hint = "Book ID";
             this.txtID.Label = "ID";
@@ -249,6 +252,7 @@ namespace LibraryApplication.UI.View.Book
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(106, 69);
             this.txtID.TabIndex = 23;
+            this.txtID.Value = "";
             // 
             // heading
             // 
