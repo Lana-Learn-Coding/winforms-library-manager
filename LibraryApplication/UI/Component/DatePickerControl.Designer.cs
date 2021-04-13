@@ -102,10 +102,10 @@ namespace LibraryApplication.UI.Component
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lblError);
             this.Controls.Add(this.lbl);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.datePicker);
+            this.Controls.Add(this.lblError);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "DatePickerControl";
             this.Size = new System.Drawing.Size(233, 69);

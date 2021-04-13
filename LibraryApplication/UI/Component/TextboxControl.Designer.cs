@@ -40,14 +40,14 @@ namespace LibraryApplication.UI.Component
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox.Depth = 0;
-            this.textBox.Font = new System.Drawing.Font("Roboto", 12F);
-            this.textBox.Location = new System.Drawing.Point(0, 20);
+            this.textBox.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox.Location = new System.Drawing.Point(0, 23);
             this.textBox.Margin = new System.Windows.Forms.Padding(0);
             this.textBox.MaxLength = 50;
             this.textBox.MouseState = MaterialSkin.MouseState.OUT;
             this.textBox.Multiline = false;
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(200, 36);
+            this.textBox.Size = new System.Drawing.Size(233, 36);
             this.textBox.TabIndex = 0;
             this.textBox.Text = "";
             this.textBox.UseAccent = false;
@@ -60,8 +60,8 @@ namespace LibraryApplication.UI.Component
             this.lbl.AutoSize = true;
             this.lbl.Depth = 0;
             this.lbl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lbl.Location = new System.Drawing.Point(3, 0);
-            this.lbl.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.lbl.Location = new System.Drawing.Point(4, 0);
+            this.lbl.Margin = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.lbl.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl.Name = "lbl";
             this.lbl.Size = new System.Drawing.Size(35, 19);
@@ -76,25 +76,26 @@ namespace LibraryApplication.UI.Component
             this.lblError.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblError.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption;
             this.lblError.HighEmphasis = true;
-            this.lblError.Location = new System.Drawing.Point(3, 46);
-            this.lblError.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.lblError.MaximumSize = new System.Drawing.Size(0, 12);
-            this.lblError.MinimumSize = new System.Drawing.Size(0, 12);
+            this.lblError.Location = new System.Drawing.Point(4, 53);
+            this.lblError.Margin = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.lblError.MaximumSize = new System.Drawing.Size(0, 14);
+            this.lblError.MinimumSize = new System.Drawing.Size(0, 14);
             this.lblError.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(1, 12);
+            this.lblError.Size = new System.Drawing.Size(1, 0);
             this.lblError.TabIndex = 2;
             this.lblError.UseAccent = true;
             // 
-            // FormControl
+            // TextboxControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lblError);
             this.Controls.Add(this.lbl);
             this.Controls.Add(this.textBox);
-            this.Name = "FormControl";
-            this.Size = new System.Drawing.Size(200, 60);
+            this.Controls.Add(this.lblError);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Name = "TextboxControl";
+            this.Size = new System.Drawing.Size(233, 69);
             this.ResumeLayout(false);
             this.PerformLayout();
 
