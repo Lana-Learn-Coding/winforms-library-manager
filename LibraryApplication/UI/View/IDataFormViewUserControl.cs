@@ -1,7 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Reactive.Disposables;
+using System.Reactive.Linq;
 using System.Windows.Forms;
 using LibraryApplication.Model;
 using MaterialSkin.Controls;
@@ -10,7 +12,7 @@ using ReactiveUI;
 namespace LibraryApplication.UI.View
 {
     public interface IDataFormViewUserControl<TE, TVm> : IViewFor<TVm>
-        where TE : IIdentified, new() where TVm : DataFormViewModel<TE>, new()
+        where TE : class, IIdentified, new() where TVm : DataFormViewModel<TE>, new()
     {
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -31,6 +33,7 @@ namespace LibraryApplication.UI.View
             this.WhenActivated(disposable =>
             {
                 this.WhenAnyValue(view => view.ViewModel.Items)
+                    .Select(items => items.ToBindingList())
                     .BindTo(this, view => view.Table.DataSource)
                     .DisposeWith(disposable);
                 this.WhenAnyValue(view => view.ViewModel.SelectedItem)
