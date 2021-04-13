@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.ComponentModel;
+using System.Data.Entity;
 using System.Reactive.Disposables;
 using System.Windows.Forms;
 using LibraryApplication.Model;
@@ -10,11 +11,16 @@ using Splat;
 
 namespace LibraryApplication.UI.View.Book
 {
-    public partial class BookManageView : DataFormViewUserControl<BookMeta, BookManageViewModel>
+    public partial class BookManageView : UserControl, IDataFormViewUserControl<BookMeta, BookManageViewModel>
     {
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public BookManageViewModel ViewModel { get; set; }
+
         public BookManageView()
         {
             InitializeComponent();
+            ((IDataFormViewUserControl<BookMeta, BookManageViewModel>) this).InitializeViewModelBindings();
             var context = Locator.Current.GetService<ModelContext>();
             selectAuthor.DataSource = context.Authors.Local.ToBindingList();
             selectPublisher.DataSource = context.Publishers.Local.ToBindingList();
@@ -78,9 +84,9 @@ namespace LibraryApplication.UI.View.Book
             });
         }
 
-        protected override MaterialButton BtnSave => btnSave;
-        protected override MaterialButton BtnDelete => btnDelete;
-        protected override MaterialButton BtnClear => btnClear;
-        protected override DataGridView Table => table;
+        public MaterialButton BtnSave => btnSave;
+        public MaterialButton BtnDelete => btnDelete;
+        public MaterialButton BtnClear => btnClear;
+        public DataGridView Table => table;
     }
 }

@@ -9,7 +9,7 @@ using ReactiveUI;
 
 namespace LibraryApplication.UI.View
 {
-    public abstract class DataFormViewUserControl<TE, TVm> : UserControl, IViewFor<TVm>
+    public interface IDataFormViewUserControl<TE, TVm> : IViewFor<TVm>
         where TE : IIdentified, new() where TVm : DataFormViewModel<TE>, new()
     {
         [Browsable(false)]
@@ -20,16 +20,12 @@ namespace LibraryApplication.UI.View
             set => ViewModel = (TVm) value;
         }
 
-        [Browsable(false)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public TVm ViewModel { get; set; }
+        public MaterialButton BtnSave { get; }
+        public MaterialButton BtnDelete { get; }
+        public MaterialButton BtnClear { get; }
+        public DataGridView Table { get; }
 
-        protected abstract MaterialButton BtnSave { get; }
-        protected abstract MaterialButton BtnDelete { get; }
-        protected abstract MaterialButton BtnClear { get; }
-        protected abstract DataGridView Table { get; }
-
-        protected DataFormViewUserControl()
+        public void InitializeViewModelBindings()
         {
             ViewModel = new TVm();
             this.WhenActivated(disposable =>
