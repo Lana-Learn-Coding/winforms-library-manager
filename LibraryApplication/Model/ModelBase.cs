@@ -4,7 +4,7 @@ namespace LibraryApplication.Model
 {
     public interface IIdentified
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
     }
 
     public interface IAuditable
