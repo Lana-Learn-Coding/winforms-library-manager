@@ -1,6 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reactive;
+using System.Reactive.Disposables;
 using System.Windows.Forms;
 using LibraryApplication.Model;
 using MaterialSkin.Controls;
@@ -12,13 +14,16 @@ using Splat;
 
 namespace LibraryApplication.UI.View
 {
-    public class DataFormViewModel<T> : ReactiveObject, IValidatableViewModel where T : IIdentified, new()
+    public class DataFormViewModel<T> : ReactiveObject, IValidatableViewModel, IActivatableViewModel
+        where T : IIdentified, new()
     {
         protected readonly ModelContext Context;
         public ValidationContext ValidationContext { get; } = new();
 
         [Reactive] public T SelectedItem { get; set; }
         [Reactive] public ObservableCollection<T> Items { get; set; }
+
+        [Reactive] public bool IsDeletable { get; set; }
 
         public ReactiveCommand<DataGridView, Unit> SelectCommand { get; }
 
@@ -33,13 +38,20 @@ namespace LibraryApplication.UI.View
             DeleteCommand = ReactiveCommand.Create(DeleteSelection);
             SaveCommand = ReactiveCommand.Create(Save, ValidationContext.Valid);
             SelectCommand = ReactiveCommand.Create<DataGridView>(OnRowSelected);
+
+            this.WhenActivated(disposable =>
+            {
+                this.WhenAnyValue(model => model.SelectedItem)
+                    .Subscribe(item => IsDeletable = item?.Id != null)
+                    .DisposeWith(disposable);
+            });
         }
 
         private void OnRowSelected(DataGridView table)
         {
             var selectedRows = table.SelectedRows;
             var rowsCount = selectedRows.Count;
-            if (rowsCount == 0 || rowsCount > 1) return;
+            if (rowsCount is 0 or > 1) return;
             var row = selectedRows[0];
             if (row == null) return;
             var id = int.Parse(row.Cells[0]?.Value?.ToString() ?? "0");
@@ -82,5 +94,7 @@ namespace LibraryApplication.UI.View
             ClearSelection();
             SelectedItem = item;
         }
+
+        public ViewModelActivator Activator { get; } = new();
     }
 }

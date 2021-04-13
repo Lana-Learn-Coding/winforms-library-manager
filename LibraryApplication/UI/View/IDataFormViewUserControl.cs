@@ -34,9 +34,9 @@ namespace LibraryApplication.UI.View
                     .BindTo(this, view => view.Table.DataSource)
                     .DisposeWith(disposable);
                 this.WhenAnyValue(view => view.ViewModel.SelectedItem)
-                    .Subscribe(id =>
+                    .Subscribe(item =>
                     {
-                        if (id?.Id == null)
+                        if (item?.Id == null)
                         {
                             BtnDelete.Enabled = false;
                             Table.ClearSelection();
@@ -45,7 +45,7 @@ namespace LibraryApplication.UI.View
 
                         var rowIndex = Table.Rows
                             .Cast<DataGridViewRow>()
-                            .First(r => r.Cells[0].Value.Equals(id.Id))
+                            .First(r => r.Cells[0].Value.Equals(item.Id))
                             .Index;
 
                         Table.InvalidateRow(rowIndex);
