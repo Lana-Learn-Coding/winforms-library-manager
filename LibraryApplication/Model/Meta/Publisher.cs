@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LibraryApplication.Model.Meta
 {
-    public class Publisher : IAuditable, INamed
+    public class Publisher : IAuditable, INamed, IIdentified
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

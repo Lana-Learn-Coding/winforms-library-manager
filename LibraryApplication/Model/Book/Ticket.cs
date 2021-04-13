@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LibraryApplication.Model.Book
 {
-    public class Ticket : IAuditable
+    public class Ticket : IAuditable, IIdentified
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

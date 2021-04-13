@@ -6,7 +6,7 @@ using LibraryApplication.Model.Meta;
 
 namespace LibraryApplication.Model.Book
 {
-    public class BookMeta : IAuditable
+    public class BookMeta : IAuditable, IIdentified
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -33,7 +33,7 @@ namespace LibraryApplication.Model.Book
         public virtual ICollection<BookItem> Items { get; set; } = new List<BookItem>();
     }
 
-    public class BookItem : IAuditable
+    public class BookItem : IAuditable, IIdentified
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

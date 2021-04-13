@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LibraryApplication.Model
 {
-    public class User : IAuditable
+    public class User : IAuditable, IIdentified
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -24,7 +24,7 @@ namespace LibraryApplication.Model
         public virtual ICollection<Permission> Permissions { get; set; }
     }
 
-    public class Permission : IAuditable, INamed
+    public class Permission : IAuditable, INamed, IIdentified
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
