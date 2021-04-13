@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using LibraryApplication.Model.Meta;
+using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 
 namespace LibraryApplication.Model.Book
 {
-    public class BookMeta : IAuditable, IIdentified
+    public class BookMeta : ReactiveObject, IAuditable, IIdentified
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -16,19 +18,19 @@ namespace LibraryApplication.Model.Book
 
         public DateTime UpdatedAt { get; set; }
 
-        [Required] public string Title { get; set; }
+        [Reactive] [Required] public string Title { get; set; }
 
-        [Required] public int? Year { get; set; }
+        [Reactive] [Required] public int? Year { get; set; }
 
-        public Author Author { get; set; }
+        [Reactive] public Author Author { get; set; }
 
-        public Publisher Publisher { get; set; }
+        [Reactive] public Publisher Publisher { get; set; }
 
-        public Category Category { get; set; }
+        [Reactive] public Category Category { get; set; }
 
-        public Series Series { get; set; }
+        [Reactive] public Series Series { get; set; }
 
-        public string Image { get; set; }
+        [Reactive] public string Image { get; set; }
 
         public virtual ICollection<BookItem> Items { get; set; } = new List<BookItem>();
     }
