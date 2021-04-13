@@ -67,6 +67,14 @@ namespace LibraryApplication.UI.Component
             InitializeComponent();
             textBox.TextChanged += (_, _) =>
             {
+                if (string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    _number = null;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Value)));
+                    textBox.Text = "";
+                    return;
+                }
+
                 try
                 {
                     _number = int.Parse(textBox.Text);
@@ -74,13 +82,7 @@ namespace LibraryApplication.UI.Component
                 }
                 catch (Exception e)
                 {
-                    if (_number == null)
-                    {
-                        textBox.Text = "";
-                        return;
-                    }
-
-                    textBox.Text = _number.ToString();
+                    textBox.Text = _number?.ToString() ?? "";
                 }
             };
         }
