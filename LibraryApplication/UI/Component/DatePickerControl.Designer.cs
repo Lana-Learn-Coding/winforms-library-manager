@@ -91,11 +91,12 @@ namespace LibraryApplication.UI.Component
             // 
             // datePicker
             // 
-            this.datePicker.Location = new System.Drawing.Point(0, 27);
+            this.datePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.datePicker.Location = new System.Drawing.Point(0, 30);
             this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(8, 23);
+            this.datePicker.Size = new System.Drawing.Size(233, 23);
             this.datePicker.TabIndex = 4;
-            this.datePicker.Visible = false;
             // 
             // DatePickerControl
             // 
