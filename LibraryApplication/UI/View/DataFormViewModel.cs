@@ -31,7 +31,7 @@ namespace LibraryApplication.UI.View
             Context = Locator.Current.GetService<ModelContext>();
             ClearCommand = ReactiveCommand.Create(ClearSelection);
             DeleteCommand = ReactiveCommand.Create(DeleteSelection);
-            SaveCommand = ReactiveCommand.Create(Save);
+            SaveCommand = ReactiveCommand.Create(Save, ValidationContext.Valid);
             SelectCommand = ReactiveCommand.Create<DataGridView>(OnRowSelected);
         }
 
