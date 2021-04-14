@@ -16,7 +16,7 @@ namespace LibraryApplication.Model.Book
 
         public DateTime CreatedAt { get; set; }
 
-        public DateTime UpdatedAt { get; set; }
+        [Reactive] public DateTime UpdatedAt { get; set; }
 
         [Reactive] [Required] public string Title { get; set; }
 
@@ -35,7 +35,7 @@ namespace LibraryApplication.Model.Book
         public virtual ICollection<BookItem> Items { get; set; } = new List<BookItem>();
     }
 
-    public class BookItem : IAuditable, IIdentified
+    public class BookItem : ReactiveObject, IAuditable, IIdentified
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -43,15 +43,17 @@ namespace LibraryApplication.Model.Book
 
         public DateTime CreatedAt { get; set; }
 
-        public DateTime UpdatedAt { get; set; }
+        [Reactive] public DateTime UpdatedAt { get; set; }
 
-        public string Note { get; set; }
+        [Reactive] public string Condition { get; set; }
 
-        public string Position { get; set; }
+        [Reactive] public Position Position { get; set; }
 
         [Required] public Storage Storage { get; set; }
 
         [Required] public BookMeta BookMeta { get; set; }
+
+        [Reactive] public string Image { get; set; }
 
         public virtual ICollection<Ticket> Tickets { get; set; }
 

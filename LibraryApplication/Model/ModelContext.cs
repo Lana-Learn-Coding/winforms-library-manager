@@ -22,6 +22,8 @@ namespace LibraryApplication.Model
         public DbSet<Series> Series { get; set; }
         public DbSet<Storage> Storages { get; set; }
 
+        public DbSet<Position> Positions { get; set; }
+
         public DbSet<User> Users { get; set; }
         public DbSet<Permission> Permissions { get; set; }
 

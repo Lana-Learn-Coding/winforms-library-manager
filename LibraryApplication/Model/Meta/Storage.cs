@@ -23,4 +23,23 @@ namespace LibraryApplication.Model.Meta
             return Name;
         }
     }
+
+    public class Position : ReactiveObject, IAuditable, INamed, IIdentified
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int? Id { get; set; }
+
+        public DateTime CreatedAt { get; set; }
+
+        public DateTime UpdatedAt { get; set; }
+
+        [Required, Index(IsUnique = true), Column(TypeName = "VARCHAR"), MaxLength(256)]
+        public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+    }
 }

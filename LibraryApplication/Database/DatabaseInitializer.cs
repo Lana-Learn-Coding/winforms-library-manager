@@ -64,6 +64,14 @@ namespace LibraryApplication.Database
                 new() {Name = "In Storage"}
             };
             context.Storages.AddRange(storages);
+
+            var positions = new List<Position>
+            {
+                new() {Name = "Shelf A"},
+                new() {Name = "Shelf B"},
+                new() {Name = "Shelf D"}
+            };
+            context.Positions.AddRange(positions);
         }
     }
 }
