@@ -41,6 +41,7 @@ namespace LibraryApplication
             modelContext.Permissions.Load();
             modelContext.Tickets.Load();
             modelContext.Readers.Load();
+            modelContext.Positions.Load();
         }
 
         public void Run()
