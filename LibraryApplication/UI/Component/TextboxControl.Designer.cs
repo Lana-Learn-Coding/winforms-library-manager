@@ -70,20 +70,22 @@ namespace LibraryApplication.UI.Component
             // 
             // lblError
             // 
-            this.lblError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblError.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblError.AutoSize = true;
             this.lblError.Depth = 0;
             this.lblError.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblError.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption;
             this.lblError.HighEmphasis = true;
-            this.lblError.Location = new System.Drawing.Point(4, 53);
+            this.lblError.Location = new System.Drawing.Point(4, 58);
             this.lblError.Margin = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.lblError.MaximumSize = new System.Drawing.Size(0, 14);
             this.lblError.MinimumSize = new System.Drawing.Size(0, 14);
             this.lblError.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(1, 0);
+            this.lblError.Size = new System.Drawing.Size(37, 14);
             this.lblError.TabIndex = 2;
+            this.lblError.Text = "Invalid";
             this.lblError.UseAccent = true;
             // 
             // TextboxControl
@@ -95,7 +97,7 @@ namespace LibraryApplication.UI.Component
             this.Controls.Add(this.lblError);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "TextboxControl";
-            this.Size = new System.Drawing.Size(233, 69);
+            this.Size = new System.Drawing.Size(233, 72);
             this.ResumeLayout(false);
             this.PerformLayout();
 
