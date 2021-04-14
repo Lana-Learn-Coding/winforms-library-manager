@@ -62,4 +62,45 @@
             PublicKeyToken=b77a5c561934e089
         </value>
     </resheader>
+    <assembly alias="System.Drawing.Common"
+              name="System.Drawing.Common, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51"/>
+    <data name="btnClear.Icon" type="System.Drawing.Bitmap, System.Drawing.Common"
+          mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>
+            iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+            YQUAAAEXSURBVEhL7ZQ9TgJRFEanURupXAXQWBjAgrWxAjSgocON6CogdpaWJhYkJP7Ex/mYL4QwvJlH
+            hISCk5ww3PvdOzAMk504fkIITbzHV5xZHd9hw7ElvO/5sBrCZ/iIvxhDvSEq21PB4+V44EUD8IVa0sFL
+            e4sj/Ebx5tfkE2iheMdrlwvQa6Eu2Qq34pBpoL66Pnl0uaC/vCzruBWHTD+PhqFLW6FfWC7cjkNmkkdD
+            26UC9LYuF47EIfOZR0PNpf3C4oOfoPIS/QsWJ/3I65Ad5yOh71IcQsm3qSBz47ysu1wOwdQ/mpZ/KAgD
+            l6shXPaouMIuPuEPimc893gaDKQ87P7wAS88tjsMbz6u5zhFLW46duJoybIFFecDLW8EpBEAAAAASUVO
+            RK5CYII=
+        </value>
+    </data>
+    <data name="btnDelete.Icon" type="System.Drawing.Bitmap, System.Drawing.Common"
+          mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>
+            iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+            YQUAAABpSURBVEhL7c7BDYAgDEbhjsI47L+ACQ5Si7yTCdDqxUO/hIv5X6qkz1S12DvsPfVvhVnM6OPI
+            99iHkf8EP+VG5kfnRuZHtw2Z5YE5ZnlgjlkemGP26kAbqUsj87Oo2jvvfK1vKlmKErkA2JvqQm/M82QA
+            AAAASUVORK5CYII=
+        </value>
+    </data>
+    <data name="materialButton2.Icon" type="System.Drawing.Bitmap, System.Drawing.Common"
+          mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>
+            iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+            YQUAAACOSURBVEhL3ZQxDoAwFEJ7PO9/BD2I9g/8gUj41XbpSxgoYJMOtq05uq6ue1Cxia3l7Hr7QEWx
+            taA8Snk3/QIOlFcC7BNXhFcC7JNy0SB3HCivBNgnrgivBNgn5aJB7jhQns8ZmXOgPJ8zMudAFg1yx4Es
+            GuSOg+k/O4Rg+u8ahWUsv+DPm4csX98c2pLWHlWuzn34QtKUAAAAAElFTkSuQmCC
+        </value>
+    </data>
+    <data name="btnSave.Icon" type="System.Drawing.Bitmap, System.Drawing.Common"
+          mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>
+            iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+            YQUAAACESURBVEhL7ZCxDYAwDARTMAzrpGIc5mFFmvBvO1JQKoxpkE96KbLjc5SSJI9ora12jAfyipzI
+            bqU4BjmJXQBhymcg9MlxeUEOpFppgj3E93IMbDongmkJa9Yjvm/hoM7fl/BsNfLuzylQjy6xxMg7FKlP
+            xLHyDoXqFWLlHYo/kyd/oJQLub/1VhK3OCIAAAAASUVORK5CYII=
+        </value>
+    </data>
 </root>

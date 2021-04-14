@@ -29,16 +29,17 @@ namespace LibraryApplication.UI.View.Book
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookManageView));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnClear = new MaterialSkin.Controls.MaterialButton();
             this.btnDelete = new MaterialSkin.Controls.MaterialButton();
             this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
             this.btnSave = new MaterialSkin.Controls.MaterialButton();
             this.imagePickerControl1 = new LibraryApplication.UI.Component.ImagePickerControl();
-            this.selectPublisher = new LibraryApplication.UI.Component.ComboboxControl();
-            this.selectAuthor = new LibraryApplication.UI.Component.ComboboxControl();
-            this.selectSeries = new LibraryApplication.UI.Component.ComboboxControl();
-            this.selectCategory = new LibraryApplication.UI.Component.ComboboxControl();
+            this.selectPublisher = new LibraryApplication.UI.Component.Combobox.PublisherComboboxControl();
+            this.selectAuthor = new LibraryApplication.UI.Component.Combobox.AuthorComboboxControl();
+            this.selectSeries = new LibraryApplication.UI.Component.Combobox.SeriesComboboxControl();
+            this.selectCategory = new LibraryApplication.UI.Component.Combobox.CategoryComboboxControl();
             this.txtYear = new LibraryApplication.UI.Component.NumericControl();
             this.txtTitle = new LibraryApplication.UI.Component.TextboxControl();
             this.txtID = new LibraryApplication.UI.Component.TextboxControl();
@@ -91,12 +92,12 @@ namespace LibraryApplication.UI.View.Book
             this.btnClear.Depth = 0;
             this.btnClear.DrawShadows = true;
             this.btnClear.HighEmphasis = true;
-            this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(756, 106);
+            this.btnClear.Icon = ((System.Drawing.Image)(resources.GetObject("btnClear.Icon")));
+            this.btnClear.Location = new System.Drawing.Point(747, 106);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(116, 36);
+            this.btnClear.Size = new System.Drawing.Size(129, 36);
             this.btnClear.TabIndex = 36;
             this.btnClear.Text = "Clear";
             this.btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -111,12 +112,12 @@ namespace LibraryApplication.UI.View.Book
             this.btnDelete.Depth = 0;
             this.btnDelete.DrawShadows = true;
             this.btnDelete.HighEmphasis = true;
-            this.btnDelete.Icon = null;
-            this.btnDelete.Location = new System.Drawing.Point(756, 154);
+            this.btnDelete.Icon = ((System.Drawing.Image)(resources.GetObject("btnDelete.Icon")));
+            this.btnDelete.Location = new System.Drawing.Point(747, 154);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(116, 36);
+            this.btnDelete.Size = new System.Drawing.Size(129, 36);
             this.btnDelete.TabIndex = 35;
             this.btnDelete.Text = "Delete";
             this.btnDelete.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -131,13 +132,13 @@ namespace LibraryApplication.UI.View.Book
             this.materialButton2.Depth = 0;
             this.materialButton2.DrawShadows = true;
             this.materialButton2.HighEmphasis = false;
-            this.materialButton2.Icon = null;
-            this.materialButton2.Location = new System.Drawing.Point(756, 231);
+            this.materialButton2.Icon = ((System.Drawing.Image)(resources.GetObject("materialButton2.Icon")));
+            this.materialButton2.Location = new System.Drawing.Point(747, 231);
             this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton2.Name = "materialButton2";
             this.materialButton2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.materialButton2.Size = new System.Drawing.Size(116, 36);
+            this.materialButton2.Size = new System.Drawing.Size(129, 36);
             this.materialButton2.TabIndex = 34;
             this.materialButton2.Text = "View Books";
             this.materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -152,12 +153,12 @@ namespace LibraryApplication.UI.View.Book
             this.btnSave.Depth = 0;
             this.btnSave.DrawShadows = true;
             this.btnSave.HighEmphasis = true;
-            this.btnSave.Icon = null;
-            this.btnSave.Location = new System.Drawing.Point(756, 58);
+            this.btnSave.Icon = ((System.Drawing.Image)(resources.GetObject("btnSave.Icon")));
+            this.btnSave.Location = new System.Drawing.Point(747, 58);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(116, 36);
+            this.btnSave.Size = new System.Drawing.Size(129, 36);
             this.btnSave.TabIndex = 33;
             this.btnSave.Text = "Save";
             this.btnSave.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -175,9 +176,6 @@ namespace LibraryApplication.UI.View.Book
             // 
             // selectPublisher
             // 
-            this.selectPublisher.Error = "";
-            this.selectPublisher.Hint = "Select Publisher";
-            this.selectPublisher.Label = "Publisher";
             this.selectPublisher.Location = new System.Drawing.Point(294, 133);
             this.selectPublisher.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.selectPublisher.Name = "selectPublisher";
@@ -186,9 +184,6 @@ namespace LibraryApplication.UI.View.Book
             // 
             // selectAuthor
             // 
-            this.selectAuthor.Error = "";
-            this.selectAuthor.Hint = "Select Author";
-            this.selectAuthor.Label = "Author";
             this.selectAuthor.Location = new System.Drawing.Point(0, 133);
             this.selectAuthor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.selectAuthor.Name = "selectAuthor";
@@ -197,9 +192,6 @@ namespace LibraryApplication.UI.View.Book
             // 
             // selectSeries
             // 
-            this.selectSeries.Error = "";
-            this.selectSeries.Hint = "Select series";
-            this.selectSeries.Label = "Series";
             this.selectSeries.Location = new System.Drawing.Point(294, 208);
             this.selectSeries.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.selectSeries.Name = "selectSeries";
@@ -208,9 +200,6 @@ namespace LibraryApplication.UI.View.Book
             // 
             // selectCategory
             // 
-            this.selectCategory.Error = "";
-            this.selectCategory.Hint = "Select category";
-            this.selectCategory.Label = "Category";
             this.selectCategory.Location = new System.Drawing.Point(0, 208);
             this.selectCategory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.selectCategory.Name = "selectCategory";
@@ -308,11 +297,11 @@ namespace LibraryApplication.UI.View.Book
         private MaterialSkin.Controls.MaterialLabel heading;
         private Component.TextboxControl txtTitle;
         private Component.TextboxControl txtID;
-        private Component.ComboboxControl selectSeries;
-        private Component.ComboboxControl selectCategory;
+        private Component.Combobox.SeriesComboboxControl selectSeries;
+        private Component.Combobox.CategoryComboboxControl selectCategory;
         private Component.NumericControl txtYear;
-        private Component.ComboboxControl selectPublisher;
-        private Component.ComboboxControl selectAuthor;
+        private Component.Combobox.PublisherComboboxControl selectPublisher;
+        private Component.Combobox.AuthorComboboxControl selectAuthor;
         private Component.ImagePickerControl imagePickerControl1;
         private System.Windows.Forms.DataGridView table;
         private MaterialSkin.Controls.MaterialButton btnSave;

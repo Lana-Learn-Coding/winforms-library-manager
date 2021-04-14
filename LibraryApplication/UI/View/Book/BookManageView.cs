@@ -1,13 +1,10 @@
 ﻿using System.ComponentModel;
-using System.Data.Entity;
 using System.Reactive.Disposables;
 using System.Windows.Forms;
-using LibraryApplication.Model;
 using LibraryApplication.Model.Book;
 using MaterialSkin.Controls;
 using ReactiveUI;
 using ReactiveUI.Validation.Extensions;
-using Splat;
 
 namespace LibraryApplication.UI.View.Book
 {
@@ -21,12 +18,6 @@ namespace LibraryApplication.UI.View.Book
         {
             InitializeComponent();
             ((IDataFormViewUserControl<BookMeta, BookManageViewModel>) this).InitializeViewModelBindings();
-            var context = Locator.Current.GetService<ModelContext>();
-            selectAuthor.DataSource = context.Authors.Local.ToBindingList();
-            selectPublisher.DataSource = context.Publishers.Local.ToBindingList();
-            selectCategory.DataSource = context.Categories.Local.ToBindingList();
-            selectSeries.DataSource = context.Series.Local.ToBindingList();
-
             this.WhenActivated(disposable =>
             {
                 this.Bind(ViewModel, model => model.SelectedItem.Id, view => view.txtID.Value)

@@ -1,7 +1,11 @@
 ﻿
-namespace LibraryApplication.UI.Component
+using System;
+using System.Windows.Forms;
+using LibraryApplication.Model;
+
+namespace LibraryApplication.UI.Component.Combobox
 {
-    partial class ComboboxControl
+    partial class BaseComboboxControl<T> where T : class, INamed, new()
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,9 +33,14 @@ namespace LibraryApplication.UI.Component
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseComboboxControl));
             this.lblError = new MaterialSkin.Controls.MaterialLabel();
             this.lbl = new MaterialSkin.Controls.MaterialLabel();
+            this.contextMenuStrip = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.menuItemNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.comboBox = new MaterialSkin.Controls.MaterialComboBox();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblError
@@ -68,12 +77,40 @@ namespace LibraryApplication.UI.Component
             this.lbl.TabIndex = 2;
             this.lbl.Text = "label";
             // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.contextMenuStrip.Depth = 0;
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemNew,
+            this.menuItemEdit});
+            this.contextMenuStrip.MouseState = MaterialSkin.MouseState.HOVER;
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(99, 48);
+            // 
+            // menuItemNew
+            // 
+            this.menuItemNew.Image = ((System.Drawing.Image)(resources.GetObject("menuItemNew.Image")));
+            this.menuItemNew.Name = "menuItemNew";
+            this.menuItemNew.Size = new System.Drawing.Size(98, 22);
+            this.menuItemNew.Text = "New";
+            this.menuItemNew.Click += new System.EventHandler(this.menuItemNew_Click);
+            // 
+            // menuItemEdit
+            // 
+            this.menuItemEdit.Image = ((System.Drawing.Image)(resources.GetObject("menuItemEdit.Image")));
+            this.menuItemEdit.Name = "menuItemEdit";
+            this.menuItemEdit.Size = new System.Drawing.Size(98, 22);
+            this.menuItemEdit.Text = "Edit";
+            this.menuItemEdit.Click += new System.EventHandler(this.menuItemEdit_Click);
+            // 
             // comboBox
             // 
             this.comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox.AutoResize = false;
             this.comboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBox.ContextMenuStrip = this.contextMenuStrip;
             this.comboBox.Depth = 0;
             this.comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.comboBox.DropDownHeight = 118;
@@ -94,7 +131,7 @@ namespace LibraryApplication.UI.Component
             this.comboBox.TabIndex = 3;
             this.comboBox.UseTallSize = false;
             // 
-            // ComboboxControl
+            // BaseComboboxControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -102,8 +139,9 @@ namespace LibraryApplication.UI.Component
             this.Controls.Add(this.comboBox);
             this.Controls.Add(this.lblError);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "ComboboxControl";
+            this.Name = "BaseComboboxControl";
             this.Size = new System.Drawing.Size(233, 69);
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,5 +152,13 @@ namespace LibraryApplication.UI.Component
         private MaterialSkin.Controls.MaterialLabel lblError;
         private MaterialSkin.Controls.MaterialLabel lbl;
         private MaterialSkin.Controls.MaterialComboBox comboBox;
+        private System.Windows.Forms.ToolStripMenuItem menuItemNew;
+        private MaterialSkin.Controls.MaterialContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem menuItemEdit;
+    }
+    
+    class BaseComboboxControl : UserControl
+    {
+        
     }
 }
