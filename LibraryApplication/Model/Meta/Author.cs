@@ -1,10 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using ReactiveUI;
 
 namespace LibraryApplication.Model.Meta
 {
-    public class Author : IAuditable, INamed, IIdentified
+    public class Author : ReactiveObject, IAuditable, INamed, IIdentified
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
