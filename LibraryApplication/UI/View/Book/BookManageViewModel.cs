@@ -15,8 +15,6 @@ namespace LibraryApplication.UI.View.Book
         public BookManageViewModel()
         {
             Items = Context.Books.Local;
-            SelectedItem = new BookMeta();
-
             this.ValidationRule(
                 model => model.SelectedItem.Title,
                 title => !string.IsNullOrWhiteSpace(title),

@@ -34,6 +34,7 @@ namespace LibraryApplication.UI.View
 
         protected DataFormViewModel()
         {
+            SelectedItem = new T();
             Context = Locator.Current.GetService<ModelContext>();
             ClearCommand = ReactiveCommand.Create(ClearSelection);
             DeleteCommand = ReactiveCommand.Create(DeleteSelection);
@@ -104,7 +105,7 @@ namespace LibraryApplication.UI.View
                 MessageBox.Show(e.Message, "Error");
             }
 
-            if (SelectedItem.Id == null)
+            if (SelectedItem?.Id == null)
             {
                 Items.Add(SelectedItem);
                 Context.SaveChanges();
