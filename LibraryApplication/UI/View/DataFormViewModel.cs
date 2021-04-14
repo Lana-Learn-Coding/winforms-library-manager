@@ -84,6 +84,7 @@ namespace LibraryApplication.UI.View
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Error");
+                return;
             }
 
             var result = MessageBox.Show($"Are you sure delete {SelectedItem.Id}?", "Warning",
@@ -103,6 +104,7 @@ namespace LibraryApplication.UI.View
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Error");
+                return;
             }
 
             if (SelectedItem?.Id == null)
