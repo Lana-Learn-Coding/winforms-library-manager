@@ -24,7 +24,7 @@ namespace LibraryApplication.UI.View
 
         [Reactive] public bool IsDeletable { get; set; }
 
-        [Reactive] public bool IsAnySelected { get; set; }
+        [Reactive] public bool IsUpdating { get; set; }
 
         public ReactiveCommand<DataGridView, Unit> SelectCommand { get; }
 
@@ -47,7 +47,7 @@ namespace LibraryApplication.UI.View
                     .DisposeWith(disposable);
 
                 this.WhenAnyValue(model => model.SelectedItem)
-                    .Subscribe(item => IsAnySelected = item?.Id != null)
+                    .Subscribe(item => IsUpdating = item?.Id != null)
                     .DisposeWith(disposable);
             });
         }
@@ -76,6 +76,11 @@ namespace LibraryApplication.UI.View
 
         private void DeleteSelection()
         {
+            if (!ValidateBeforeDelete())
+            {
+                return;
+            }
+
             var result = MessageBox.Show($"Are you sure delete ${SelectedItem.Id}?", "Warning",
                 MessageBoxButtons.YesNo);
             if (result != DialogResult.Yes) return;
@@ -86,6 +91,11 @@ namespace LibraryApplication.UI.View
 
         private void Save()
         {
+            if (!ValidateBeforeSave())
+            {
+                return;
+            }
+
             if (SelectedItem.Id == null)
             {
                 Items.Add(SelectedItem);
@@ -99,6 +109,16 @@ namespace LibraryApplication.UI.View
             Context.SaveChanges();
             ClearSelection();
             SelectedItem = item;
+        }
+
+        protected virtual bool ValidateBeforeSave()
+        {
+            return true;
+        }
+
+        protected virtual bool ValidateBeforeDelete()
+        {
+            return true;
         }
 
         public ViewModelActivator Activator { get; } = new();

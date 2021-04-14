@@ -24,7 +24,7 @@ namespace LibraryApplication.UI.View.Book
             ((IDataFormViewUserControl<BookMeta, BookManageViewModel>) this).InitializeViewModelBindings();
             this.WhenActivated(disposable =>
             {
-                this.OneWayBind(ViewModel, model => model.IsAnySelected, view => view.btnViewBooks.Enabled)
+                this.OneWayBind(ViewModel, model => model.IsUpdating, view => view.btnViewBooks.Enabled)
                     .DisposeWith(disposable);
 
                 this.BindCommand(ViewModel, model => model.ToggleViewBooksDialogCommand, view => view.btnViewBooks)
