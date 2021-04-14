@@ -91,7 +91,7 @@ namespace LibraryApplication.UI.View
             if (result != DialogResult.Yes) return;
             Items.Remove(SelectedItem);
             Context.SaveChanges();
-            SelectedItem = Items.First();
+            SelectedItem = Items.FirstOrDefault();
         }
 
         private void Save()
