@@ -47,7 +47,7 @@ namespace LibraryApplication.UI.Component.Combobox
         }
 
         [Category("Material Skin"), DefaultValue(true)]
-        public bool Required { get; set; }
+        public bool Required { get; set; } = true;
 
         protected ModelContext Context { get; }
 
@@ -73,9 +73,9 @@ namespace LibraryApplication.UI.Component.Combobox
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Value)));
                 menuItemEdit.Enabled = comboBox.SelectedItem != null;
-                if (Required && comboBox.SelectedItem == null)
+                if (Required)
                 {
-                    Error = "Please select an item";
+                    Error = comboBox.SelectedItem == null ? "Please select an item" : "";
                 }
             };
         }
