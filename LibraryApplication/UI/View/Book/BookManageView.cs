@@ -1,10 +1,10 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Reactive.Disposables;
 using System.Windows.Forms;
 using LibraryApplication.Model.Book;
 using MaterialSkin.Controls;
 using ReactiveUI;
-using ReactiveUI.Validation.Extensions;
 
 namespace LibraryApplication.UI.View.Book
 {
@@ -38,17 +38,17 @@ namespace LibraryApplication.UI.View.Book
 
                 this.Bind(ViewModel, model => model.SelectedItem.Title, view => view.txtTitle.Value)
                     .DisposeWith(disposable);
-                this.BindValidation(ViewModel, model => model.SelectedItem.Title, view => view.txtTitle.Error)
-                    .DisposeWith(disposable);
+                DisposableMixins.DisposeWith<IDisposable>(
+                    this.BindValidation(ViewModel, model => model.SelectedItem.Title, view => view.txtTitle.Error),
+                    disposable);
 
                 this.Bind(ViewModel,
                         model => model.SelectedItem.Year,
                         view => view.txtYear.Value)
                     .DisposeWith(disposable);
-                this.BindValidation(ViewModel,
-                        model => model.SelectedItem.Year,
-                        view => view.txtYear.Error)
-                    .DisposeWith(disposable);
+                DisposableMixins.DisposeWith<IDisposable>(this.BindValidation(ViewModel,
+                    model => model.SelectedItem.Year,
+                    view => view.txtYear.Error), disposable);
 
                 this.Bind(ViewModel,
                         model => model.SelectedItem.Author,
@@ -68,6 +68,16 @@ namespace LibraryApplication.UI.View.Book
                 this.Bind(ViewModel,
                         model => model.SelectedItem.Publisher,
                         view => view.selectPublisher.Value)
+                    .DisposeWith(disposable);
+
+                this.WhenAnyValue(v => v.ViewModel.ShowViewBooksDialog)
+                    .Subscribe(show =>
+                    {
+                        if (!show) return;
+                        var form = new BookItemManageDialog(ViewModel.SelectedItem);
+                        form.ShowDialog(this);
+                        ViewModel.ShowViewBooksDialog = false;
+                    })
                     .DisposeWith(disposable);
             });
         }
