@@ -46,6 +46,7 @@ namespace LibraryApplication.UI.View
                             return;
                         }
 
+                        BtnDelete.Enabled = true;
                         var rowIndex = Table.Rows
                             .Cast<DataGridViewRow>()
                             .First(r => r.Cells[0].Value.Equals(item.Id))
