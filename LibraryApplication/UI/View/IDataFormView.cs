@@ -12,7 +12,7 @@ using ReactiveUI;
 namespace LibraryApplication.UI.View
 {
     public interface IDataFormView<TE, TVm> : IViewFor<TVm>
-        where TE : class, IIdentified, new() where TVm : DataFormViewModel<TE>, new()
+        where TE : class, IIdentified, new() where TVm : DataFormViewModel<TE>
     {
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -29,7 +29,6 @@ namespace LibraryApplication.UI.View
 
         public void InitializeViewModelBindings()
         {
-            ViewModel = new TVm();
             this.WhenActivated(disposable =>
             {
                 this.WhenAnyValue(view => view.ViewModel.Items)

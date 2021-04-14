@@ -5,14 +5,15 @@ using System.Windows.Forms;
 using LibraryApplication.Model.Book;
 using MaterialSkin.Controls;
 using ReactiveUI;
+using ReactiveUI.Validation.Extensions;
 
 namespace LibraryApplication.UI.View.Book
 {
-    public partial class BookManageView : UserControl, IDataFormViewUserControl<BookMeta, BookManageViewModel>
+    public partial class BookManageView : UserControl, IDataFormView<BookMeta, BookManageViewModel>
     {
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public BookManageViewModel ViewModel { get; set; }
+        public BookManageViewModel ViewModel { get; set; } = new();
 
         public BookManageView()
         {
@@ -21,7 +22,7 @@ namespace LibraryApplication.UI.View.Book
             selectCategory.InitializeDataSource();
             selectPublisher.InitializeDataSource();
             selectSeries.InitializeDataSource();
-            ((IDataFormViewUserControl<BookMeta, BookManageViewModel>) this).InitializeViewModelBindings();
+            ((IDataFormView<BookMeta, BookManageViewModel>) this).InitializeViewModelBindings();
             this.WhenActivated(disposable =>
             {
                 this.OneWayBind(ViewModel, model => model.IsUpdating, view => view.btnViewBooks.Enabled)
@@ -39,7 +40,7 @@ namespace LibraryApplication.UI.View.Book
                 this.Bind(ViewModel, model => model.SelectedItem.Title, view => view.txtTitle.Value)
                     .DisposeWith(disposable);
                 this.BindValidation(ViewModel, model => model.SelectedItem.Title, view => view.txtTitle.Error)
-                    .DisposeWith<IDisposable>(disposable);
+                    .DisposeWith(disposable);
 
                 this.Bind(ViewModel,
                         model => model.SelectedItem.Year,
