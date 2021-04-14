@@ -33,7 +33,7 @@ namespace LibraryApplication.UI.View.Book
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnClear = new MaterialSkin.Controls.MaterialButton();
             this.btnDelete = new MaterialSkin.Controls.MaterialButton();
-            this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
+            this.btnViewBooks = new MaterialSkin.Controls.MaterialButton();
             this.btnSave = new MaterialSkin.Controls.MaterialButton();
             this.imagePickerControl1 = new LibraryApplication.UI.Component.ImagePickerControl();
             this.selectPublisher = new LibraryApplication.UI.Component.Combobox.PublisherComboboxControl();
@@ -64,7 +64,7 @@ namespace LibraryApplication.UI.View.Book
             // 
             this.splitContainer1.Panel1.Controls.Add(this.btnClear);
             this.splitContainer1.Panel1.Controls.Add(this.btnDelete);
-            this.splitContainer1.Panel1.Controls.Add(this.materialButton2);
+            this.splitContainer1.Panel1.Controls.Add(this.btnViewBooks);
             this.splitContainer1.Panel1.Controls.Add(this.btnSave);
             this.splitContainer1.Panel1.Controls.Add(this.imagePickerControl1);
             this.splitContainer1.Panel1.Controls.Add(this.selectPublisher);
@@ -124,26 +124,26 @@ namespace LibraryApplication.UI.View.Book
             this.btnDelete.UseAccentColor = true;
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
-            // materialButton2
+            // btnViewBooks
             // 
-            this.materialButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialButton2.AutoSize = false;
-            this.materialButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton2.Depth = 0;
-            this.materialButton2.DrawShadows = true;
-            this.materialButton2.HighEmphasis = false;
-            this.materialButton2.Icon = ((System.Drawing.Image)(resources.GetObject("materialButton2.Icon")));
-            this.materialButton2.Location = new System.Drawing.Point(747, 231);
-            this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton2.Name = "materialButton2";
-            this.materialButton2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.materialButton2.Size = new System.Drawing.Size(129, 36);
-            this.materialButton2.TabIndex = 34;
-            this.materialButton2.Text = "View Books";
-            this.materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton2.UseAccentColor = false;
-            this.materialButton2.UseVisualStyleBackColor = true;
+            this.btnViewBooks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnViewBooks.AutoSize = false;
+            this.btnViewBooks.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnViewBooks.Depth = 0;
+            this.btnViewBooks.DrawShadows = true;
+            this.btnViewBooks.HighEmphasis = false;
+            this.btnViewBooks.Icon = ((System.Drawing.Image)(resources.GetObject("btnViewBooks.Icon")));
+            this.btnViewBooks.Location = new System.Drawing.Point(747, 231);
+            this.btnViewBooks.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnViewBooks.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnViewBooks.Name = "btnViewBooks";
+            this.btnViewBooks.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnViewBooks.Size = new System.Drawing.Size(129, 36);
+            this.btnViewBooks.TabIndex = 34;
+            this.btnViewBooks.Text = "View Books";
+            this.btnViewBooks.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnViewBooks.UseAccentColor = false;
+            this.btnViewBooks.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
@@ -176,6 +176,9 @@ namespace LibraryApplication.UI.View.Book
             // 
             // selectPublisher
             // 
+            this.selectPublisher.Error = "";
+            this.selectPublisher.Hint = "Select Publisher";
+            this.selectPublisher.Label = "Publisher";
             this.selectPublisher.Location = new System.Drawing.Point(294, 133);
             this.selectPublisher.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.selectPublisher.Name = "selectPublisher";
@@ -184,6 +187,9 @@ namespace LibraryApplication.UI.View.Book
             // 
             // selectAuthor
             // 
+            this.selectAuthor.Error = "";
+            this.selectAuthor.Hint = "Select Author";
+            this.selectAuthor.Label = "Author";
             this.selectAuthor.Location = new System.Drawing.Point(0, 133);
             this.selectAuthor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.selectAuthor.Name = "selectAuthor";
@@ -192,6 +198,9 @@ namespace LibraryApplication.UI.View.Book
             // 
             // selectSeries
             // 
+            this.selectSeries.Error = "";
+            this.selectSeries.Hint = "Select Series";
+            this.selectSeries.Label = "Series";
             this.selectSeries.Location = new System.Drawing.Point(294, 208);
             this.selectSeries.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.selectSeries.Name = "selectSeries";
@@ -200,6 +209,9 @@ namespace LibraryApplication.UI.View.Book
             // 
             // selectCategory
             // 
+            this.selectCategory.Error = "";
+            this.selectCategory.Hint = "Select Category";
+            this.selectCategory.Label = "Category";
             this.selectCategory.Location = new System.Drawing.Point(0, 208);
             this.selectCategory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.selectCategory.Name = "selectCategory";
@@ -307,6 +319,6 @@ namespace LibraryApplication.UI.View.Book
         private MaterialSkin.Controls.MaterialButton btnSave;
         private MaterialSkin.Controls.MaterialButton btnClear;
         private MaterialSkin.Controls.MaterialButton btnDelete;
-        private MaterialSkin.Controls.MaterialButton materialButton2;
+        private MaterialSkin.Controls.MaterialButton btnViewBooks;
     }
 }

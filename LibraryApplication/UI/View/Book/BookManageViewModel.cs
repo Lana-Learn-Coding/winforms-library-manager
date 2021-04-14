@@ -1,10 +1,17 @@
-﻿using LibraryApplication.Model.Book;
+﻿using System.Reactive;
+using LibraryApplication.Model.Book;
+using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 using ReactiveUI.Validation.Extensions;
 
 namespace LibraryApplication.UI.View.Book
 {
     public class BookManageViewModel : DataFormViewModel<BookMeta>
     {
+        [Reactive] public bool ShowViewBooksDialog { get; set; }
+
+        public ReactiveCommand<Unit, bool> ToggleViewBooksDialogCommand;
+
         public BookManageViewModel()
         {
             Items = Context.Books.Local;
@@ -42,6 +49,8 @@ namespace LibraryApplication.UI.View.Book
                 val => val != null,
                 "Please select Series"
             );
+
+            ToggleViewBooksDialogCommand = ReactiveCommand.Create(() => ShowViewBooksDialog = !ShowViewBooksDialog);
         }
     }
 }
