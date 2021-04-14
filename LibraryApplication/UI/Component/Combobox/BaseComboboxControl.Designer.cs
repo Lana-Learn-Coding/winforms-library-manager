@@ -5,7 +5,7 @@ using LibraryApplication.Model;
 
 namespace LibraryApplication.UI.Component.Combobox
 {
-    partial class BaseComboboxControl<T> where T : class, INamed, new()
+    partial class BaseComboboxControl<T> where T : INamed, new()
     {
         /// <summary> 
         /// Required designer variable.
@@ -33,7 +33,6 @@ namespace LibraryApplication.UI.Component.Combobox
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseComboboxControl));
             this.lblError = new MaterialSkin.Controls.MaterialLabel();
             this.lbl = new MaterialSkin.Controls.MaterialLabel();
             this.contextMenuStrip = new MaterialSkin.Controls.MaterialContextMenuStrip();
@@ -90,7 +89,6 @@ namespace LibraryApplication.UI.Component.Combobox
             // 
             // menuItemNew
             // 
-            this.menuItemNew.Image = ((System.Drawing.Image)(resources.GetObject("menuItemNew.Image")));
             this.menuItemNew.Name = "menuItemNew";
             this.menuItemNew.Size = new System.Drawing.Size(98, 22);
             this.menuItemNew.Text = "New";
@@ -98,7 +96,6 @@ namespace LibraryApplication.UI.Component.Combobox
             // 
             // menuItemEdit
             // 
-            this.menuItemEdit.Image = ((System.Drawing.Image)(resources.GetObject("menuItemEdit.Image")));
             this.menuItemEdit.Name = "menuItemEdit";
             this.menuItemEdit.Size = new System.Drawing.Size(98, 22);
             this.menuItemEdit.Text = "Edit";
@@ -155,10 +152,5 @@ namespace LibraryApplication.UI.Component.Combobox
         private System.Windows.Forms.ToolStripMenuItem menuItemNew;
         private MaterialSkin.Controls.MaterialContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem menuItemEdit;
-    }
-    
-    class BaseComboboxControl : UserControl
-    {
-        
     }
 }

@@ -9,7 +9,7 @@ using Splat;
 
 namespace LibraryApplication.UI.Component.Combobox
 {
-    public partial class BaseComboboxControl<T> : UserControl, INotifyPropertyChanged where T : class, INamed, new()
+    public partial class BaseComboboxControl<T> : UserControl, INotifyPropertyChanged where T : INamed, new()
     {
         protected object DataSource
         {
