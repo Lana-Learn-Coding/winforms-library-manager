@@ -89,9 +89,8 @@ namespace LibraryApplication.UI.View
             var result = MessageBox.Show($"Are you sure delete {SelectedItem.Id}?", "Warning",
                 MessageBoxButtons.YesNo);
             if (result != DialogResult.Yes) return;
-            Items.Remove(SelectedItem);
-            Context.SaveChanges();
-            SelectedItem = Items.FirstOrDefault();
+            DeleteItem(SelectedItem);
+            ClearSelection();
         }
 
         private void Save()
@@ -122,6 +121,12 @@ namespace LibraryApplication.UI.View
         protected virtual void CreateNewItem(T item)
         {
             Items.Add(item);
+            Context.SaveChanges();
+        }
+
+        protected virtual void DeleteItem(T item)
+        {
+            Items.Remove(item);
             Context.SaveChanges();
         }
 
