@@ -41,36 +41,20 @@ namespace LibraryApplication.UI.View.Book
                         model => model.SelectedItem.Author,
                         view => view.selectAuthor.Value)
                     .DisposeWith(disposable);
-                this.BindValidation(ViewModel,
-                        model => model.SelectedItem.Author,
-                        view => view.selectAuthor.Error)
-                    .DisposeWith(disposable);
 
                 this.Bind(ViewModel,
                         model => model.SelectedItem.Category,
                         view => view.selectCategory.Value)
-                    .DisposeWith(disposable);
-                this.BindValidation(ViewModel,
-                        model => model.SelectedItem.Category,
-                        view => view.selectCategory.Error)
                     .DisposeWith(disposable);
 
                 this.Bind(ViewModel,
                         model => model.SelectedItem.Series,
                         view => view.selectSeries.Value)
                     .DisposeWith(disposable);
-                this.BindValidation(ViewModel,
-                        model => model.SelectedItem.Series,
-                        view => view.selectSeries.Error)
-                    .DisposeWith(disposable);
 
                 this.Bind(ViewModel,
                         model => model.SelectedItem.Publisher,
                         view => view.selectPublisher.Value)
-                    .DisposeWith(disposable);
-                this.BindValidation(ViewModel,
-                        model => model.SelectedItem.Publisher,
-                        view => view.selectPublisher.Error)
                     .DisposeWith(disposable);
             });
         }
