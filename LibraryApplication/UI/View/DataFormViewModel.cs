@@ -76,9 +76,13 @@ namespace LibraryApplication.UI.View
 
         private void DeleteSelection()
         {
-            if (!ValidateBeforeDelete())
+            try
             {
-                return;
+                OnDeleting();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error");
             }
 
             var result = MessageBox.Show($"Are you sure delete {SelectedItem.Id}?", "Warning",
@@ -91,9 +95,13 @@ namespace LibraryApplication.UI.View
 
         private void Save()
         {
-            if (!ValidateBeforeSave())
+            try
             {
-                return;
+                OnSaving();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error");
             }
 
             if (SelectedItem.Id == null)
@@ -112,14 +120,12 @@ namespace LibraryApplication.UI.View
             Context.SaveChanges();
         }
 
-        protected virtual bool ValidateBeforeSave()
+        protected virtual void OnSaving()
         {
-            return true;
         }
 
-        protected virtual bool ValidateBeforeDelete()
+        protected virtual void OnDeleting()
         {
-            return true;
         }
 
         public ViewModelActivator Activator { get; } = new();
