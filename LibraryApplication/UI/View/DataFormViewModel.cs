@@ -81,12 +81,12 @@ namespace LibraryApplication.UI.View
                 return;
             }
 
-            var result = MessageBox.Show($"Are you sure delete ${SelectedItem.Id}?", "Warning",
+            var result = MessageBox.Show($"Are you sure delete {SelectedItem.Id}?", "Warning",
                 MessageBoxButtons.YesNo);
             if (result != DialogResult.Yes) return;
             Items.Remove(SelectedItem);
             Context.SaveChanges();
-            ClearSelection();
+            SelectedItem = Items.First();
         }
 
         private void Save()
@@ -99,16 +99,17 @@ namespace LibraryApplication.UI.View
             if (SelectedItem.Id == null)
             {
                 Items.Add(SelectedItem);
+                Context.SaveChanges();
+                var item = SelectedItem;
+                ClearSelection();
+                SelectedItem = item;
             }
             else
             {
                 Context.Entry(SelectedItem).CurrentValues.SetValues(SelectedItem);
             }
 
-            var item = SelectedItem;
             Context.SaveChanges();
-            ClearSelection();
-            SelectedItem = item;
         }
 
         protected virtual bool ValidateBeforeSave()
