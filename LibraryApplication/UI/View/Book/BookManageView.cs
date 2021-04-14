@@ -17,6 +17,10 @@ namespace LibraryApplication.UI.View.Book
         public BookManageView()
         {
             InitializeComponent();
+            selectAuthor.InitializeDataSource();
+            selectCategory.InitializeDataSource();
+            selectPublisher.InitializeDataSource();
+            selectSeries.InitializeDataSource();
             ((IDataFormViewUserControl<BookMeta, BookManageViewModel>) this).InitializeViewModelBindings();
             this.WhenActivated(disposable =>
             {
