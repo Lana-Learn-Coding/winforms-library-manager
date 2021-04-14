@@ -25,7 +25,6 @@ namespace LibraryApplication.UI.View
         [Reactive] public bool IsDeletable { get; set; }
 
         [Reactive] public bool IsUpdating { get; set; }
-
         public ReactiveCommand<DataGridView, Unit> SelectCommand { get; }
 
         public ReactiveCommand<Unit, Unit> ClearCommand { get; }
@@ -109,17 +108,20 @@ namespace LibraryApplication.UI.View
 
             if (SelectedItem?.Id == null)
             {
-                Items.Add(SelectedItem);
-                Context.SaveChanges();
+                CreateNewItem(SelectedItem);
                 var item = SelectedItem;
                 ClearSelection();
                 SelectedItem = item;
-            }
-            else
-            {
-                Context.Entry(SelectedItem).CurrentValues.SetValues(SelectedItem);
+                return;
             }
 
+            Context.Entry(SelectedItem).CurrentValues.SetValues(SelectedItem);
+            Context.SaveChanges();
+        }
+
+        protected virtual void CreateNewItem(T item)
+        {
+            Items.Add(item);
             Context.SaveChanges();
         }
 
