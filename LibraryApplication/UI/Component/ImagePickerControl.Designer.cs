@@ -31,6 +31,7 @@ namespace LibraryApplication.UI.Component
         {
             this.btnSelectImage = new MaterialSkin.Controls.MaterialButton();
             this.imgBox = new System.Windows.Forms.PictureBox();
+            this.fileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +54,7 @@ namespace LibraryApplication.UI.Component
             this.btnSelectImage.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.btnSelectImage.UseAccentColor = false;
             this.btnSelectImage.UseVisualStyleBackColor = true;
+            this.btnSelectImage.Click += new System.EventHandler(this.btnSelectImage_Click);
             // 
             // imgBox
             // 
@@ -63,9 +65,16 @@ namespace LibraryApplication.UI.Component
             this.imgBox.Location = new System.Drawing.Point(1, 1);
             this.imgBox.Name = "imgBox";
             this.imgBox.Size = new System.Drawing.Size(158, 194);
+            this.imgBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgBox.TabIndex = 0;
             this.imgBox.TabStop = false;
-            this.imgBox.Click += new System.EventHandler(this.imgBox_Click);
+            // 
+            // fileDialog
+            // 
+            this.fileDialog.AddExtension = false;
+            this.fileDialog.CheckFileExists = false;
+            this.fileDialog.FileName = "fileDialog";
+            this.fileDialog.RestoreDirectory = true;
             // 
             // ImagePickerControl
             // 
@@ -85,5 +94,6 @@ namespace LibraryApplication.UI.Component
         #endregion
         private MaterialSkin.Controls.MaterialButton btnSelectImage;
         private System.Windows.Forms.PictureBox imgBox;
+        private System.Windows.Forms.OpenFileDialog fileDialog;
     }
 }

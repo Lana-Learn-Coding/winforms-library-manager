@@ -35,7 +35,7 @@ namespace LibraryApplication.UI.View.Book
             this.btnDelete = new MaterialSkin.Controls.MaterialButton();
             this.btnViewBooks = new MaterialSkin.Controls.MaterialButton();
             this.btnSave = new MaterialSkin.Controls.MaterialButton();
-            this.imagePickerControl1 = new LibraryApplication.UI.Component.ImagePickerControl();
+            this.imgPicker = new LibraryApplication.UI.Component.ImagePickerControl();
             this.selectPublisher = new LibraryApplication.UI.Component.Combobox.PublisherComboboxControl();
             this.selectAuthor = new LibraryApplication.UI.Component.Combobox.AuthorComboboxControl();
             this.selectSeries = new LibraryApplication.UI.Component.Combobox.SeriesComboboxControl();
@@ -66,7 +66,7 @@ namespace LibraryApplication.UI.View.Book
             this.splitContainer1.Panel1.Controls.Add(this.btnDelete);
             this.splitContainer1.Panel1.Controls.Add(this.btnViewBooks);
             this.splitContainer1.Panel1.Controls.Add(this.btnSave);
-            this.splitContainer1.Panel1.Controls.Add(this.imagePickerControl1);
+            this.splitContainer1.Panel1.Controls.Add(this.imgPicker);
             this.splitContainer1.Panel1.Controls.Add(this.selectPublisher);
             this.splitContainer1.Panel1.Controls.Add(this.selectAuthor);
             this.splitContainer1.Panel1.Controls.Add(this.selectSeries);
@@ -165,14 +165,14 @@ namespace LibraryApplication.UI.View.Book
             this.btnSave.UseAccentColor = false;
             this.btnSave.UseVisualStyleBackColor = true;
             // 
-            // imagePickerControl1
+            // imgPicker
             // 
-            this.imagePickerControl1.Location = new System.Drawing.Point(572, 58);
-            this.imagePickerControl1.Name = "imagePickerControl1";
-            this.imagePickerControl1.Padding = new System.Windows.Forms.Padding(1, 1, 1, 10);
-            this.imagePickerControl1.Size = new System.Drawing.Size(150, 219);
-            this.imagePickerControl1.TabIndex = 32;
-            this.imagePickerControl1.Tag = "image";
+            this.imgPicker.Location = new System.Drawing.Point(572, 58);
+            this.imgPicker.Name = "imgPicker";
+            this.imgPicker.Padding = new System.Windows.Forms.Padding(1, 1, 1, 10);
+            this.imgPicker.Size = new System.Drawing.Size(150, 219);
+            this.imgPicker.TabIndex = 32;
+            this.imgPicker.Tag = "image";
             // 
             // selectPublisher
             // 
@@ -314,7 +314,7 @@ namespace LibraryApplication.UI.View.Book
         private Component.NumericControl txtYear;
         private Component.Combobox.PublisherComboboxControl selectPublisher;
         private Component.Combobox.AuthorComboboxControl selectAuthor;
-        private Component.ImagePickerControl imagePickerControl1;
+        private Component.ImagePickerControl imgPicker;
         private System.Windows.Forms.DataGridView table;
         private MaterialSkin.Controls.MaterialButton btnSave;
         private MaterialSkin.Controls.MaterialButton btnClear;

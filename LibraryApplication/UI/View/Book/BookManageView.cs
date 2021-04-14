@@ -33,6 +33,9 @@ namespace LibraryApplication.UI.View.Book
                 this.Bind(ViewModel, model => model.SelectedItem.Id, view => view.txtID.Value)
                     .DisposeWith(disposable);
 
+                this.Bind(ViewModel, model => model.SelectedItem.Image, view => view.imgPicker.Value)
+                    .DisposeWith(disposable);
+
                 this.Bind(ViewModel, model => model.SelectedItem.Title, view => view.txtTitle.Value)
                     .DisposeWith(disposable);
                 this.BindValidation(ViewModel, model => model.SelectedItem.Title, view => view.txtTitle.Error)
