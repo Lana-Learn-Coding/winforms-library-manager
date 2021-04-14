@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Windows.Forms;
 using DynamicData.Kernel;
@@ -9,7 +10,7 @@ using Splat;
 
 namespace LibraryApplication.UI.Component.Combobox
 {
-    public partial class BaseComboboxControl<T> : UserControl, INotifyPropertyChanged where T : INamed, new()
+    public partial class BaseComboboxControl<T> : UserControl, INotifyPropertyChanged where T : class, INamed, new()
     {
         protected object DataSource
         {
@@ -130,6 +131,11 @@ namespace LibraryApplication.UI.Component.Combobox
             Context.Entry(currentItem).CurrentValues.SetValues(currentItem);
             Context.SaveChanges();
             comboBox.SelectedItem = currentItem;
+        }
+
+        public void InitializeDataSource()
+        {
+            DataSource = LocalContext.ToBindingList();
         }
     }
 }

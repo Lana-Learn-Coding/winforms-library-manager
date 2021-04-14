@@ -5,7 +5,7 @@ using LibraryApplication.Model;
 
 namespace LibraryApplication.UI.Component.Combobox
 {
-    partial class BaseComboboxControl<T> where T : INamed, new()
+    partial class BaseComboboxControl<T> where T : class, INamed, new()
     {
         /// <summary> 
         /// Required designer variable.

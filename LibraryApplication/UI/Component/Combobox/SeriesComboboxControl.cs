@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.Data.Entity;
 using LibraryApplication.Model.Meta;
 
 namespace LibraryApplication.UI.Component.Combobox
@@ -12,7 +11,6 @@ namespace LibraryApplication.UI.Component.Combobox
         {
             Hint = "Select Series";
             Label = "Series";
-            DataSource = LocalContext.ToBindingList();
         }
     }
 }
