@@ -24,6 +24,8 @@ namespace LibraryApplication.UI.View
 
         [Reactive] public bool IsDeletable { get; set; }
 
+        [Reactive] public bool IsAnySelected { get; set; }
+
         public ReactiveCommand<DataGridView, Unit> SelectCommand { get; }
 
         public ReactiveCommand<Unit, Unit> ClearCommand { get; }
@@ -42,6 +44,10 @@ namespace LibraryApplication.UI.View
             {
                 this.WhenAnyValue(model => model.SelectedItem)
                     .Subscribe(item => IsDeletable = item?.Id != null)
+                    .DisposeWith(disposable);
+
+                this.WhenAnyValue(model => model.SelectedItem)
+                    .Subscribe(item => IsAnySelected = item?.Id != null)
                     .DisposeWith(disposable);
             });
         }
