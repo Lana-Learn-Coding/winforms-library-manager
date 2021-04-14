@@ -38,17 +38,15 @@ namespace LibraryApplication.UI.View.Book
 
                 this.Bind(ViewModel, model => model.SelectedItem.Title, view => view.txtTitle.Value)
                     .DisposeWith(disposable);
-                DisposableMixins.DisposeWith<IDisposable>(
-                    this.BindValidation(ViewModel, model => model.SelectedItem.Title, view => view.txtTitle.Error),
-                    disposable);
+                this.BindValidation(ViewModel, model => model.SelectedItem.Title, view => view.txtTitle.Error)
+                    .DisposeWith<IDisposable>(disposable);
 
                 this.Bind(ViewModel,
                         model => model.SelectedItem.Year,
                         view => view.txtYear.Value)
                     .DisposeWith(disposable);
-                DisposableMixins.DisposeWith<IDisposable>(this.BindValidation(ViewModel,
-                    model => model.SelectedItem.Year,
-                    view => view.txtYear.Error), disposable);
+                this.BindValidation(ViewModel, model => model.SelectedItem.Year, view => view.txtYear.Error)
+                    .DisposeWith(disposable);
 
                 this.Bind(ViewModel,
                         model => model.SelectedItem.Author,

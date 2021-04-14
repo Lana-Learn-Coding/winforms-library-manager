@@ -11,7 +11,7 @@ using ReactiveUI;
 
 namespace LibraryApplication.UI.View
 {
-    public interface IDataFormViewUserControl<TE, TVm> : IViewFor<TVm>
+    public interface IDataFormView<TE, TVm> : IViewFor<TVm>
         where TE : class, IIdentified, new() where TVm : DataFormViewModel<TE>, new()
     {
         [Browsable(false)]
