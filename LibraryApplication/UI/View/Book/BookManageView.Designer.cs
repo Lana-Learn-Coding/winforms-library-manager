@@ -173,6 +173,7 @@ namespace LibraryApplication.UI.View.Book
             this.imgPicker.Size = new System.Drawing.Size(150, 219);
             this.imgPicker.TabIndex = 32;
             this.imgPicker.Tag = "image";
+            this.imgPicker.Value = null;
             // 
             // selectPublisher
             // 
@@ -212,7 +213,7 @@ namespace LibraryApplication.UI.View.Book
             this.selectCategory.Error = "";
             this.selectCategory.Hint = "Select Category";
             this.selectCategory.Label = "Category";
-            this.selectCategory.Location = new System.Drawing.Point(0, 208);
+            this.selectCategory.Location = new System.Drawing.Point(4, 208);
             this.selectCategory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.selectCategory.Name = "selectCategory";
             this.selectCategory.Size = new System.Drawing.Size(274, 69);
