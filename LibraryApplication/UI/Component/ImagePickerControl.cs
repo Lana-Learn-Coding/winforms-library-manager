@@ -6,6 +6,8 @@ namespace LibraryApplication.UI.Component
 {
     public partial class ImagePickerControl : UserControl, INotifyPropertyChanged
     {
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always), Bindable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public string Value
         {
             get => imgBox.ImageLocation;
