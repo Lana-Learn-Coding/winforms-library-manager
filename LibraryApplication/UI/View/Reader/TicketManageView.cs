@@ -9,6 +9,7 @@ namespace LibraryApplication.UI.View.Reader
         public TicketManageView()
         {
             InitializeComponent();
+            datePickerDueDate.Required = true;
         }
 
         [Browsable(false)]
