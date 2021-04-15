@@ -173,17 +173,17 @@ namespace LibraryApplication.UI.View.Book
             this.imgPicker.Size = new System.Drawing.Size(150, 219);
             this.imgPicker.TabIndex = 32;
             this.imgPicker.Tag = "image";
-            this.imgPicker.Value = null;
+            this.imgPicker.Value = "none";
             // 
             // selectPublisher
             // 
             this.selectPublisher.Error = "";
             this.selectPublisher.Hint = "Select Publisher";
             this.selectPublisher.Label = "Publisher";
-            this.selectPublisher.Location = new System.Drawing.Point(294, 133);
+            this.selectPublisher.Location = new System.Drawing.Point(294, 136);
             this.selectPublisher.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.selectPublisher.Name = "selectPublisher";
-            this.selectPublisher.Size = new System.Drawing.Size(238, 69);
+            this.selectPublisher.Size = new System.Drawing.Size(238, 72);
             this.selectPublisher.TabIndex = 31;
             // 
             // selectAuthor
@@ -191,10 +191,10 @@ namespace LibraryApplication.UI.View.Book
             this.selectAuthor.Error = "";
             this.selectAuthor.Hint = "Select Author";
             this.selectAuthor.Label = "Author";
-            this.selectAuthor.Location = new System.Drawing.Point(0, 133);
+            this.selectAuthor.Location = new System.Drawing.Point(0, 136);
             this.selectAuthor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.selectAuthor.Name = "selectAuthor";
-            this.selectAuthor.Size = new System.Drawing.Size(274, 69);
+            this.selectAuthor.Size = new System.Drawing.Size(274, 72);
             this.selectAuthor.TabIndex = 30;
             // 
             // selectSeries
@@ -202,10 +202,10 @@ namespace LibraryApplication.UI.View.Book
             this.selectSeries.Error = "";
             this.selectSeries.Hint = "Select Series";
             this.selectSeries.Label = "Series";
-            this.selectSeries.Location = new System.Drawing.Point(294, 208);
+            this.selectSeries.Location = new System.Drawing.Point(294, 214);
             this.selectSeries.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.selectSeries.Name = "selectSeries";
-            this.selectSeries.Size = new System.Drawing.Size(238, 69);
+            this.selectSeries.Size = new System.Drawing.Size(238, 72);
             this.selectSeries.TabIndex = 29;
             // 
             // selectCategory
@@ -213,10 +213,10 @@ namespace LibraryApplication.UI.View.Book
             this.selectCategory.Error = "";
             this.selectCategory.Hint = "Select Category";
             this.selectCategory.Label = "Category";
-            this.selectCategory.Location = new System.Drawing.Point(4, 208);
+            this.selectCategory.Location = new System.Drawing.Point(0, 214);
             this.selectCategory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.selectCategory.Name = "selectCategory";
-            this.selectCategory.Size = new System.Drawing.Size(274, 69);
+            this.selectCategory.Size = new System.Drawing.Size(274, 72);
             this.selectCategory.TabIndex = 28;
             // 
             // txtYear
@@ -227,7 +227,7 @@ namespace LibraryApplication.UI.View.Book
             this.txtYear.Location = new System.Drawing.Point(415, 58);
             this.txtYear.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtYear.Name = "txtYear";
-            this.txtYear.Size = new System.Drawing.Size(117, 69);
+            this.txtYear.Size = new System.Drawing.Size(117, 72);
             this.txtYear.TabIndex = 27;
             this.txtYear.Value = null;
             // 
@@ -239,7 +239,7 @@ namespace LibraryApplication.UI.View.Book
             this.txtTitle.Location = new System.Drawing.Point(123, 58);
             this.txtTitle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(270, 69);
+            this.txtTitle.Size = new System.Drawing.Size(270, 72);
             this.txtTitle.TabIndex = 24;
             this.txtTitle.Value = "";
             // 
@@ -252,7 +252,7 @@ namespace LibraryApplication.UI.View.Book
             this.txtID.Location = new System.Drawing.Point(0, 58);
             this.txtID.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(106, 69);
+            this.txtID.Size = new System.Drawing.Size(106, 72);
             this.txtID.TabIndex = 23;
             this.txtID.Value = "";
             // 
