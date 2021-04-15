@@ -72,19 +72,19 @@ namespace LibraryApplication.UI.View
             SelectedItem = Items.First(book => book.Id == id);
         }
 
-        private void ClearSelection()
+        protected void ClearSelection()
         {
             SelectedItem = new T();
         }
 
-        private void RefreshSelection()
+        protected void RefreshSelection()
         {
             var item = SelectedItem;
             SelectedItem = new T();
             SelectedItem = item;
         }
 
-        private void DeleteSelection()
+        protected void DeleteSelection()
         {
             try
             {
@@ -103,7 +103,7 @@ namespace LibraryApplication.UI.View
             ClearSelection();
         }
 
-        private void Save()
+        protected void Save()
         {
             try
             {
