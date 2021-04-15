@@ -72,6 +72,14 @@ namespace LibraryApplication.Database
                 new() {Name = "Shelf D"}
             };
             context.Positions.AddRange(positions);
+
+            var genders = new List<Gender>
+            {
+                new() {Name = "Male"},
+                new() {Name = "Female"},
+                new() {Name = "Gay"}
+            };
+            context.Genders.AddRange(genders);
         }
     }
 }

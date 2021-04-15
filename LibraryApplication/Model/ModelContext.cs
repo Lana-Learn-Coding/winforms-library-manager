@@ -15,15 +15,13 @@ namespace LibraryApplication.Model
         public DbSet<BookItem> BookItems { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Reader> Readers { get; set; }
-
+        public DbSet<Gender> Genders { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<Series> Series { get; set; }
         public DbSet<Storage> Storages { get; set; }
-
         public DbSet<Position> Positions { get; set; }
-
         public DbSet<User> Users { get; set; }
         public DbSet<Permission> Permissions { get; set; }
 

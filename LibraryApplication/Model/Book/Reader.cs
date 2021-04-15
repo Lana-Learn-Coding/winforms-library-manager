@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using LibraryApplication.Model.Meta;
+using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 
 namespace LibraryApplication.Model.Book
 {
-    public class Reader : IAuditable, IIdentified
+    public class Reader : ReactiveObject, IAuditable, IIdentified
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -13,23 +16,23 @@ namespace LibraryApplication.Model.Book
 
         public DateTime CreatedAt { get; set; }
 
-        public DateTime UpdatedAt { get; set; }
+        [Reactive] public DateTime UpdatedAt { get; set; }
 
-        [Required] public string Email { get; set; }
+        [Reactive] [Required] public string Email { get; set; }
 
-        public string PhoneNumber { get; set; }
+        [Reactive] public string PhoneNumber { get; set; }
 
-        [Required] public string Name { get; set; }
+        [Reactive] [Required] public string Name { get; set; }
 
-        public string Address { get; set; }
+        [Reactive] public string Address { get; set; }
 
-        public string Avatar { get; set; }
+        [Reactive] public string Avatar { get; set; }
 
-        [Required] public string Gender { get; set; } = "male";
+        [Reactive] public Gender Gender { get; set; }
 
-        [Required] public int Limit { get; set; } = 0;
+        [Reactive] [Required] public int Limit { get; set; } = 0;
 
-        [Column(TypeName = "Date")] public DateTime Birth { get; set; }
+        [Reactive] [Column(TypeName = "Date")] public DateTime Birth { get; set; }
 
         public virtual ICollection<Ticket> Tickets { get; set; }
     }
