@@ -35,10 +35,8 @@ namespace LibraryApplication.UI.View.Reader
             this.tabNewTicket = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.newTicketBookListTable = new MaterialSkin.Controls.MaterialListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.bookListControl1 = new LibraryApplication.UI.Component.BookListControl();
+            this.searchBox = new MaterialSkin.Controls.MaterialTextBox();
             this.txtNote = new LibraryApplication.UI.Component.TextboxControl();
             this.datePickerDueDate = new LibraryApplication.UI.Component.DatePickerControl();
             this.txtID = new LibraryApplication.UI.Component.TextboxControl();
@@ -107,8 +105,8 @@ namespace LibraryApplication.UI.View.Reader
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.materialLabel1);
-            this.panel1.Controls.Add(this.newTicketBookListTable);
+            this.panel1.Controls.Add(this.bookListControl1);
+            this.panel1.Controls.Add(this.searchBox);
             this.panel1.Controls.Add(this.txtNote);
             this.panel1.Controls.Add(this.datePickerDueDate);
             this.panel1.Controls.Add(this.txtID);
@@ -123,50 +121,30 @@ namespace LibraryApplication.UI.View.Reader
             this.panel1.Size = new System.Drawing.Size(816, 298);
             this.panel1.TabIndex = 0;
             // 
-            // materialLabel1
+            // bookListControl1
             // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(539, 44);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(75, 19);
-            this.materialLabel1.TabIndex = 46;
-            this.materialLabel1.Text = "Books List";
+            this.bookListControl1.Location = new System.Drawing.Point(541, 44);
+            this.bookListControl1.MaximumSize = new System.Drawing.Size(275, 500);
+            this.bookListControl1.Name = "bookListControl1";
+            this.bookListControl1.Size = new System.Drawing.Size(275, 195);
+            this.bookListControl1.TabIndex = 48;
             // 
-            // newTicketBookListTable
+            // searchBox
             // 
-            this.newTicketBookListTable.AutoSizeTable = false;
-            this.newTicketBookListTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.newTicketBookListTable.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.newTicketBookListTable.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.newTicketBookListTable.Depth = 0;
-            this.newTicketBookListTable.FullRowSelect = true;
-            this.newTicketBookListTable.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.newTicketBookListTable.HideSelection = false;
-            this.newTicketBookListTable.Location = new System.Drawing.Point(539, 66);
-            this.newTicketBookListTable.MinimumSize = new System.Drawing.Size(200, 100);
-            this.newTicketBookListTable.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.newTicketBookListTable.MouseState = MaterialSkin.MouseState.OUT;
-            this.newTicketBookListTable.Name = "newTicketBookListTable";
-            this.newTicketBookListTable.OwnerDraw = true;
-            this.newTicketBookListTable.Size = new System.Drawing.Size(277, 173);
-            this.newTicketBookListTable.TabIndex = 45;
-            this.newTicketBookListTable.UseCompatibleStateImageBehavior = false;
-            this.newTicketBookListTable.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 70;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Title";
-            this.columnHeader2.Width = 100;
+            this.searchBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchBox.Depth = 0;
+            this.searchBox.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.searchBox.Hint = "Search for Book";
+            this.searchBox.Location = new System.Drawing.Point(0, 262);
+            this.searchBox.MaxLength = 50;
+            this.searchBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.searchBox.Multiline = false;
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(816, 36);
+            this.searchBox.TabIndex = 47;
+            this.searchBox.Text = "";
+            this.searchBox.UseAccent = false;
+            this.searchBox.UseTallSize = false;
             // 
             // txtNote
             // 
@@ -391,10 +369,8 @@ namespace LibraryApplication.UI.View.Reader
         private Component.TextboxControl txtID;
         private Component.DatePickerControl datePickerDueDate;
         private Component.TextboxControl txtNote;
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialListView newTicketBookListTable;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
         private MaterialSkin.Controls.MaterialButton btnClearNewTicket;
+        private MaterialSkin.Controls.MaterialTextBox searchBox;
+        private Component.BookListControl bookListControl1;
     }
 }

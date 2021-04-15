@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Reactive.Disposables;
-using System.Windows.Forms;
 using MaterialSkin.Controls;
 using ReactiveUI;
 
@@ -27,7 +26,6 @@ namespace LibraryApplication.UI.View.Reader
             txtReaderEmail.Value = $"{reader.Email}";
             datePickerDueDate.Required = true;
             datePickerDueDate.MinDate = DateTime.Today.AddDays(1);
-            newTicketBookListTable.BorderStyle = BorderStyle.FixedSingle;
             tabControl.SelectedIndexChanged += (_, _) =>
             {
                 if (tabControl.SelectedTab == tabNewTicket)
