@@ -1,6 +1,4 @@
-﻿using System;
-using System.Reactive;
-using System.Reactive.Linq;
+﻿using System.Reactive;
 using System.Windows;
 using LibraryApplication.Model.Book;
 using ReactiveUI;
@@ -17,9 +15,7 @@ namespace LibraryApplication.UI.View.Reader
 
         private void InitializeNewTicketTab()
         {
-            var readerValid = this.WhenAnyValue(model => model.NewTicket.DueDate)
-                .Select(due => due != null && due.Value > DateTime.Today);
-            SaveNewTicketCommand = ReactiveCommand.Create(SaveNewTicket, readerValid);
+            SaveNewTicketCommand = ReactiveCommand.Create(SaveNewTicket);
             ClearNewTicketCommand = ReactiveCommand.Create(() => { NewTicket = new Ticket(); });
         }
 
