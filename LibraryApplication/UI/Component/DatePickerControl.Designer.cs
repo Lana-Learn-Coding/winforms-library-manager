@@ -29,10 +29,14 @@ namespace LibraryApplication.UI.Component
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DatePickerControl));
             this.textBox = new MaterialSkin.Controls.MaterialTextBox();
+            this.contextMenuStrip = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.menuItemClear = new System.Windows.Forms.ToolStripMenuItem();
             this.lbl = new MaterialSkin.Controls.MaterialLabel();
             this.lblError = new MaterialSkin.Controls.MaterialLabel();
             this.datePicker = new System.Windows.Forms.DateTimePicker();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox
@@ -40,6 +44,7 @@ namespace LibraryApplication.UI.Component
             this.textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox.ContextMenuStrip = this.contextMenuStrip;
             this.textBox.Depth = 0;
             this.textBox.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox.Location = new System.Drawing.Point(0, 23);
@@ -55,6 +60,24 @@ namespace LibraryApplication.UI.Component
             this.textBox.UseAccent = false;
             this.textBox.UseTallSize = false;
             this.textBox.Click += new System.EventHandler(this.textBox_Click);
+            // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.contextMenuStrip.Depth = 0;
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemClear});
+            this.contextMenuStrip.MouseState = MaterialSkin.MouseState.HOVER;
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(102, 26);
+            // 
+            // menuItemClear
+            // 
+            this.menuItemClear.Image = ((System.Drawing.Image)(resources.GetObject("menuItemClear.Image")));
+            this.menuItemClear.Name = "menuItemClear";
+            this.menuItemClear.Size = new System.Drawing.Size(101, 22);
+            this.menuItemClear.Text = "Clear";
+            this.menuItemClear.Click += new System.EventHandler(this.menuItemClear_Click);
             // 
             // lbl
             // 
@@ -110,6 +133,7 @@ namespace LibraryApplication.UI.Component
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "DatePickerControl";
             this.Size = new System.Drawing.Size(233, 72);
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,5 +145,7 @@ namespace LibraryApplication.UI.Component
         private MaterialSkin.Controls.MaterialLabel lbl;
         private MaterialSkin.Controls.MaterialLabel lblError;
         private System.Windows.Forms.DateTimePicker datePicker;
+        private MaterialSkin.Controls.MaterialContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem menuItemClear;
     }
 }
