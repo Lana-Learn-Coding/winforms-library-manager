@@ -10,7 +10,7 @@ namespace LibraryApplication.UI.View.Book
     {
         [Reactive] public bool ShowViewBooksDialog { get; set; }
 
-        public ReactiveCommand<Unit, bool> ToggleViewBooksDialogCommand;
+        public readonly ReactiveCommand<Unit, bool> ToggleViewBooksDialogCommand;
 
         public BookManageViewModel()
         {
