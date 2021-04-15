@@ -128,6 +128,7 @@ namespace LibraryApplication.UI.Component.Combobox
                 return;
             }
 
+            currentItem.Name = input;
             Context.Entry(currentItem).CurrentValues.SetValues(currentItem);
             Context.SaveChanges();
             comboBox.SelectedItem = currentItem;
