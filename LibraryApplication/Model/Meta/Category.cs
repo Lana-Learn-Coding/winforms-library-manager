@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 
 namespace LibraryApplication.Model.Meta
 {
@@ -15,6 +16,7 @@ namespace LibraryApplication.Model.Meta
 
         public DateTime UpdatedAt { get; set; }
 
+        [Reactive]
         [Required, Index(IsUnique = true), Column(TypeName = "VARCHAR"), MaxLength(256)]
         public string Name { get; set; }
 
