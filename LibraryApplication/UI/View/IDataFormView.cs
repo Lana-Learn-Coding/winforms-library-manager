@@ -35,17 +35,18 @@ namespace LibraryApplication.UI.View
                     .Select(items => items.ToBindingList())
                     .BindTo(this, view => view.Table.DataSource)
                     .DisposeWith(disposable);
+                this.WhenAnyValue(view => view.ViewModel.IsDeletable)
+                    .BindTo(this, view => view.BtnDelete.Enabled)
+                    .DisposeWith(disposable);
                 this.WhenAnyValue(view => view.ViewModel.SelectedItem)
                     .Subscribe(item =>
                     {
                         if (item?.Id == null)
                         {
-                            BtnDelete.Enabled = false;
                             Table.ClearSelection();
                             return;
                         }
 
-                        BtnDelete.Enabled = true;
                         var rowIndex = Table.Rows
                             .Cast<DataGridViewRow>()
                             .First(r => r.Cells[0].Value.Equals(item.Id))
