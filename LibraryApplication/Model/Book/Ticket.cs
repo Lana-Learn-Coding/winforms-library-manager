@@ -25,11 +25,12 @@ namespace LibraryApplication.Model.Book
 
         [Reactive]
         [Column(TypeName = "Date"), Required]
-        public DateTime? DueDate { get; set; }
+        public DateTime? DueDate { get; set; } = DateTime.Now.AddDays(10);
 
         [Reactive] [Column(TypeName = "Date")] public DateTime? ReturnedDate { get; set; }
 
-        [InverseProperty("Tickets")] public virtual ICollection<BookItem> BookItems { get; set; }
+        [InverseProperty("Tickets")]
+        public virtual ICollection<BookItem> BookItems { get; set; } = new List<BookItem>();
 
         public virtual Reader Reader { get; set; }
 
