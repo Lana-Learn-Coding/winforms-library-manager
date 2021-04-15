@@ -85,7 +85,7 @@ namespace LibraryApplication.UI.Component
             this.lblError.MinimumSize = new System.Drawing.Size(0, 14);
             this.lblError.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(1, 14);
+            this.lblError.Size = new System.Drawing.Size(1, 0);
             this.lblError.TabIndex = 2;
             this.lblError.UseAccent = true;
             // 
@@ -93,6 +93,7 @@ namespace LibraryApplication.UI.Component
             // 
             this.datePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datePicker.Location = new System.Drawing.Point(0, 30);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(233, 23);

@@ -1,9 +1,10 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace LibraryApplication.UI.Component
 {
-    public partial class DatePickerControl : UserControl
+    public partial class DatePickerControl : UserControl, INotifyPropertyChanged
     {
         [Description("Hint of the textbox"), Category("Material Skin")]
         public string Hint
@@ -37,28 +38,57 @@ namespace LibraryApplication.UI.Component
             set => lbl.Text = value;
         }
 
+        [Description("Max date"), Category("Behaivour")]
+        public DateTime MaxDate
+        {
+            get => datePicker.MaxDate;
+            set => datePicker.MaxDate = value;
+        }
+
+        [Description("Min date"), Category("Behaivour")]
+        public DateTime MinDate
+        {
+            get => datePicker.MinDate;
+            set => datePicker.MinDate = value;
+        }
+
+        [Description("Format of the date"), Category("Behaivour"), DefaultValue("yyyy-MM-dd")]
+        public string CustomFormat
+        {
+            get => datePicker.CustomFormat;
+            set => datePicker.CustomFormat = value;
+        }
+
         [Browsable(true), EditorBrowsable(EditorBrowsableState.Always), Bindable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        public override string Text
+        public DateTime Value
         {
-            get => textBox.Text;
-            set => textBox.Text = value;
+            get => datePicker.Value;
+            set
+            {
+                datePicker.Value = value;
+                textBox.Text = datePicker.Value.ToString(CustomFormat);
+            }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public DatePickerControl()
         {
             InitializeComponent();
+            datePicker.Format = DateTimePickerFormat.Custom;
+            datePicker.CustomFormat = "yyyy-MM-dd";
+            datePicker.ValueChanged += (_, _) =>
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Value)));
+                textBox.Text = datePicker.Value.ToString(CustomFormat);
+            };
         }
 
-        private void ShowPicker()
+        private void textBox_Click(object sender, EventArgs e)
         {
             datePicker.Select();
             SendKeys.Send("%{DOWN}");
-        }
-
-        private void textBox_Click(object sender, System.EventArgs e)
-        {
-            ShowPicker();
         }
     }
 }
