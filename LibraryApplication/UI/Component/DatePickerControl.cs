@@ -25,6 +25,9 @@ namespace LibraryApplication.UI.Component
             set => textBox.Hint = value;
         }
 
+        [Description("Required"), Category("Material Skin"), DefaultValue(false)]
+        public bool Required { get; set; }
+
         [Description("Error of the textbox"), Category("Material Skin")]
         public string Error
         {
@@ -64,7 +67,7 @@ namespace LibraryApplication.UI.Component
             set => datePicker.MinDate = value;
         }
 
-        [Description("Format of the date"), Category("Behaivour"), DefaultValue("yyyy-MM-dd")]
+        [Description("Format of the date"), Category("Behaviour"), DefaultValue("yyyy-MM-dd")]
         public string CustomFormat
         {
             get => datePicker.CustomFormat;
@@ -111,6 +114,23 @@ namespace LibraryApplication.UI.Component
 
         private void ClearDate()
         {
+            if (Required)
+            {
+                var date = DateTime.Now;
+                if (date < MinDate)
+                {
+                    date = MinDate;
+                }
+
+                if (date > MaxDate)
+                {
+                    date = MaxDate;
+                }
+
+                datePicker.Value = date;
+                return;
+            }
+
             _value = null;
             datePicker.Value = DateTime.Now;
             textBox.Text = "";
