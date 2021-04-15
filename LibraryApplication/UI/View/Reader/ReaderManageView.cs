@@ -59,11 +59,11 @@ namespace LibraryApplication.UI.View.Reader
                 this.WhenAnyValue(v => v.ViewModel.ShowBorrowBookDialog)
                     .Subscribe(show =>
                     {
-                        //TODO: implement actual borrow dialog
                         if (!show) return;
-                        var form = new Form();
+                        var form = new BorrowingManageDialog(ViewModel.SelectedItem);
                         form.ShowDialog(this);
                         ViewModel.ShowBorrowBookDialog = false;
+                        ViewModel.RefreshSelectionCommand.Execute();
                     })
                     .DisposeWith(disposable);
             });
