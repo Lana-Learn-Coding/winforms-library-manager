@@ -20,7 +20,7 @@ namespace LibraryApplication.Model.Book
 
         [Reactive] [Required] public string Email { get; set; }
 
-        [Reactive] public string PhoneNumber { get; set; }
+        [Reactive] [Required] public string PhoneNumber { get; set; }
 
         [Reactive] [Required] public string Name { get; set; }
 
@@ -30,9 +30,9 @@ namespace LibraryApplication.Model.Book
 
         [Reactive] public Gender Gender { get; set; }
 
-        [Reactive] [Required] public int Limit { get; set; } = 0;
+        [Reactive] [Required] public int? Limit { get; set; }
 
-        [Reactive] [Column(TypeName = "Date")] public DateTime Birth { get; set; }
+        [Reactive] [Column(TypeName = "Date")] public DateTime? Birth { get; set; }
 
         public virtual ICollection<Ticket> Tickets { get; set; }
     }

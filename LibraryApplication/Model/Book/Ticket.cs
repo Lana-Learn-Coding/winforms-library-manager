@@ -2,26 +2,32 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 
 namespace LibraryApplication.Model.Book
 {
-    public class Ticket : IAuditable, IIdentified
+    public class Ticket : ReactiveObject, IAuditable, IIdentified
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int? Id { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        [Reactive] public DateTime CreatedAt { get; set; }
 
-        public DateTime UpdatedAt { get; set; }
+        [Reactive] public DateTime UpdatedAt { get; set; }
 
-        public string Note { get; set; }
+        [Reactive] public string Note { get; set; }
 
-        [Column(TypeName = "Date"), Required] public DateTime BorrowedDate { get; set; } = DateTime.Now;
+        [Reactive]
+        [Column(TypeName = "Date"), Required]
+        public DateTime BorrowedDate { get; set; } = DateTime.Now;
 
-        [Column(TypeName = "Date"), Required] public DateTime DueDate { get; set; }
+        [Reactive]
+        [Column(TypeName = "Date"), Required]
+        public DateTime? DueDate { get; set; }
 
-        [Column(TypeName = "Date")] public DateTime ReturnedDate { get; set; }
+        [Reactive] [Column(TypeName = "Date")] public DateTime? ReturnedDate { get; set; }
 
         [InverseProperty("Tickets")] public virtual ICollection<BookItem> BookItems { get; set; }
 
