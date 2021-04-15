@@ -31,6 +31,8 @@ namespace LibraryApplication.UI.View
         public ReactiveCommand<Unit, Unit> SaveCommand { get; }
         public ReactiveCommand<Unit, Unit> DeleteCommand { get; }
 
+        public ReactiveCommand<Unit, Unit> RefreshSelectionCommand { get; }
+
         protected DataFormViewModel()
         {
             SelectedItem = new T();
@@ -39,6 +41,7 @@ namespace LibraryApplication.UI.View
             DeleteCommand = ReactiveCommand.Create(DeleteSelection);
             SaveCommand = ReactiveCommand.Create(Save, ValidationContext.Valid);
             SelectCommand = ReactiveCommand.Create<DataGridView>(OnRowSelected);
+            RefreshSelectionCommand = ReactiveCommand.Create(RefreshSelection);
 
             this.WhenActivated(disposable =>
             {
@@ -72,6 +75,13 @@ namespace LibraryApplication.UI.View
         private void ClearSelection()
         {
             SelectedItem = new T();
+        }
+
+        private void RefreshSelection()
+        {
+            var item = SelectedItem;
+            SelectedItem = new T();
+            SelectedItem = item;
         }
 
         private void DeleteSelection()
@@ -108,9 +118,7 @@ namespace LibraryApplication.UI.View
             if (SelectedItem?.Id == null)
             {
                 CreateNewItem(SelectedItem);
-                var item = SelectedItem;
-                ClearSelection();
-                SelectedItem = item;
+                RefreshSelection();
                 return;
             }
 
