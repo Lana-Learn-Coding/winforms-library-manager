@@ -46,7 +46,7 @@ namespace LibraryApplication.UI.Component
 
         public string Value
         {
-            get => textBox.Text ?? "";
+            get => textBox.Text?.Trim() ?? "";
             set => textBox.Text = value ?? "";
         }
 
