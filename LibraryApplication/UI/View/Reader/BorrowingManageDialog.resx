@@ -67,7 +67,7 @@
             AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj01LjAuNS4w
             LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
             ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAm
-            CgAAAk1TRnQBSQFMAgEBAwEAASABAAEgAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+            CgAAAk1TRnQBSQFMAgEBAwEAAXABAAFwAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
             AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
             AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
             AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -113,4 +113,30 @@
             AQ8B/gEPAv8CAAP/AZ8C/wIABv8CAAs=
         </value>
     </data>
+    <assembly alias="System.Drawing.Common"
+              name="System.Drawing.Common, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51"/>
+    <data name="btnClearNewTicket.Icon" type="System.Drawing.Bitmap, System.Drawing.Common"
+          mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>
+            iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAARdJREFUSEvt
+            lD1OAlEURqdRG6lcBdBYGMCCtbECNKChw43oKiB2lpYmFiQk/sTH+ZgvhDC8mUeEhIKTnDDc+907MAyT
+            nTh+QghNvMdXnFkd32HDsSW87/mwGsJn+Ii/GEO9ISrbU8Hj5XjgRQPwhVrSwUt7iyP8RvHm1+QTaKF4
+            x2uXC9BroS7ZCrfikGmgvro+eXS5oL+8LOu4FYdMP4+GoUtboV9YLtyOQ2aSR0PbpQL0ti4XjsQh85lH
+            Q82l/cLig5+g8hL9CxYn/cjrkB3nI6HvUhxCybepIHPjvKy7XA7B1D+aln8oCAOXqyFc9qi4wi4+4Q+K
+            Zzz3eBoMpDzs/vABLzy2OwxvPq7nOEUtbjp24mjJsgUV5wMtbwSkEQAAAABJRU5ErkJggg==
+        </value>
+    </data>
+    <data name="btnSaveNewTicket.Icon" type="System.Drawing.Bitmap, System.Drawing.Common"
+          mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>
+            iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAIRJREFUSEvt
+            kLENgDAMBFMwDOukYhzmYUWa8G87UlAqjGmQT3opsuNzlJIkj2itrXaMB/KKnMhupTgGOYldAGHKZyD0
+            yXF5QQ6kWmmCPcT3cgxsOieCaQlr1iO+b+Ggzt+X8Gw18u7PKVCPLrHEyDsUqU/EsfIOheoVYuUdij+T
+            J3+glAu5v/VWErc4IgAAAABJRU5ErkJggg==
+        </value>
+    </data>
+    <metadata name="$this.TrayHeight"
+              type="System.Int32, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+        <value>47</value>
+    </metadata>
 </root>
