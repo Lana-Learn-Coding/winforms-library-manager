@@ -67,10 +67,11 @@
     <data name="btnReturn.Icon" type="System.Drawing.Bitmap, System.Drawing.Common"
           mimetype="application/x-microsoft.net.object.bytearray.base64">
         <value>
-            iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAHxJREFUSEvt
-            lUEOgCAMBPs8//8EfYgCcS+lZQVT4eAkc2jYsjeQmZy3jKe5ipCCLXkksdRr3s13uOxJa7HHfIcLQqPQ
-            /c8K3upihUd0oQHCegWYmUDPFd4CE+i5ggYI6xVgtrRonRV0ALOlReusQAOE+QXhz3X4h/OjELkAfDvB
-            ey/suxoAAAAASUVORK5CYII=
+            iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+            YQUAAACySURBVEhL7ZVBCsIwEEWz6OEUb+BlXLe31C5E9A72f8hAGiYzmhjqog8eDenMfNpCGv6FAU7w
+            GeWaez9jhG/4inLNva85wjvkAM1zVLtHZ3iARa5QaxTTJyh5g0WkqBa3f/OAS7yWaArgcLMZVAfIcLMZ
+            uDVaQTpcM0XbW5EXeMNpira3Ii/oHkC6viKh60cWJMSiKYAwxKI5wGP7AB61UlSreVyf4ANqjZ/o/nB2
+            MkJYAM35qwqW4/hAAAAAAElFTkSuQmCC
         </value>
     </data>
     <data name="btnBorrow.Icon" type="System.Drawing.Bitmap, System.Drawing.Common"

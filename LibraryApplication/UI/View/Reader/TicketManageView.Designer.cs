@@ -31,7 +31,8 @@ namespace LibraryApplication.UI.View.Reader
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TicketManageView));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.txtReturnDate = new LibraryApplication.UI.Component.DatePickerControl();
+            this.bookListControl1 = new LibraryApplication.UI.Component.BookListControl();
+            this.datePickerReturn = new LibraryApplication.UI.Component.DatePickerControl();
             this.datePickerBorrow = new LibraryApplication.UI.Component.DatePickerControl();
             this.btnReturn = new MaterialSkin.Controls.MaterialButton();
             this.btnBorrow = new MaterialSkin.Controls.MaterialButton();
@@ -43,7 +44,6 @@ namespace LibraryApplication.UI.View.Reader
             this.txtReader = new LibraryApplication.UI.Component.TextboxControl();
             this.headingNewTicket = new MaterialSkin.Controls.MaterialLabel();
             this.table = new System.Windows.Forms.DataGridView();
-            this.bookListControl1 = new LibraryApplication.UI.Component.BookListControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -61,7 +61,7 @@ namespace LibraryApplication.UI.View.Reader
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.bookListControl1);
-            this.splitContainer1.Panel1.Controls.Add(this.txtReturnDate);
+            this.splitContainer1.Panel1.Controls.Add(this.datePickerReturn);
             this.splitContainer1.Panel1.Controls.Add(this.datePickerBorrow);
             this.splitContainer1.Panel1.Controls.Add(this.btnReturn);
             this.splitContainer1.Panel1.Controls.Add(this.btnBorrow);
@@ -80,20 +80,29 @@ namespace LibraryApplication.UI.View.Reader
             this.splitContainer1.SplitterDistance = 350;
             this.splitContainer1.TabIndex = 0;
             // 
-            // txtReturnDate
+            // bookListControl1
             // 
-            this.txtReturnDate.Enabled = false;
-            this.txtReturnDate.Error = "";
-            this.txtReturnDate.Hint = "Book Return Date";
-            this.txtReturnDate.Label = "Returned Date";
-            this.txtReturnDate.Location = new System.Drawing.Point(210, 136);
-            this.txtReturnDate.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtReturnDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.txtReturnDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.txtReturnDate.Name = "txtReturnDate";
-            this.txtReturnDate.Size = new System.Drawing.Size(206, 72);
-            this.txtReturnDate.TabIndex = 58;
-            this.txtReturnDate.Value = new System.DateTime(2021, 4, 16, 1, 38, 26, 714);
+            this.bookListControl1.Location = new System.Drawing.Point(445, 58);
+            this.bookListControl1.MaximumSize = new System.Drawing.Size(275, 500);
+            this.bookListControl1.Name = "bookListControl1";
+            this.bookListControl1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.bookListControl1.Size = new System.Drawing.Size(275, 215);
+            this.bookListControl1.TabIndex = 59;
+            // 
+            // datePickerReturn
+            // 
+            this.datePickerReturn.Enabled = false;
+            this.datePickerReturn.Error = "";
+            this.datePickerReturn.Hint = "Book Return Date";
+            this.datePickerReturn.Label = "Returned Date";
+            this.datePickerReturn.Location = new System.Drawing.Point(210, 136);
+            this.datePickerReturn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.datePickerReturn.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.datePickerReturn.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.datePickerReturn.Name = "datePickerReturn";
+            this.datePickerReturn.Size = new System.Drawing.Size(206, 72);
+            this.datePickerReturn.TabIndex = 58;
+            this.datePickerReturn.Value = new System.DateTime(2021, 4, 16, 1, 38, 26, 714);
             // 
             // datePickerBorrow
             // 
@@ -235,7 +244,7 @@ namespace LibraryApplication.UI.View.Reader
             // 
             this.txtReader.Enabled = false;
             this.txtReader.Error = "";
-            this.txtReader.Hint = "";
+            this.txtReader.Hint = "Borrower";
             this.txtReader.Label = "Reader";
             this.txtReader.Location = new System.Drawing.Point(105, 58);
             this.txtReader.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -267,15 +276,6 @@ namespace LibraryApplication.UI.View.Reader
             this.table.RowTemplate.Height = 25;
             this.table.Size = new System.Drawing.Size(876, 422);
             this.table.TabIndex = 0;
-            // 
-            // bookListControl1
-            // 
-            this.bookListControl1.Location = new System.Drawing.Point(445, 58);
-            this.bookListControl1.MaximumSize = new System.Drawing.Size(275, 500);
-            this.bookListControl1.Name = "bookListControl1";
-            this.bookListControl1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.bookListControl1.Size = new System.Drawing.Size(275, 215);
-            this.bookListControl1.TabIndex = 59;
             // 
             // TicketManageView
             // 
@@ -310,7 +310,7 @@ namespace LibraryApplication.UI.View.Reader
         private MaterialSkin.Controls.MaterialButton btnSave;
         private Component.DatePickerControl datePickerBorrow;
         private MaterialSkin.Controls.MaterialButton btnReturn;
-        private Component.DatePickerControl txtReturnDate;
+        private Component.DatePickerControl datePickerReturn;
         private Component.BookListControl bookListControl1;
     }
 }
