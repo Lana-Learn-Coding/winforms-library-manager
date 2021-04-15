@@ -25,13 +25,9 @@ namespace LibraryApplication.UI.View.Book
             );
         }
 
-        protected override void OnSaving()
-        {
-            SelectedItem.BookMeta = Meta;
-        }
-
         protected override void CreateNewItem(BookItem item)
         {
+            SelectedItem.BookMeta = Meta;
             Context.BookItems.Add(item);
             Context.SaveChanges();
             Items.Add(item);
