@@ -59,14 +59,14 @@ namespace LibraryApplication.UI.View.Book
             this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(12);
-            this.panel1.Size = new System.Drawing.Size(900, 672);
+            this.panel1.Padding = new System.Windows.Forms.Padding(18);
+            this.panel1.Size = new System.Drawing.Size(910, 685);
             this.panel1.TabIndex = 1;
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(12, 12);
+            this.splitContainer1.Location = new System.Drawing.Point(18, 18);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -87,7 +87,7 @@ namespace LibraryApplication.UI.View.Book
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.table);
-            this.splitContainer1.Size = new System.Drawing.Size(876, 648);
+            this.splitContainer1.Size = new System.Drawing.Size(874, 649);
             this.splitContainer1.SplitterDistance = 320;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -135,7 +135,7 @@ namespace LibraryApplication.UI.View.Book
             this.btnClear.DrawShadows = true;
             this.btnClear.HighEmphasis = true;
             this.btnClear.Icon = ((System.Drawing.Image)(resources.GetObject("btnClear.Icon")));
-            this.btnClear.Location = new System.Drawing.Point(747, 92);
+            this.btnClear.Location = new System.Drawing.Point(745, 92);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
@@ -155,7 +155,7 @@ namespace LibraryApplication.UI.View.Book
             this.btnDelete.DrawShadows = true;
             this.btnDelete.HighEmphasis = true;
             this.btnDelete.Icon = ((System.Drawing.Image)(resources.GetObject("btnDelete.Icon")));
-            this.btnDelete.Location = new System.Drawing.Point(747, 140);
+            this.btnDelete.Location = new System.Drawing.Point(745, 140);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDelete.Name = "btnDelete";
@@ -175,7 +175,7 @@ namespace LibraryApplication.UI.View.Book
             this.btnSave.DrawShadows = true;
             this.btnSave.HighEmphasis = true;
             this.btnSave.Icon = ((System.Drawing.Image)(resources.GetObject("btnSave.Icon")));
-            this.btnSave.Location = new System.Drawing.Point(747, 44);
+            this.btnSave.Location = new System.Drawing.Point(745, 44);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSave.Name = "btnSave";
@@ -260,14 +260,14 @@ namespace LibraryApplication.UI.View.Book
             this.table.ReadOnly = true;
             this.table.RowTemplate.Height = 25;
             this.table.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.table.Size = new System.Drawing.Size(876, 324);
+            this.table.Size = new System.Drawing.Size(874, 325);
             this.table.TabIndex = 0;
             // 
             // BookItemManageDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 697);
+            this.ClientSize = new System.Drawing.Size(910, 710);
             this.Controls.Add(this.panel1);
             this.Name = "BookItemManageDialog";
             this.Padding = new System.Windows.Forms.Padding(0, 25, 0, 0);
