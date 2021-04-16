@@ -270,6 +270,8 @@ namespace LibraryApplication.UI.View.Reader
             // 
             // table
             // 
+            this.table.AllowUserToAddRows = false;
+            this.table.AllowUserToDeleteRows = false;
             this.table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.table.Dock = System.Windows.Forms.DockStyle.Fill;
             this.table.Location = new System.Drawing.Point(0, 0);
