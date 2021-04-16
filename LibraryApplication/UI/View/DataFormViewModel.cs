@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Reactive;
 using System.Reactive.Disposables;
@@ -66,19 +67,33 @@ namespace LibraryApplication.UI.View
                 return;
             }
 
+            ReloadSelection();
             SelectedItem = Items.First(book => book.Id == id);
         }
 
         protected void ClearSelection()
         {
+            ReloadSelection();
             SelectedItem = new T();
         }
 
         protected void RefreshSelection()
         {
+            ReloadSelection();
             var item = SelectedItem;
             SelectedItem = new T();
             SelectedItem = item;
+        }
+
+        private void ReloadSelection()
+        {
+            var entry = Context.Entry(SelectedItem);
+            if (entry.State is EntityState.Detached or EntityState.Unchanged)
+            {
+                return;
+            }
+
+            entry.ReloadAsync();
         }
 
         protected void DeleteSelection()
@@ -116,11 +131,13 @@ namespace LibraryApplication.UI.View
             {
                 CreateNewItem(SelectedItem);
                 RefreshSelection();
+                MessageBox.Show("Data saved successfully", "success");
                 return;
             }
 
             Context.Entry(SelectedItem).CurrentValues.SetValues(SelectedItem);
             Context.SaveChanges();
+            MessageBox.Show("Data updated successfully", "success");
         }
 
         protected virtual void CreateNewItem(T item)
