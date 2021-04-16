@@ -6,6 +6,7 @@ using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Windows.Forms;
 using LibraryApplication.Model;
+using LibraryApplication.UI.Component.Table;
 using MaterialSkin.Controls;
 using ReactiveUI;
 
@@ -25,33 +26,33 @@ namespace LibraryApplication.UI.View
         public MaterialButton BtnSave { get; }
         public MaterialButton BtnDelete { get; }
         public MaterialButton BtnClear { get; }
-        public DataGridView Table { get; }
+        public SearchableDataGridViewControl Table { get; }
 
         public void InitializeViewModelBindings()
         {
-            SetupTable();
+            Setup();
             this.WhenActivated(disposable =>
             {
                 this.WhenAnyValue(view => view.ViewModel.Items)
                     .Select(items => items.ToBindingList())
-                    .BindTo(this, view => view.Table.DataSource)
+                    .BindTo(this, view => view.Table.Grid.DataSource)
                     .DisposeWith(disposable);
                 this.WhenAnyValue(view => view.ViewModel.SelectedItem)
                     .Subscribe(item =>
                     {
+                        var grid = Table.Grid;
                         if (item?.Id == null)
                         {
-                            Table.ClearSelection();
+                            grid.ClearSelection();
                             return;
                         }
 
-                        var rowIndex = Table.Rows
+                        var rowIndex = grid.Rows
                             .Cast<DataGridViewRow>()
                             .First(r => r.Cells[0].Value.Equals(item.Id))
                             .Index;
-
-                        Table.InvalidateRow(rowIndex);
-                        Table.Rows[rowIndex].Selected = true;
+                        grid.InvalidateRow(rowIndex);
+                        grid.Rows[rowIndex].Selected = true;
                     })
                     .DisposeWith(disposable);
 
@@ -63,14 +64,14 @@ namespace LibraryApplication.UI.View
                     .DisposeWith(disposable);
                 this.BindCommand(ViewModel,
                         model => model.SelectCommand,
-                        view => view.Table,
-                        this.WhenAnyValue(view => view.Table),
+                        view => view.Table.Grid,
+                        this.WhenAnyValue(view => view.Table.Grid),
                         "SelectionChanged")
                     .DisposeWith(disposable);
             });
         }
 
-        public void SetupTable()
+        public void Setup()
         {
         }
     }
