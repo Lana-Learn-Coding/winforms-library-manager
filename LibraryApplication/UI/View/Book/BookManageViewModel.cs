@@ -1,4 +1,5 @@
-﻿using System.Reactive;
+﻿using System;
+using System.Reactive;
 using LibraryApplication.Model.Book;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
@@ -22,8 +23,8 @@ namespace LibraryApplication.UI.View.Book
             );
             this.ValidationRule(
                 model => model.SelectedItem.Year,
-                year => year > 0,
-                "Year must >= 0"
+                year => year > 0 && year <= DateTime.Today.Year,
+                "Year is invalid"
             );
             this.ValidationRule(
                 model => model.SelectedItem.Category,
