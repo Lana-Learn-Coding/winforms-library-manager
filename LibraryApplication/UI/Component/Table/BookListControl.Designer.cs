@@ -1,5 +1,5 @@
 ﻿
-namespace LibraryApplication.UI.Component
+namespace LibraryApplication.UI.Component.Table
 {
     partial class BookListControl
     {

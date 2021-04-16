@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace LibraryApplication.UI.Component
+namespace LibraryApplication.UI.Component.Table
 {
     public partial class BookListControl : UserControl
     {

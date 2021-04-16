@@ -35,7 +35,7 @@ namespace LibraryApplication.UI.View.Reader
             this.tabNewTicket = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bookListControl1 = new LibraryApplication.UI.Component.BookListControl();
+            this.bookListControl1 = new LibraryApplication.UI.Component.Table.BookListControl();
             this.searchBox = new MaterialSkin.Controls.MaterialTextBox();
             this.txtNote = new LibraryApplication.UI.Component.TextboxControl();
             this.datePickerDueDate = new LibraryApplication.UI.Component.DatePickerControl();
@@ -371,6 +371,6 @@ namespace LibraryApplication.UI.View.Reader
         private Component.TextboxControl txtNote;
         private MaterialSkin.Controls.MaterialButton btnClearNewTicket;
         private MaterialSkin.Controls.MaterialTextBox searchBox;
-        private Component.BookListControl bookListControl1;
+        private Component.Table.BookListControl bookListControl1;
     }
 }

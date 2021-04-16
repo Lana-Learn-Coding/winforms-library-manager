@@ -31,7 +31,7 @@ namespace LibraryApplication.UI.View.Reader
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TicketManageView));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.bookListControl1 = new LibraryApplication.UI.Component.BookListControl();
+            this.bookListControl1 = new LibraryApplication.UI.Component.Table.BookListControl();
             this.datePickerReturn = new LibraryApplication.UI.Component.DatePickerControl();
             this.datePickerBorrow = new LibraryApplication.UI.Component.DatePickerControl();
             this.btnReturn = new MaterialSkin.Controls.MaterialButton();
@@ -314,6 +314,6 @@ namespace LibraryApplication.UI.View.Reader
         private Component.DatePickerControl datePickerBorrow;
         private MaterialSkin.Controls.MaterialButton btnReturn;
         private Component.DatePickerControl datePickerReturn;
-        private Component.BookListControl bookListControl1;
+        private Component.Table.BookListControl bookListControl1;
     }
 }
