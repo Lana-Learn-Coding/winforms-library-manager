@@ -93,18 +93,11 @@ namespace LibraryApplication.UI.View.Book
                     AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
                 },
                 new DataGridViewTextBoxColumn {Name = "Year", DataPropertyName = "Year", Width = 80},
-                new DataGridViewTextBoxColumn {Name = "Category", DataPropertyName = "Category.Name"},
-                new DataGridViewTextBoxColumn {Name = "Author", DataPropertyName = "Author.Name"},
-                new DataGridViewTextBoxColumn {Name = "Publisher", DataPropertyName = "Publisher.Name"},
-                new DataGridViewTextBoxColumn {Name = "Series.Name", DataPropertyName = "Series.Name", Width = 150},
-                new DataGridViewFormattedColumn
-                {
-                    Name = "Updated",
-                    DataPropertyName = "UpdatedAt",
-                    ValueType = typeof(DateTime),
-                    Format = "yyyy-MM-dd hh:mm:ss",
-                    Width = 120
-                }
+                new DataGridViewTextBoxColumn {Name = "Category", DataPropertyName = "Category"},
+                new DataGridViewTextBoxColumn {Name = "Author", DataPropertyName = "Author"},
+                new DataGridViewTextBoxColumn {Name = "Publisher", DataPropertyName = "Publisher"},
+                new DataGridViewTextBoxColumn {Name = "Series", DataPropertyName = "Series", Width = 150},
+                new DataGridViewDateTimeColumn {Name = "Updated", DataPropertyName = "UpdatedAt", Width = 120}
             );
         }
 
