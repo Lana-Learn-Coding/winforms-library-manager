@@ -32,17 +32,20 @@ namespace LibraryApplication
             Locator.CurrentMutable.RegisterConstant(modelContext, typeof(ModelContext));
             modelContext.Authors.Load();
             modelContext.Series.Load();
-            modelContext.Storages.Load();
             modelContext.Categories.Load();
             modelContext.Publishers.Load();
-            modelContext.Users.Load();
             modelContext.Books.Load();
-            modelContext.BookItems.Load();
-            modelContext.Permissions.Load();
-            modelContext.Tickets.Load();
-            modelContext.Readers.Load();
+
             modelContext.Positions.Load();
+            modelContext.Storages.Load();
+            modelContext.BookItems.Load();
+
             modelContext.Genders.Load();
+            modelContext.Readers.Load();
+            modelContext.Tickets.Load();
+
+            modelContext.Permissions.Load();
+            modelContext.Users.Load();
         }
 
         public void Run()
