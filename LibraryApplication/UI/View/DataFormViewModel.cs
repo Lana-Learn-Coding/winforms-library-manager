@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reactive;
 using System.Reactive.Disposables;
+using System.Reactive.Linq;
 using System.Windows.Forms;
 using LibraryApplication.Model;
 using ReactiveUI;
@@ -22,8 +23,6 @@ namespace LibraryApplication.UI.View
         [Reactive] public T SelectedItem { get; set; }
         [Reactive] public ObservableCollection<T> Items { get; set; }
 
-        [Reactive] public bool IsDeletable { get; set; }
-
         [Reactive] public bool IsUpdating { get; set; }
         public ReactiveCommand<DataGridView, Unit> SelectCommand { get; }
 
@@ -37,22 +36,21 @@ namespace LibraryApplication.UI.View
         {
             SelectedItem = new T();
             Context = Locator.Current.GetService<ModelContext>();
-            ClearCommand = ReactiveCommand.Create(ClearSelection);
-            DeleteCommand = ReactiveCommand.Create(DeleteSelection);
-            SaveCommand = ReactiveCommand.Create(Save, ValidationContext.Valid);
-            SelectCommand = ReactiveCommand.Create<DataGridView>(OnRowSelected);
-            RefreshSelectionCommand = ReactiveCommand.Create(RefreshSelection);
 
             this.WhenActivated(disposable =>
             {
                 this.WhenAnyValue(model => model.SelectedItem)
-                    .Subscribe(item => IsDeletable = item?.Id != null)
-                    .DisposeWith(disposable);
-
-                this.WhenAnyValue(model => model.SelectedItem)
                     .Subscribe(item => IsUpdating = item?.Id != null)
                     .DisposeWith(disposable);
             });
+
+            SaveCommand = ReactiveCommand.Create(Save, ValidationContext.Valid);
+            SelectCommand = ReactiveCommand.Create<DataGridView>(OnRowSelected);
+            ClearCommand = ReactiveCommand.Create(ClearSelection);
+
+            var isSelected = this.WhenAnyValue(model => model.IsUpdating);
+            DeleteCommand = ReactiveCommand.Create(DeleteSelection, isSelected);
+            RefreshSelectionCommand = ReactiveCommand.Create(RefreshSelection, isSelected);
         }
 
         private void OnRowSelected(DataGridView table)

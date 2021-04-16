@@ -35,9 +35,6 @@ namespace LibraryApplication.UI.View
                     .Select(items => items.ToBindingList())
                     .BindTo(this, view => view.Table.DataSource)
                     .DisposeWith(disposable);
-                this.WhenAnyValue(view => view.ViewModel.IsDeletable)
-                    .BindTo(this, view => view.BtnDelete.Enabled)
-                    .DisposeWith(disposable);
                 this.WhenAnyValue(view => view.ViewModel.SelectedItem)
                     .Subscribe(item =>
                     {
