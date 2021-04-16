@@ -29,6 +29,10 @@ namespace LibraryApplication.UI.View
 
         public void InitializeViewModelBindings()
         {
+            var tableCols = TableColumns();
+            Table.AutoGenerateColumns = tableCols.Length == 0;
+            Table.Columns.AddRange(tableCols);
+
             this.WhenActivated(disposable =>
             {
                 this.WhenAnyValue(view => view.ViewModel.Items)
@@ -67,6 +71,11 @@ namespace LibraryApplication.UI.View
                         "SelectionChanged")
                     .DisposeWith(disposable);
             });
+        }
+
+        public DataGridViewColumn[] TableColumns()
+        {
+            return Array.Empty<DataGridViewColumn>();
         }
     }
 }
