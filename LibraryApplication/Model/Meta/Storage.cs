@@ -1,20 +1,19 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 
 namespace LibraryApplication.Model.Meta
 {
-    public class Storage : ReactiveObject, IAuditable, INamed, IIdentified
+    public class Storage : Entity, INamed
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int? Id { get; set; }
+        public override int? Id { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        public override DateTime CreatedAt { get; set; }
 
-        [Reactive] public DateTime UpdatedAt { get; set; }
+        [Reactive] public override DateTime UpdatedAt { get; set; }
 
         [Reactive]
         [Required, Index(IsUnique = true), Column(TypeName = "VARCHAR"), MaxLength(256)]
@@ -26,15 +25,15 @@ namespace LibraryApplication.Model.Meta
         }
     }
 
-    public class Position : ReactiveObject, IAuditable, INamed, IIdentified
+    public class Position : Entity, INamed
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int? Id { get; set; }
+        public override int? Id { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        public override DateTime CreatedAt { get; set; }
 
-        [Reactive] public DateTime UpdatedAt { get; set; }
+        [Reactive] public override DateTime UpdatedAt { get; set; }
 
         [Required, Index(IsUnique = true), Column(TypeName = "VARCHAR"), MaxLength(256)]
         [Reactive]

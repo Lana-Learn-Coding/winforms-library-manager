@@ -1,20 +1,19 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 
 namespace LibraryApplication.Model.Meta
 {
-    public class Publisher : ReactiveObject, IAuditable, INamed, IIdentified
+    public class Publisher : Entity, INamed
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int? Id { get; set; }
+        public override int? Id { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        public override DateTime CreatedAt { get; set; }
 
-        [Reactive] public DateTime UpdatedAt { get; set; }
+        [Reactive] public override DateTime UpdatedAt { get; set; }
 
         [Reactive]
         [Required, Index(IsUnique = true), Column(TypeName = "VARCHAR"), MaxLength(256)]

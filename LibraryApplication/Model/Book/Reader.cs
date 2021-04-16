@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using LibraryApplication.Model.Meta;
-using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 
 namespace LibraryApplication.Model.Book
 {
-    public class Reader : ReactiveObject, IAuditable, IIdentified
+    public class Reader : Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int? Id { get; set; }
+        public override int? Id { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        public override DateTime CreatedAt { get; set; }
 
-        [Reactive] public DateTime UpdatedAt { get; set; }
+        [Reactive] public override DateTime UpdatedAt { get; set; }
 
         [Reactive] [Required] public string Email { get; set; }
 
@@ -35,5 +34,10 @@ namespace LibraryApplication.Model.Book
         [Reactive] [Column(TypeName = "Date")] public DateTime? Birth { get; set; }
 
         public virtual ICollection<Ticket> Tickets { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Name} [{Id}]";
+        }
     }
 }

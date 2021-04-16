@@ -2,20 +2,19 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 
 namespace LibraryApplication.Model.Book
 {
-    public class Ticket : ReactiveObject, IAuditable, IIdentified
+    public class Ticket : Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int? Id { get; set; }
+        public override int? Id { get; set; }
 
-        [Reactive] public DateTime CreatedAt { get; set; }
+        [Reactive] public override DateTime CreatedAt { get; set; }
 
-        [Reactive] public DateTime UpdatedAt { get; set; }
+        [Reactive] public override DateTime UpdatedAt { get; set; }
 
         [Reactive] public string Note { get; set; }
 
@@ -35,5 +34,17 @@ namespace LibraryApplication.Model.Book
         public virtual Reader Reader { get; set; }
 
         public virtual Ticket Parent { get; set; }
+
+        public override string ToString()
+        {
+            if (Id == null)
+            {
+                return "New unsaved ticket";
+            }
+
+            return ReturnedDate.HasValue
+                ? $"Ticket {Id} from {BorrowedDate:yyyy-MM-dd} due at {DueDate:yyyy-MM-dd}"
+                : $"Ticket {Id} from {BorrowedDate:yyyy-MM-dd} to {ReturnedDate:yyyy-MM-dd}";
+        }
     }
 }

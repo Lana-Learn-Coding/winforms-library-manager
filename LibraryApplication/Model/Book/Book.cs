@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using LibraryApplication.Model.Meta;
-using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 
 namespace LibraryApplication.Model.Book
 {
-    public class BookMeta : ReactiveObject, IAuditable, IIdentified
+    public class BookMeta : Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int? Id { get; set; }
+        public override int? Id { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        public override DateTime CreatedAt { get; set; }
 
-        [Reactive] public DateTime UpdatedAt { get; set; }
+        [Reactive] public override DateTime UpdatedAt { get; set; }
 
         [Reactive] [Required] public string Title { get; set; }
 
@@ -33,17 +32,22 @@ namespace LibraryApplication.Model.Book
         [Reactive] public string Image { get; set; }
 
         public virtual ICollection<BookItem> Items { get; set; } = new List<BookItem>();
+
+        public override string ToString()
+        {
+            return $"{Title} - {Author} [{Id}]";
+        }
     }
 
-    public class BookItem : ReactiveObject, IAuditable, IIdentified
+    public class BookItem : Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int? Id { get; set; }
+        public override int? Id { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        public override DateTime CreatedAt { get; set; }
 
-        [Reactive] public DateTime UpdatedAt { get; set; }
+        [Reactive] public override DateTime UpdatedAt { get; set; }
 
         [Reactive] public string Condition { get; set; }
 
@@ -58,5 +62,10 @@ namespace LibraryApplication.Model.Book
         public virtual ICollection<Ticket> Tickets { get; set; }
 
         public virtual Ticket BorrowingTicket { get; set; }
+
+        public override string ToString()
+        {
+            return $"Book [{Id}] - {BookMeta.Title}";
+        }
     }
 }
