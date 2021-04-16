@@ -16,9 +16,6 @@ namespace LibraryApplication.UI.View.Reader
             ((IDataFormView<Ticket, TicketManageViewModel>) this).InitializeViewModelBindings();
             this.WhenActivated(disposable =>
             {
-                this.OneWayBind(ViewModel, model => model.IsUpdating, view => view.btnBorrow.Enabled)
-                    .DisposeWith(disposable);
-
                 this.Bind(ViewModel, model => model.SelectedItem.Note, view => view.txtNote.Value)
                     .DisposeWith(disposable);
                 this.Bind(ViewModel, model => model.SelectedItem.DueDate, view => view.datePickerDueDate.Value)

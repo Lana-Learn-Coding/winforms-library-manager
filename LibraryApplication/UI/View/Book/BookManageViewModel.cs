@@ -48,7 +48,9 @@ namespace LibraryApplication.UI.View.Book
                 "Please select Series"
             );
 
-            ToggleViewBooksDialogCommand = ReactiveCommand.Create(() => ShowViewBooksDialog = !ShowViewBooksDialog);
+            var isSelected = this.WhenAnyValue(model => model.IsUpdating);
+            ToggleViewBooksDialogCommand =
+                ReactiveCommand.Create(() => ShowViewBooksDialog = !ShowViewBooksDialog, isSelected);
         }
     }
 }

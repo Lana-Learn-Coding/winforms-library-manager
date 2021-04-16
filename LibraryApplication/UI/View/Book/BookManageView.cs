@@ -25,9 +25,6 @@ namespace LibraryApplication.UI.View.Book
             ((IDataFormView<BookMeta, BookManageViewModel>) this).InitializeViewModelBindings();
             this.WhenActivated(disposable =>
             {
-                this.OneWayBind(ViewModel, model => model.IsUpdating, view => view.btnViewBooks.Enabled)
-                    .DisposeWith(disposable);
-
                 this.BindCommand(ViewModel, model => model.ToggleViewBooksDialogCommand, view => view.btnViewBooks)
                     .DisposeWith(disposable);
 
@@ -72,10 +69,11 @@ namespace LibraryApplication.UI.View.Book
                 this.WhenAnyValue(v => v.ViewModel.ShowViewBooksDialog)
                     .Subscribe(show =>
                     {
-                        if (!show) return;
+                        if (!show || !ViewModel.IsUpdating) return;
                         var form = new BookItemManageDialog(ViewModel.SelectedItem);
                         form.ShowDialog(this);
                         ViewModel.ShowViewBooksDialog = false;
+                        ViewModel.RefreshSelectionCommand.Execute();
                     })
                     .DisposeWith(disposable);
             });

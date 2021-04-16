@@ -50,7 +50,9 @@ namespace LibraryApplication.UI.View.Reader
                     .Select(ValidatePhone)
             );
 
-            ToggleBorrowBookCommand = ReactiveCommand.Create(() => ShowBorrowBookDialog = !ShowBorrowBookDialog);
+            var isSelected = this.WhenAnyValue(model => model.IsUpdating);
+            ToggleBorrowBookCommand =
+                ReactiveCommand.Create(() => ShowBorrowBookDialog = !ShowBorrowBookDialog, isSelected);
         }
 
         private static ValidationState ValidateEmail(string email)

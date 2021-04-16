@@ -59,7 +59,7 @@ namespace LibraryApplication.UI.View.Reader
                 this.WhenAnyValue(v => v.ViewModel.ShowBorrowBookDialog)
                     .Subscribe(show =>
                     {
-                        if (!show) return;
+                        if (!show || !ViewModel.IsUpdating) return;
                         var form = new BorrowingManageDialog(ViewModel.SelectedItem);
                         form.ShowDialog(this);
                         ViewModel.ShowBorrowBookDialog = false;
