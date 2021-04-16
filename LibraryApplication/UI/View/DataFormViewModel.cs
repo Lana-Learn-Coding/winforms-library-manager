@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Reactive;
 using System.Reactive.Disposables;
@@ -88,11 +89,23 @@ namespace LibraryApplication.UI.View
         private void ReloadSelection()
         {
             var entry = Context.Entry(SelectedItem);
-            if (entry.State is not EntityState.Modified)
+            if (entry.State is EntityState.Modified)
+            {
+                entry.ReloadAsync();
+                return;
+            }
+
+            // Return if entity is non managed by context
+            if (entry.State is not EntityState.Unchanged)
             {
                 return;
             }
 
+            // Check relation change
+            var objectStateManager = ((IObjectContextAdapter) Context).ObjectContext.ObjectStateManager;
+            var isChanged = objectStateManager.GetObjectStateEntries(EntityState.Deleted).Any(e => e.IsRelationship) ||
+                            objectStateManager.GetObjectStateEntries(EntityState.Added).Any(e => e.IsRelationship);
+            if (!isChanged) return;
             entry.ReloadAsync();
         }
 
