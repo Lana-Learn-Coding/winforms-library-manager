@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Reactive.Disposables;
-using System.Windows.Forms;
 using LibraryApplication.Model.Book;
+using LibraryApplication.UI.Component.Table;
 using MaterialSkin.Controls;
 using ReactiveUI;
 
@@ -60,6 +60,6 @@ namespace LibraryApplication.UI.View.Book
         public MaterialButton BtnSave => btnSave;
         public MaterialButton BtnDelete => btnDelete;
         public MaterialButton BtnClear => btnClear;
-        public DataGridView Table => table;
+        public SearchableDataGridViewControl Table => table;
     }
 }

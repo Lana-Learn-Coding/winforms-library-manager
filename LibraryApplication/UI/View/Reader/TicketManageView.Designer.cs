@@ -43,12 +43,11 @@ namespace LibraryApplication.UI.View.Reader
             this.txtID = new LibraryApplication.UI.Component.TextboxControl();
             this.txtReader = new LibraryApplication.UI.Component.TextboxControl();
             this.headingNewTicket = new MaterialSkin.Controls.MaterialLabel();
-            this.table = new System.Windows.Forms.DataGridView();
+            this.table = new LibraryApplication.UI.Component.Table.SearchableDataGridViewControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -270,13 +269,9 @@ namespace LibraryApplication.UI.View.Reader
             // 
             // table
             // 
-            this.table.AllowUserToAddRows = false;
-            this.table.AllowUserToDeleteRows = false;
-            this.table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.table.Dock = System.Windows.Forms.DockStyle.Fill;
             this.table.Location = new System.Drawing.Point(0, 0);
             this.table.Name = "table";
-            this.table.RowTemplate.Height = 25;
             this.table.Size = new System.Drawing.Size(876, 422);
             this.table.TabIndex = 0;
             // 
@@ -294,7 +289,6 @@ namespace LibraryApplication.UI.View.Reader
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -302,7 +296,6 @@ namespace LibraryApplication.UI.View.Reader
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.DataGridView table;
         private MaterialSkin.Controls.MaterialLabel headingNewTicket;
         private Component.TextboxControl txtNote;
         private Component.DatePickerControl datePickerDueDate;
@@ -315,5 +308,6 @@ namespace LibraryApplication.UI.View.Reader
         private MaterialSkin.Controls.MaterialButton btnReturn;
         private Component.DatePickerControl datePickerReturn;
         private Component.Table.BookListControl bookListControl1;
+        private Component.Table.SearchableDataGridViewControl table;
     }
 }

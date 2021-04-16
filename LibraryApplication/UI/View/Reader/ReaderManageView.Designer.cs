@@ -45,12 +45,11 @@ namespace LibraryApplication.UI.View.Reader
             this.btnDelete = new MaterialSkin.Controls.MaterialButton();
             this.btnSave = new MaterialSkin.Controls.MaterialButton();
             this.heading = new MaterialSkin.Controls.MaterialLabel();
-            this.table = new System.Windows.Forms.DataGridView();
+            this.table = new LibraryApplication.UI.Component.Table.SearchableDataGridViewControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -289,14 +288,9 @@ namespace LibraryApplication.UI.View.Reader
             // 
             // table
             // 
-            this.table.AllowUserToAddRows = false;
-            this.table.AllowUserToDeleteRows = false;
-            this.table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.table.Dock = System.Windows.Forms.DockStyle.Fill;
             this.table.Location = new System.Drawing.Point(0, 0);
             this.table.Name = "table";
-            this.table.RowTemplate.Height = 25;
-            this.table.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.table.Size = new System.Drawing.Size(876, 422);
             this.table.TabIndex = 0;
             // 
@@ -314,7 +308,6 @@ namespace LibraryApplication.UI.View.Reader
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -324,7 +317,6 @@ namespace LibraryApplication.UI.View.Reader
         private System.Windows.Forms.SplitContainer splitContainer1;
         private MaterialSkin.Controls.MaterialLabel heading;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView table;
         private MaterialSkin.Controls.MaterialButton btnSave;
         private MaterialSkin.Controls.MaterialButton btnClear;
         private MaterialSkin.Controls.MaterialButton btnDelete;
@@ -340,5 +332,6 @@ namespace LibraryApplication.UI.View.Reader
         private Component.ImagePickerControl imgPicker;
         private Component.TextboxControl txtLimit;
         private MaterialSkin.Controls.MaterialButton btnBorrow;
+        private Component.Table.SearchableDataGridViewControl table;
     }
 }

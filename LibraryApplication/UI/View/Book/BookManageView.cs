@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Reactive.Disposables;
 using System.Windows.Forms;
 using LibraryApplication.Model.Book;
+using LibraryApplication.UI.Component.Table;
 using MaterialSkin.Controls;
 using ReactiveUI;
 using ReactiveUI.Validation.Extensions;
@@ -79,9 +80,37 @@ namespace LibraryApplication.UI.View.Book
             });
         }
 
+        public void Setup()
+        {
+            Table.Grid.AutoGenerateColumns = false;
+            Table.Grid.Columns.AddRange(
+                new DataGridViewTextBoxColumn {Name = "ID", DataPropertyName = "Id", Width = 80},
+                new DataGridViewTextBoxColumn
+                {
+                    Name = "Title",
+                    DataPropertyName = "Title",
+                    MinimumWidth = 200,
+                    AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                },
+                new DataGridViewTextBoxColumn {Name = "Year", DataPropertyName = "Year", Width = 80},
+                new DataGridViewTextBoxColumn {Name = "Category", DataPropertyName = "Category.Name"},
+                new DataGridViewTextBoxColumn {Name = "Author", DataPropertyName = "Author.Name"},
+                new DataGridViewTextBoxColumn {Name = "Publisher", DataPropertyName = "Publisher.Name"},
+                new DataGridViewTextBoxColumn {Name = "Series.Name", DataPropertyName = "Series.Name", Width = 150},
+                new DataGridViewFormattedColumn
+                {
+                    Name = "Updated",
+                    DataPropertyName = "UpdatedAt",
+                    ValueType = typeof(DateTime),
+                    Format = "yyyy-MM-dd hh:mm:ss",
+                    Width = 120
+                }
+            );
+        }
+
         public MaterialButton BtnSave => btnSave;
         public MaterialButton BtnDelete => btnDelete;
         public MaterialButton BtnClear => btnClear;
-        public DataGridView Table => table;
+        public SearchableDataGridViewControl Table => table;
     }
 }

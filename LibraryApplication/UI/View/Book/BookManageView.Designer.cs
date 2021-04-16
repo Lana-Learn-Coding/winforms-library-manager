@@ -44,12 +44,11 @@ namespace LibraryApplication.UI.View.Book
             this.txtTitle = new LibraryApplication.UI.Component.TextboxControl();
             this.txtID = new LibraryApplication.UI.Component.TextboxControl();
             this.heading = new MaterialSkin.Controls.MaterialLabel();
-            this.table = new System.Windows.Forms.DataGridView();
+            this.table = new LibraryApplication.UI.Component.Table.SearchableDataGridViewControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -272,16 +271,9 @@ namespace LibraryApplication.UI.View.Book
             // 
             // table
             // 
-            this.table.AllowUserToAddRows = false;
-            this.table.AllowUserToDeleteRows = false;
-            this.table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.table.Dock = System.Windows.Forms.DockStyle.Fill;
             this.table.Location = new System.Drawing.Point(0, 0);
-            this.table.MultiSelect = false;
             this.table.Name = "table";
-            this.table.ReadOnly = true;
-            this.table.RowTemplate.Height = 25;
-            this.table.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.table.Size = new System.Drawing.Size(876, 421);
             this.table.TabIndex = 0;
             // 
@@ -299,7 +291,6 @@ namespace LibraryApplication.UI.View.Book
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -316,10 +307,10 @@ namespace LibraryApplication.UI.View.Book
         private Component.Combobox.PublisherComboboxControl selectPublisher;
         private Component.Combobox.AuthorComboboxControl selectAuthor;
         private Component.ImagePickerControl imgPicker;
-        private System.Windows.Forms.DataGridView table;
         private MaterialSkin.Controls.MaterialButton btnSave;
         private MaterialSkin.Controls.MaterialButton btnClear;
         private MaterialSkin.Controls.MaterialButton btnDelete;
         private MaterialSkin.Controls.MaterialButton btnViewBooks;
+        private Component.Table.SearchableDataGridViewControl table;
     }
 }
