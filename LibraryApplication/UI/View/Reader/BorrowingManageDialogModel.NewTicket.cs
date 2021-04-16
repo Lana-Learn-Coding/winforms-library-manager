@@ -1,4 +1,5 @@
-﻿using System.Reactive;
+﻿using System;
+using System.Reactive;
 using System.Windows;
 using LibraryApplication.Model.Book;
 using ReactiveUI;
@@ -33,6 +34,7 @@ namespace LibraryApplication.UI.View.Reader
                 return;
             }
 
+            NewTicket.BorrowedDate = DateTime.Now;
             NewTicket.Reader = Reader;
             ModelContext.Tickets.Add(NewTicket);
             ModelContext.SaveChanges();

@@ -223,6 +223,7 @@ namespace LibraryApplication.UI.View.Reader
             this.datePickerDueDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.datePickerDueDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datePickerDueDate.Name = "datePickerDueDate";
+            this.datePickerDueDate.Required = true;
             this.datePickerDueDate.Size = new System.Drawing.Size(191, 72);
             this.datePickerDueDate.TabIndex = 48;
             this.datePickerDueDate.Value = new System.DateTime(2021, 4, 16, 1, 38, 26, 714);

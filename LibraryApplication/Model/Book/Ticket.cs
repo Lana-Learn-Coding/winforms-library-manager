@@ -21,7 +21,7 @@ namespace LibraryApplication.Model.Book
 
         [Reactive]
         [Column(TypeName = "Date"), Required]
-        public DateTime BorrowedDate { get; set; } = DateTime.Now;
+        public DateTime BorrowedDate { get; set; }
 
         [Reactive]
         [Column(TypeName = "Date"), Required]
