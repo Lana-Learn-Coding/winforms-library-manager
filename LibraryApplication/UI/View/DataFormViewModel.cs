@@ -88,7 +88,7 @@ namespace LibraryApplication.UI.View
         private void ReloadSelection()
         {
             var entry = Context.Entry(SelectedItem);
-            if (entry.State is EntityState.Detached or EntityState.Unchanged)
+            if (entry.State is not EntityState.Modified)
             {
                 return;
             }
