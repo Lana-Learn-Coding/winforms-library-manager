@@ -132,12 +132,12 @@ namespace LibraryApplication.UI.View.Reader
             this.dateBirthdate.Error = "";
             this.dateBirthdate.Hint = "Reader Birthdate";
             this.dateBirthdate.Label = "Birthdate";
-            this.dateBirthdate.Location = new System.Drawing.Point(361, 214);
+            this.dateBirthdate.Location = new System.Drawing.Point(350, 214);
             this.dateBirthdate.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateBirthdate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dateBirthdate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dateBirthdate.Name = "dateBirthdate";
-            this.dateBirthdate.Size = new System.Drawing.Size(171, 72);
+            this.dateBirthdate.Size = new System.Drawing.Size(182, 72);
             this.dateBirthdate.TabIndex = 47;
             this.dateBirthdate.Value = new System.DateTime(2021, 4, 15, 22, 19, 21, 549);
             // 
@@ -184,7 +184,7 @@ namespace LibraryApplication.UI.View.Reader
             this.txtEmail.Location = new System.Drawing.Point(0, 136);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(181, 72);
+            this.txtEmail.Size = new System.Drawing.Size(185, 72);
             this.txtEmail.TabIndex = 42;
             this.txtEmail.Value = "";
             // 
@@ -209,7 +209,7 @@ namespace LibraryApplication.UI.View.Reader
             this.txtID.Location = new System.Drawing.Point(0, 58);
             this.txtID.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(106, 72);
+            this.txtID.Size = new System.Drawing.Size(110, 72);
             this.txtID.TabIndex = 40;
             this.txtID.Value = "";
             // 
