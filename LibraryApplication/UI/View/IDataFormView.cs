@@ -51,7 +51,6 @@ namespace LibraryApplication.UI.View
                             .Cast<DataGridViewRow>()
                             .First(r => r.Cells[0].Value.Equals(item.Id))
                             .Index;
-                        grid.InvalidateRow(rowIndex);
                         grid.Rows[rowIndex].Selected = true;
                     })
                     .DisposeWith(disposable);
