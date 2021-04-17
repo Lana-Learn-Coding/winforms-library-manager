@@ -29,7 +29,7 @@ namespace LibraryApplication.Model.Book
 
         [Reactive] public Gender Gender { get; set; }
 
-        [Reactive] [Required] public int? Limit { get; set; }
+        [Reactive] [Required] public int? Limit { get; set; } = 10;
 
         [Reactive] [Column(TypeName = "Date")] public DateTime? Birth { get; set; }
 

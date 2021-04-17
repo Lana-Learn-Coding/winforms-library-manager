@@ -27,7 +27,7 @@ namespace LibraryApplication.UI.View.Reader
             this.ValidationRule(
                 model => model.SelectedItem.Limit,
                 year => year > 0,
-                "Year must > 0"
+                "Limit must >= 0"
             );
             this.ValidationRule(
                 model => model.SelectedItem.Gender,
