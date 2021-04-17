@@ -35,8 +35,7 @@ namespace LibraryApplication.UI.View.Reader
             this.tabNewTicket = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bookListControl1 = new LibraryApplication.UI.Component.Table.BookListControl();
-            this.searchBox = new MaterialSkin.Controls.MaterialTextBox();
+            this.addedBBookList = new LibraryApplication.UI.Component.Table.BookListControl();
             this.txtNote = new LibraryApplication.UI.Component.TextboxControl();
             this.datePickerDueDate = new LibraryApplication.UI.Component.DatePickerControl();
             this.txtID = new LibraryApplication.UI.Component.TextboxControl();
@@ -45,7 +44,7 @@ namespace LibraryApplication.UI.View.Reader
             this.txtReaderEmail = new LibraryApplication.UI.Component.TextboxControl();
             this.txtReader = new LibraryApplication.UI.Component.TextboxControl();
             this.headingNewTicket = new MaterialSkin.Controls.MaterialLabel();
-            this.addedBookTable = new System.Windows.Forms.DataGridView();
+            this.availableBookTable = new LibraryApplication.UI.Component.Table.SearchableDataGridViewControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -56,7 +55,6 @@ namespace LibraryApplication.UI.View.Reader
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.addedBookTable)).BeginInit();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.SuspendLayout();
@@ -97,7 +95,7 @@ namespace LibraryApplication.UI.View.Reader
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.addedBookTable);
+            this.splitContainer2.Panel2.Controls.Add(this.availableBookTable);
             this.splitContainer2.Size = new System.Drawing.Size(816, 587);
             this.splitContainer2.SplitterDistance = 298;
             this.splitContainer2.TabIndex = 0;
@@ -105,8 +103,7 @@ namespace LibraryApplication.UI.View.Reader
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.bookListControl1);
-            this.panel1.Controls.Add(this.searchBox);
+            this.panel1.Controls.Add(this.addedBBookList);
             this.panel1.Controls.Add(this.txtNote);
             this.panel1.Controls.Add(this.datePickerDueDate);
             this.panel1.Controls.Add(this.txtID);
@@ -121,30 +118,14 @@ namespace LibraryApplication.UI.View.Reader
             this.panel1.Size = new System.Drawing.Size(816, 298);
             this.panel1.TabIndex = 0;
             // 
-            // bookListControl1
+            // addedBBookList
             // 
-            this.bookListControl1.Location = new System.Drawing.Point(541, 44);
-            this.bookListControl1.MaximumSize = new System.Drawing.Size(275, 500);
-            this.bookListControl1.Name = "bookListControl1";
-            this.bookListControl1.Size = new System.Drawing.Size(275, 195);
-            this.bookListControl1.TabIndex = 48;
-            // 
-            // searchBox
-            // 
-            this.searchBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchBox.Depth = 0;
-            this.searchBox.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.searchBox.Hint = "Search for Book";
-            this.searchBox.Location = new System.Drawing.Point(0, 262);
-            this.searchBox.MaxLength = 50;
-            this.searchBox.MouseState = MaterialSkin.MouseState.OUT;
-            this.searchBox.Multiline = false;
-            this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(816, 36);
-            this.searchBox.TabIndex = 47;
-            this.searchBox.Text = "";
-            this.searchBox.UseAccent = false;
-            this.searchBox.UseTallSize = false;
+            this.addedBBookList.Location = new System.Drawing.Point(541, 44);
+            this.addedBBookList.MaximumSize = new System.Drawing.Size(275, 500);
+            this.addedBBookList.Name = "addedBBookList";
+            this.addedBBookList.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.addedBBookList.Size = new System.Drawing.Size(275, 195);
+            this.addedBBookList.TabIndex = 48;
             // 
             // txtNote
             // 
@@ -265,15 +246,13 @@ namespace LibraryApplication.UI.View.Reader
             this.headingNewTicket.TabIndex = 4;
             this.headingNewTicket.Text = "New Ticket";
             // 
-            // addedBookTable
+            // availableBookTable
             // 
-            this.addedBookTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.addedBookTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addedBookTable.Location = new System.Drawing.Point(0, 0);
-            this.addedBookTable.Name = "addedBookTable";
-            this.addedBookTable.RowTemplate.Height = 25;
-            this.addedBookTable.Size = new System.Drawing.Size(816, 285);
-            this.addedBookTable.TabIndex = 0;
+            this.availableBookTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.availableBookTable.Location = new System.Drawing.Point(0, 0);
+            this.availableBookTable.Name = "availableBookTable";
+            this.availableBookTable.Size = new System.Drawing.Size(816, 285);
+            this.availableBookTable.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -341,7 +320,6 @@ namespace LibraryApplication.UI.View.Reader
             this.splitContainer2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.addedBookTable)).EndInit();
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -355,7 +333,6 @@ namespace LibraryApplication.UI.View.Reader
         private System.Windows.Forms.TabPage tabNewTicket;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView addedBookTable;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.SplitContainer splitContainer1;
@@ -370,7 +347,7 @@ namespace LibraryApplication.UI.View.Reader
         private Component.DatePickerControl datePickerDueDate;
         private Component.TextboxControl txtNote;
         private MaterialSkin.Controls.MaterialButton btnClearNewTicket;
-        private MaterialSkin.Controls.MaterialTextBox searchBox;
-        private Component.Table.BookListControl bookListControl1;
+        private Component.Table.BookListControl addedBBookList;
+        private Component.Table.SearchableDataGridViewControl availableBookTable;
     }
 }
