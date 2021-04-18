@@ -23,6 +23,7 @@ namespace LibraryApplication.UI.View.Reader
         {
             InitializeComponent();
             datePickerDueDate.Required = true;
+            datePickerDueDate.MinDate = DateTime.Now;
             ((IDataFormView<Ticket, TicketManageViewModel>) this).InitializeViewModelBindings();
             this.WhenActivated(disposable =>
             {
