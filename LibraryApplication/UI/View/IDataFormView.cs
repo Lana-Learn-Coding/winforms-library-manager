@@ -12,7 +12,15 @@ using ReactiveUI;
 
 namespace LibraryApplication.UI.View
 {
-    public interface IDataFormView<TE, TVm> : IViewFor<TVm>
+    public interface IDataFormView : IActivatableView
+    {
+        public MaterialButton BtnSave { get; }
+        public MaterialButton BtnDelete { get; }
+        public MaterialButton BtnClear { get; }
+        public SearchableDataGridViewControl Table { get; }
+    }
+
+    public interface IDataFormView<TE, TVm> : IDataFormView, IViewFor<TVm>
         where TE : class, IIdentified, new() where TVm : DataFormViewModel<TE>
     {
         [Browsable(false)]
@@ -22,11 +30,6 @@ namespace LibraryApplication.UI.View
             get => ViewModel;
             set => ViewModel = (TVm) value;
         }
-
-        public MaterialButton BtnSave { get; }
-        public MaterialButton BtnDelete { get; }
-        public MaterialButton BtnClear { get; }
-        public SearchableDataGridViewControl Table { get; }
 
         public void InitializeViewModelBindings()
         {
