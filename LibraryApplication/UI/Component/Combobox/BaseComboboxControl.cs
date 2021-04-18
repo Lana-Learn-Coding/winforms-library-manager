@@ -86,7 +86,7 @@ namespace LibraryApplication.UI.Component.Combobox
 
         private void menuItemNew_Click(object sender, EventArgs e)
         {
-            var input = Microsoft.VisualBasic.Interaction.InputBox("Enter name", "Add new item").Trim();
+            var input = PromptDialog.PromptInput(this, "Enter new item name").Trim();
             if (string.IsNullOrEmpty(input))
             {
                 MessageBox.Show("Empty name. Aborted!");
@@ -109,8 +109,7 @@ namespace LibraryApplication.UI.Component.Combobox
         private void menuItemEdit_Click(object sender, EventArgs e)
         {
             var currentItem = (INamed) comboBox.SelectedItem;
-            var input = Microsoft.VisualBasic.Interaction.InputBox("Enter name",
-                $"Edit item {currentItem.Name}", currentItem.Name).Trim();
+            var input = PromptDialog.PromptInput(this, $"Edit item {currentItem.Name}", currentItem.Name).Trim();
             if (input == currentItem.Name)
             {
                 return;
