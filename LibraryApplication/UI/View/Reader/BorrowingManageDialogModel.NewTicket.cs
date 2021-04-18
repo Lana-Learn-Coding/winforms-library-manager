@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reactive;
 using System.Windows;
-using DynamicData;
 using LibraryApplication.Model.Book;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
@@ -15,17 +14,25 @@ namespace LibraryApplication.UI.View.Reader
         [Reactive] public ObservableCollection<BookItem> BorrowableBooks { get; set; } = new();
         [Reactive] public Ticket NewTicket { get; set; } = new();
 
-        public ReactiveCommand<int, Unit> AddBookToListCommand { get; set; }
-        public ReactiveCommand<Unit, Unit> SaveNewTicketCommand { get; set; }
-        public ReactiveCommand<Unit, Unit> ClearNewTicketCommand { get; set; }
+        public ReactiveCommand<int, Unit> AddBookToListCommand { get; private set; }
+        public ReactiveCommand<Unit, Unit> SaveNewTicketCommand { get; private set; }
+        public ReactiveCommand<Unit, Unit> ClearNewTicketCommand { get; private set; }
+
+        public ReactiveCommand<Unit, Unit> RefreshBorrowableBooksCommand { get; private set; }
 
         private void InitializeNewTicketTab()
         {
-            BorrowableBooks =
-                new ObservableCollection<BookItem>(Context.BookItems.Local.Where(item => item.BorrowingTicket == null));
+            RefreshBorrowableBooks();
             SaveNewTicketCommand = ReactiveCommand.Create(SaveNewTicket);
             ClearNewTicketCommand = ReactiveCommand.Create(ClearNewTicket);
             AddBookToListCommand = ReactiveCommand.Create<int>(AddSelectedBookToList);
+            RefreshBorrowableBooksCommand = ReactiveCommand.Create(RefreshBorrowableBooks);
+        }
+
+        private void RefreshBorrowableBooks()
+        {
+            BorrowableBooks =
+                new ObservableCollection<BookItem>(Context.BookItems.Local.Where(item => item.BorrowingTicket == null));
         }
 
         private void AddSelectedBookToList(int id)
@@ -57,14 +64,20 @@ namespace LibraryApplication.UI.View.Reader
                 return;
             }
 
+            foreach (var bookItem in NewTicket.BookItems)
+            {
+                bookItem.BorrowingTicket = NewTicket;
+                Context.Entry(bookItem).CurrentValues.SetValues(bookItem);
+                BorrowableBooks.Remove(bookItem);
+            }
+
             NewTicket.BorrowedDate = DateTime.Now;
             NewTicket.Reader = Reader;
             Context.Tickets.Add(NewTicket);
             Context.SaveChanges();
             MessageBox.Show($"Ticket {NewTicket.Id} created. Due date: {NewTicket.DueDate.Value:yyyy-MM-dd}",
                 "Success");
-            BorrowableBooks.RemoveMany(NewTicket.BookItems);
-            ClearNewTicket();
+            NewTicket = new Ticket();
         }
 
         private void ClearNewTicket()

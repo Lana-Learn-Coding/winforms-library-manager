@@ -35,10 +35,14 @@ namespace LibraryApplication.UI.View.Reader
                     .BindTo(this, v => v.addedBBookList.DataSource)
                     .DisposeWith(disposable);
 
-                tabControl.Events().SelectedIndexChanged
+                var selectChanged = tabControl.Events().SelectedIndexChanged
                     .Where(x => tabControl.SelectedTab == tabNewTicket)
-                    .Select(x => Unit.Default)
-                    .InvokeCommand(ViewModel, vm => vm.ClearNewTicketCommand)
+                    .Select(x => Unit.Default);
+
+                selectChanged.InvokeCommand(ViewModel, vm => vm.ClearNewTicketCommand)
+                    .DisposeWith(disposable);
+
+                selectChanged.InvokeCommand(ViewModel, vm => vm.RefreshBorrowableBooksCommand)
                     .DisposeWith(disposable);
 
                 availableBookTable.Grid.Events().CellClick
