@@ -37,14 +37,18 @@ namespace LibraryApplication.UI.View
             this.WhenActivated(disposable =>
             {
                 this.WhenAnyValue(view => view.ViewModel.Items)
+                    .Where(items => items != null)
+                    .DistinctUntilChanged()
                     .Select(items => items.ToBindingList())
                     .BindTo(this, view => view.Table.Grid.DataSource)
                     .DisposeWith(disposable);
-                this.WhenAnyValue(view => view.ViewModel.SelectedItem)
+
+                this.WhenAnyValue(view => view.ViewModel.SelectedItem.Id)
+                    .DistinctUntilChanged()
                     .Subscribe(item =>
                     {
                         var grid = Table.Grid;
-                        if (item?.Id == null)
+                        if (item == null)
                         {
                             grid.ClearSelection();
                             return;
@@ -52,7 +56,7 @@ namespace LibraryApplication.UI.View
 
                         var rowIndex = grid.Rows
                             .Cast<DataGridViewRow>()
-                            .First(r => r.Cells[0].Value.Equals(item.Id))
+                            .First(r => r.Cells[0].Value.Equals(item))
                             .Index;
                         grid.Rows[rowIndex].Selected = true;
                     })
@@ -64,11 +68,19 @@ namespace LibraryApplication.UI.View
                     .DisposeWith(disposable);
                 this.BindCommand(ViewModel, model => model.DeleteCommand, view => view.BtnDelete)
                     .DisposeWith(disposable);
-                this.BindCommand(ViewModel,
-                        model => model.SelectCommand,
-                        view => view.Table.Grid,
-                        this.WhenAnyValue(view => view.Table.Grid),
-                        "SelectionChanged")
+
+                Table.Grid.Events().SelectionChanged
+                    .Select(_ =>
+                    {
+                        var selectedRows = Table.Grid.SelectedRows;
+                        var rowsCount = selectedRows.Count;
+                        if (rowsCount is 0 or > 1) return 0;
+                        var row = selectedRows[0];
+                        return row == null ? 0 : int.Parse(row.Cells[0]?.Value?.ToString() ?? "0");
+                    })
+                    .Where(id => id != 0)
+                    .DistinctUntilChanged()
+                    .InvokeCommand(ViewModel, m => m.SelectCommand)
                     .DisposeWith(disposable);
             });
         }

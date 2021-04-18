@@ -25,7 +25,7 @@ namespace LibraryApplication.UI.View
         [Reactive] public ObservableCollection<T> Items { get; set; }
 
         [Reactive] public bool IsUpdating { get; set; }
-        public ReactiveCommand<DataGridView, Unit> SelectCommand { get; }
+        public ReactiveCommand<int, Unit> SelectCommand { get; }
 
         public ReactiveCommand<Unit, Unit> ClearCommand { get; }
         public ReactiveCommand<Unit, Unit> SaveCommand { get; }
@@ -46,7 +46,7 @@ namespace LibraryApplication.UI.View
             });
 
             SaveCommand = ReactiveCommand.Create(Save, ValidationContext.Valid);
-            SelectCommand = ReactiveCommand.Create<DataGridView>(OnRowSelected);
+            SelectCommand = ReactiveCommand.Create<int>(OnSelected);
             ClearCommand = ReactiveCommand.Create(ClearSelection);
 
             var isSelected = this.WhenAnyValue(model => model.IsUpdating);
@@ -54,14 +54,8 @@ namespace LibraryApplication.UI.View
             RefreshSelectionCommand = ReactiveCommand.Create(RefreshSelection, isSelected);
         }
 
-        private void OnRowSelected(DataGridView table)
+        private void OnSelected(int id)
         {
-            var selectedRows = table.SelectedRows;
-            var rowsCount = selectedRows.Count;
-            if (rowsCount is 0 or > 1) return;
-            var row = selectedRows[0];
-            if (row == null) return;
-            var id = int.Parse(row.Cells[0]?.Value?.ToString() ?? "0");
             if (id <= 0)
             {
                 ClearSelection();
