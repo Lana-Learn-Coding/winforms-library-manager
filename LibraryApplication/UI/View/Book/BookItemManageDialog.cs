@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Reactive.Disposables;
+using System.Windows.Forms;
 using LibraryApplication.Model.Book;
 using LibraryApplication.UI.Component.Table;
 using MaterialSkin.Controls;
@@ -16,6 +17,7 @@ namespace LibraryApplication.UI.View.Book
         public BookItemManageDialog(BookMeta bookMeta)
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterParent;
             selectPosition.InitializeDataSource();
             selectStorage.InitializeDataSource();
             txtMeta.Value = $"{bookMeta.Id.ToString()} - {bookMeta.Title}";

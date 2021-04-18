@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 using MaterialSkin.Controls;
 using ReactiveUI;
 
@@ -9,6 +10,7 @@ namespace LibraryApplication.UI.View.Reader
         public BorrowingManageDialog(Model.Book.Reader reader)
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterParent;
             Text = $"Borrow Manage - {reader.Name}";
             txtReader.Value = $"{reader.Id} - {reader.Name}";
             txtReaderEmail.Value = $"{reader.Email}";
