@@ -19,8 +19,9 @@ namespace LibraryApplication.UI
                     .DisposeWith(disposables);
 
                 mainTabControl.Events().SelectedIndexChanged
-                    .Where(_ => mainTabControl.SelectedTab.Controls[0] is IDataFormView)
-                    .Select(_ => mainTabControl.SelectedTab.Controls[0] as IDataFormView)
+                    .Select(_ => mainTabControl.SelectedTab.Controls)
+                    .Where(controls => controls.Count > 0 && controls[0] is IDataFormView)
+                    .Select(controls => controls[0] as IDataFormView)
                     .Subscribe(form => { form.Table.Refresh(); })
                     .DisposeWith(disposables);
             });
