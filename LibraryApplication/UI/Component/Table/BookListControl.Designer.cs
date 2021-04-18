@@ -56,9 +56,6 @@ namespace LibraryApplication.UI.Component.Table
             this.table.AutoSizeTable = false;
             this.table.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.table.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.table.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colID,
-            this.ColTitle});
             this.table.Depth = 0;
             this.table.FullRowSelect = true;
             this.table.HideSelection = false;
@@ -72,16 +69,6 @@ namespace LibraryApplication.UI.Component.Table
             this.table.TabIndex = 1;
             this.table.UseCompatibleStateImageBehavior = false;
             this.table.View = System.Windows.Forms.View.Details;
-            // 
-            // colID
-            // 
-            this.colID.Text = "ID";
-            this.colID.Width = 75;
-            // 
-            // ColTitle
-            // 
-            this.ColTitle.Text = "Title";
-            this.ColTitle.Width = 200;
             // 
             // BookListControl
             // 
