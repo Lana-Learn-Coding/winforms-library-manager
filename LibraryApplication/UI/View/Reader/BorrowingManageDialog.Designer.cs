@@ -46,7 +46,7 @@ namespace LibraryApplication.UI.View.Reader
             this.headingNewTicket = new MaterialSkin.Controls.MaterialLabel();
             this.availableBookTable = new LibraryApplication.UI.Component.Table.SearchableDataGridViewControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabBorrowManage = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.checkSafe = new System.Windows.Forms.CheckBox();
@@ -63,7 +63,7 @@ namespace LibraryApplication.UI.View.Reader
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabBorrowManage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -276,17 +276,17 @@ namespace LibraryApplication.UI.View.Reader
             this.tabPage2.Text = "Borrowing History";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tabPage1
+            // tabBorrowManage
             // 
-            this.tabPage1.Controls.Add(this.splitContainer1);
-            this.tabPage1.ImageKey = "outline_style_black_24dp.png";
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(10);
-            this.tabPage1.Size = new System.Drawing.Size(836, 607);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Borrowing Manage";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabBorrowManage.Controls.Add(this.splitContainer1);
+            this.tabBorrowManage.ImageKey = "outline_style_black_24dp.png";
+            this.tabBorrowManage.Location = new System.Drawing.Point(4, 24);
+            this.tabBorrowManage.Name = "tabBorrowManage";
+            this.tabBorrowManage.Padding = new System.Windows.Forms.Padding(10);
+            this.tabBorrowManage.Size = new System.Drawing.Size(836, 607);
+            this.tabBorrowManage.TabIndex = 0;
+            this.tabBorrowManage.Text = "Borrowing Manage";
+            this.tabBorrowManage.UseVisualStyleBackColor = true;
             // 
             // splitContainer1
             // 
@@ -437,7 +437,7 @@ namespace LibraryApplication.UI.View.Reader
             // 
             // tabControl
             // 
-            this.tabControl.Controls.Add(this.tabPage1);
+            this.tabControl.Controls.Add(this.tabBorrowManage);
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Controls.Add(this.tabNewTicket);
             this.tabControl.Depth = 0;
@@ -469,7 +469,7 @@ namespace LibraryApplication.UI.View.Reader
             this.splitContainer2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
+            this.tabBorrowManage.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -486,7 +486,7 @@ namespace LibraryApplication.UI.View.Reader
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabBorrowManage;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private MaterialSkin.Controls.MaterialTabControl tabControl;
         private MaterialSkin.Controls.MaterialLabel heading;

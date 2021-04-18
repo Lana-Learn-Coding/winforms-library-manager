@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq;
+using System.Reactive;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Windows.Forms;
@@ -60,8 +61,13 @@ namespace LibraryApplication.UI.View.Reader
                 this.BindCommand(ViewModel, vm => vm.ExtendTicketDueDateCommand,
                         v => v.btnExtendTicketDueDate)
                     .DisposeWith(disposable);
-            });
 
+                tabControl.Events().SelectedIndexChanged
+                    .Where(x => tabControl.SelectedTab == tabBorrowManage)
+                    .Select(x => Unit.Default)
+                    .InvokeCommand(ViewModel, vm => vm.RefreshBorrowedBooksCommand)
+                    .DisposeWith(disposable);
+            });
 
             borrowedBookTable.Grid.AutoGenerateColumns = false;
             borrowedBookTable.Grid.Columns.AddRange(
