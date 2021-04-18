@@ -20,8 +20,10 @@ namespace LibraryApplication.UI.Component.Table
                     _dataSource.ListChanged -= OnListChanged;
                 }
 
+                if (value == null) return;
                 _dataSource = value;
                 _dataSource.ListChanged += OnListChanged;
+                RefreshItems();
             }
         }
 
@@ -38,11 +40,16 @@ namespace LibraryApplication.UI.Component.Table
 
         private void OnListChanged(object sender, ListChangedEventArgs e)
         {
+            RefreshItems();
+        }
+
+        private void RefreshItems()
+        {
+            table.Items.Clear();
             var items = _dataSource
                 .Select(bookItem => { return new[] {bookItem.Id.ToString(), bookItem.BookMeta.Title}; })
                 .Select(item => new ListViewItem(item))
                 .ToArray();
-            table.Items.Clear();
             table.Items.AddRange(items);
         }
     }
