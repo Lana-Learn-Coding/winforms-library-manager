@@ -1,9 +1,9 @@
 ﻿using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 
-namespace LibraryApplication.UI
+namespace LibraryApplication.UI.View.App
 {
-    public class AppViewModel : ReactiveObject, IAppViewModel
+    public class AppViewModel : ReactiveObject
     {
         [Reactive] public string ApplicationTitle { get; set; }
 

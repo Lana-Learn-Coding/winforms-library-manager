@@ -1,5 +1,5 @@
 ﻿
-namespace LibraryApplication.UI
+namespace LibraryApplication.UI.View.App
 {
     partial class AppView
     {
