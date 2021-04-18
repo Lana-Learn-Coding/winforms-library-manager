@@ -48,6 +48,14 @@ namespace LibraryApplication.UI.View.Reader
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.checkSafe = new System.Windows.Forms.CheckBox();
+            this.btnRemoveBook = new MaterialSkin.Controls.MaterialButton();
+            this.btnExtendTicketDueDate = new MaterialSkin.Controls.MaterialButton();
+            this.btnExtendDueDate = new MaterialSkin.Controls.MaterialButton();
+            this.btnReturnTicket = new MaterialSkin.Controls.MaterialButton();
+            this.btnReturnBook = new MaterialSkin.Controls.MaterialButton();
+            this.borrowedBookTable = new LibraryApplication.UI.Component.Table.SearchableDataGridViewControl();
             this.tabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabNewTicket.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -57,6 +65,8 @@ namespace LibraryApplication.UI.View.Reader
             this.panel1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.SuspendLayout();
@@ -97,7 +107,7 @@ namespace LibraryApplication.UI.View.Reader
             // 
             this.splitContainer2.Panel2.Controls.Add(this.availableBookTable);
             this.splitContainer2.Size = new System.Drawing.Size(816, 587);
-            this.splitContainer2.SplitterDistance = 298;
+            this.splitContainer2.SplitterDistance = 260;
             this.splitContainer2.TabIndex = 0;
             // 
             // panel1
@@ -115,11 +125,12 @@ namespace LibraryApplication.UI.View.Reader
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(816, 298);
+            this.panel1.Size = new System.Drawing.Size(816, 260);
             this.panel1.TabIndex = 0;
             // 
             // addedBBookList
             // 
+            this.addedBBookList.DataSource = null;
             this.addedBBookList.Location = new System.Drawing.Point(541, 44);
             this.addedBBookList.MaximumSize = new System.Drawing.Size(275, 500);
             this.addedBBookList.Name = "addedBBookList";
@@ -251,7 +262,7 @@ namespace LibraryApplication.UI.View.Reader
             this.availableBookTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.availableBookTable.Location = new System.Drawing.Point(0, 0);
             this.availableBookTable.Name = "availableBookTable";
-            this.availableBookTable.Size = new System.Drawing.Size(816, 285);
+            this.availableBookTable.Size = new System.Drawing.Size(816, 323);
             this.availableBookTable.TabIndex = 0;
             // 
             // tabPage2
@@ -271,7 +282,7 @@ namespace LibraryApplication.UI.View.Reader
             this.tabPage1.ImageKey = "outline_style_black_24dp.png";
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(10);
             this.tabPage1.Size = new System.Drawing.Size(836, 607);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Borrowing Manage";
@@ -279,12 +290,150 @@ namespace LibraryApplication.UI.View.Reader
             // 
             // splitContainer1
             // 
+            this.splitContainer1.BackColor = System.Drawing.Color.White;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer1.Location = new System.Drawing.Point(10, 10);
             this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Size = new System.Drawing.Size(830, 601);
-            this.splitContainer1.SplitterDistance = 276;
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.materialLabel1);
+            this.splitContainer1.Panel1.Controls.Add(this.checkSafe);
+            this.splitContainer1.Panel1.Controls.Add(this.btnRemoveBook);
+            this.splitContainer1.Panel1.Controls.Add(this.btnExtendTicketDueDate);
+            this.splitContainer1.Panel1.Controls.Add(this.btnExtendDueDate);
+            this.splitContainer1.Panel1.Controls.Add(this.btnReturnTicket);
+            this.splitContainer1.Panel1.Controls.Add(this.btnReturnBook);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.borrowedBookTable);
+            this.splitContainer1.Size = new System.Drawing.Size(816, 587);
+            this.splitContainer1.SplitterDistance = 130;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.materialLabel1.Location = new System.Drawing.Point(0, 0);
+            this.materialLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(258, 29);
+            this.materialLabel1.TabIndex = 6;
+            this.materialLabel1.Text = "Manage Borrowed Book";
+            // 
+            // checkSafe
+            // 
+            this.checkSafe.AutoSize = true;
+            this.checkSafe.Location = new System.Drawing.Point(699, 89);
+            this.checkSafe.Name = "checkSafe";
+            this.checkSafe.Size = new System.Drawing.Size(114, 19);
+            this.checkSafe.TabIndex = 5;
+            this.checkSafe.Text = "Safe Action Only";
+            this.checkSafe.UseVisualStyleBackColor = true;
+            // 
+            // btnRemoveBook
+            // 
+            this.btnRemoveBook.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnRemoveBook.Depth = 0;
+            this.btnRemoveBook.DrawShadows = true;
+            this.btnRemoveBook.HighEmphasis = true;
+            this.btnRemoveBook.Icon = null;
+            this.btnRemoveBook.Location = new System.Drawing.Point(266, 44);
+            this.btnRemoveBook.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnRemoveBook.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnRemoveBook.Name = "btnRemoveBook";
+            this.btnRemoveBook.Size = new System.Drawing.Size(122, 36);
+            this.btnRemoveBook.TabIndex = 4;
+            this.btnRemoveBook.Text = "Remove Book";
+            this.btnRemoveBook.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnRemoveBook.UseAccentColor = true;
+            this.btnRemoveBook.UseVisualStyleBackColor = true;
+            // 
+            // btnExtendTicketDueDate
+            // 
+            this.btnExtendTicketDueDate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnExtendTicketDueDate.Depth = 0;
+            this.btnExtendTicketDueDate.DrawShadows = true;
+            this.btnExtendTicketDueDate.HighEmphasis = true;
+            this.btnExtendTicketDueDate.Icon = null;
+            this.btnExtendTicketDueDate.Location = new System.Drawing.Point(614, 44);
+            this.btnExtendTicketDueDate.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnExtendTicketDueDate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnExtendTicketDueDate.Name = "btnExtendTicketDueDate";
+            this.btnExtendTicketDueDate.Size = new System.Drawing.Size(202, 36);
+            this.btnExtendTicketDueDate.TabIndex = 3;
+            this.btnExtendTicketDueDate.Text = "Extend Ticket Due Date";
+            this.btnExtendTicketDueDate.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnExtendTicketDueDate.UseAccentColor = false;
+            this.btnExtendTicketDueDate.UseVisualStyleBackColor = true;
+            // 
+            // btnExtendDueDate
+            // 
+            this.btnExtendDueDate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnExtendDueDate.Depth = 0;
+            this.btnExtendDueDate.DrawShadows = true;
+            this.btnExtendDueDate.HighEmphasis = true;
+            this.btnExtendDueDate.Icon = null;
+            this.btnExtendDueDate.Location = new System.Drawing.Point(458, 44);
+            this.btnExtendDueDate.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnExtendDueDate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnExtendDueDate.Name = "btnExtendDueDate";
+            this.btnExtendDueDate.Size = new System.Drawing.Size(148, 36);
+            this.btnExtendDueDate.TabIndex = 2;
+            this.btnExtendDueDate.Text = "Extend Due Date";
+            this.btnExtendDueDate.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnExtendDueDate.UseAccentColor = false;
+            this.btnExtendDueDate.UseVisualStyleBackColor = true;
+            // 
+            // btnReturnTicket
+            // 
+            this.btnReturnTicket.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnReturnTicket.Depth = 0;
+            this.btnReturnTicket.DrawShadows = true;
+            this.btnReturnTicket.HighEmphasis = true;
+            this.btnReturnTicket.Icon = null;
+            this.btnReturnTicket.Location = new System.Drawing.Point(128, 44);
+            this.btnReturnTicket.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnReturnTicket.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnReturnTicket.Name = "btnReturnTicket";
+            this.btnReturnTicket.Size = new System.Drawing.Size(130, 36);
+            this.btnReturnTicket.TabIndex = 1;
+            this.btnReturnTicket.Text = "Return Ticket";
+            this.btnReturnTicket.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnReturnTicket.UseAccentColor = false;
+            this.btnReturnTicket.UseVisualStyleBackColor = true;
+            // 
+            // btnReturnBook
+            // 
+            this.btnReturnBook.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnReturnBook.Depth = 0;
+            this.btnReturnBook.DrawShadows = true;
+            this.btnReturnBook.HighEmphasis = true;
+            this.btnReturnBook.Icon = null;
+            this.btnReturnBook.Location = new System.Drawing.Point(0, 44);
+            this.btnReturnBook.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnReturnBook.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnReturnBook.Name = "btnReturnBook";
+            this.btnReturnBook.Size = new System.Drawing.Size(120, 36);
+            this.btnReturnBook.TabIndex = 0;
+            this.btnReturnBook.Text = "Return Book";
+            this.btnReturnBook.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnReturnBook.UseAccentColor = false;
+            this.btnReturnBook.UseVisualStyleBackColor = true;
+            // 
+            // borrowedBookTable
+            // 
+            this.borrowedBookTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.borrowedBookTable.Location = new System.Drawing.Point(0, 0);
+            this.borrowedBookTable.Name = "borrowedBookTable";
+            this.borrowedBookTable.Size = new System.Drawing.Size(816, 453);
+            this.borrowedBookTable.TabIndex = 0;
             // 
             // tabControl
             // 
@@ -321,6 +470,9 @@ namespace LibraryApplication.UI.View.Reader
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabPage1.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
@@ -349,5 +501,13 @@ namespace LibraryApplication.UI.View.Reader
         private MaterialSkin.Controls.MaterialButton btnClearNewTicket;
         private Component.Table.BookListControl addedBBookList;
         private Component.Table.SearchableDataGridViewControl availableBookTable;
+        private Component.Table.SearchableDataGridViewControl borrowedBookTable;
+        private MaterialSkin.Controls.MaterialButton btnReturnBook;
+        private MaterialSkin.Controls.MaterialButton btnReturnTicket;
+        private MaterialSkin.Controls.MaterialButton btnExtendDueDate;
+        private MaterialSkin.Controls.MaterialButton btnExtendTicketDueDate;
+        private MaterialSkin.Controls.MaterialButton btnRemoveBook;
+        private System.Windows.Forms.CheckBox checkSafe;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
     }
 }
