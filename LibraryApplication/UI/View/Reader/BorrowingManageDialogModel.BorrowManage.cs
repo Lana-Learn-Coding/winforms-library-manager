@@ -5,6 +5,7 @@ using System.Reactive;
 using System.Reactive.Linq;
 using System.Windows.Forms;
 using LibraryApplication.Model.Book;
+using LibraryApplication.UI.Component;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 
@@ -22,8 +23,6 @@ namespace LibraryApplication.UI.View.Reader
         public ReactiveCommand<Unit, Unit> ExtendTicketDueDateCommand { get; private set; }
         public ReactiveCommand<Unit, Unit> RefreshBorrowedBooksCommand { get; set; }
 
-        public Interaction<DateTime, DateTime> AskDateInteraction { get; private set; } = new();
-
         private void InitializeBorrowManageTab()
         {
             RefreshBorrowedBooks();
@@ -40,8 +39,9 @@ namespace LibraryApplication.UI.View.Reader
             ReturnBookCommand = ReactiveCommand.Create(ReturnBook, isNotEmpty);
             ReturnTicketCommand = ReactiveCommand.Create(ReturnTicket, isNotEmpty);
 
-            ExtendDueDateCommand = ReactiveCommand.Create(ExtendDueDate, isNotEmpty);
-            ExtendTicketDueDateCommand = ReactiveCommand.Create(ExtendTicketDueDate, isNotEmpty);
+            ExtendDueDateCommand = ReactiveCommand.Create(() => { ExtendDueDate(AskDueDate()); }, isNotEmpty);
+            ExtendTicketDueDateCommand =
+                ReactiveCommand.Create(() => { ExtendTicketDueDate(AskDueDate()); }, isNotEmpty);
             RefreshBorrowedBooksCommand = ReactiveCommand.Create(RefreshBorrowedBooks);
         }
 
@@ -130,12 +130,60 @@ namespace LibraryApplication.UI.View.Reader
             SelectedBorrowedBook = new BookItem();
         }
 
-        private async void ExtendTicketDueDate()
+        private void ExtendTicketDueDate(DateTime newDate)
         {
+            var ticket = SelectedBorrowedBook.BorrowingTicket;
+            if (newDate == ticket.DueDate)
+            {
+                return;
+            }
+
+            ticket.DueDate = newDate;
+            Context.Entry(ticket).CurrentValues.SetValues(ticket);
+            Context.SaveChanges();
         }
 
-        private void ExtendDueDate()
+        private void ExtendDueDate(DateTime newDate)
         {
+            var bookItem = SelectedBorrowedBook;
+            var borrowingTicket = SelectedBorrowedBook.BorrowingTicket;
+            if (borrowingTicket.BookItems.Count == 1)
+            {
+                ExtendTicketDueDate(newDate);
+                return;
+            }
+
+            if (newDate == borrowingTicket.DueDate)
+            {
+                return;
+            }
+
+            var result = MessageBox.Show("This will create new ticket", "Confirm",
+                MessageBoxButtons.YesNo);
+            if (result != DialogResult.Yes) return;
+
+            borrowingTicket.BookItems.Remove(bookItem);
+            var ticket = new Ticket
+            {
+                BookItems = new ObservableCollection<BookItem> {bookItem},
+                BorrowedDate = borrowingTicket.BorrowedDate,
+                DueDate = newDate,
+                Parent = borrowingTicket,
+                Reader = borrowingTicket.Reader
+            };
+            bookItem.BorrowingTicket = ticket;
+
+            Context.Tickets.Add(ticket);
+            Context.Entry(bookItem).CurrentValues.SetValues(bookItem);
+            Context.SaveChanges();
+        }
+
+        private DateTime AskDueDate()
+        {
+            var currentDueDate = SelectedBorrowedBook.DueDate ?? DateTime.Now;
+            var newDate = PromptDialog.PromptDatePicker(null, "Select new due date", currentDueDate,
+                currentDueDate);
+            return newDate ?? currentDueDate;
         }
     }
 }

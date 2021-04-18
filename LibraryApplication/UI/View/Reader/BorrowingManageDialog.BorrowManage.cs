@@ -5,6 +5,7 @@ using System.Reactive;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Windows.Forms;
+using LibraryApplication.Model.Book;
 using LibraryApplication.UI.Component.Table;
 using ReactiveUI;
 
@@ -24,12 +25,27 @@ namespace LibraryApplication.UI.View.Reader
                         var row = selectedRows[0];
                         return int.Parse(row.Cells[0]?.Value?.ToString() ?? "0");
                     })
-                    .Where(id => id > 0)
                     .DistinctUntilChanged()
-                    .Select(id => ViewModel.Reader.Tickets.Where(ticket => !ticket.isReturned)
-                        .SelectMany(ticket => ticket.BookItems)
-                        .First(item => item.Id == id))
+                    .Select(id =>
+                    {
+                        if (id == 0) return new BookItem();
+                        return ViewModel.Reader.Tickets.Where(ticket => !ticket.isReturned)
+                            .SelectMany(ticket => ticket.BookItems)
+                            .First(item => item.Id == id);
+                    })
                     .BindTo(this, v => v.ViewModel.SelectedBorrowedBook)
+                    .DisposeWith(disposable);
+
+                ViewModel.ExtendDueDateCommand.IsExecuting
+                    .Skip(1)
+                    .Where(val => !val)
+                    .Subscribe(_ => borrowedBookTable.Grid.Refresh())
+                    .DisposeWith(disposable);
+
+                ViewModel.ExtendTicketDueDateCommand.IsExecuting
+                    .Skip(1)
+                    .Where(val => !val)
+                    .Subscribe(_ => borrowedBookTable.Grid.Refresh())
                     .DisposeWith(disposable);
 
                 borrowedBookTable.Grid.Events().DataBindingComplete
