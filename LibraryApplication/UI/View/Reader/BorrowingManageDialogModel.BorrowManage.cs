@@ -20,8 +20,9 @@ namespace LibraryApplication.UI.View.Reader
         public ReactiveCommand<Unit, Unit> ReturnTicketCommand { get; private set; }
         public ReactiveCommand<Unit, Unit> ExtendDueDateCommand { get; private set; }
         public ReactiveCommand<Unit, Unit> ExtendTicketDueDateCommand { get; private set; }
-
         public ReactiveCommand<Unit, Unit> RefreshBorrowedBooksCommand { get; set; }
+
+        public Interaction<DateTime, DateTime> AskDateInteraction { get; private set; } = new();
 
         private void InitializeBorrowManageTab()
         {
@@ -39,8 +40,8 @@ namespace LibraryApplication.UI.View.Reader
             ReturnBookCommand = ReactiveCommand.Create(ReturnBook, isNotEmpty);
             ReturnTicketCommand = ReactiveCommand.Create(ReturnTicket, isNotEmpty);
 
-            ExtendDueDateCommand = ReactiveCommand.Create(ReturnTicket, isNotEmpty);
-            ExtendTicketDueDateCommand = ReactiveCommand.Create(ReturnTicket, isNotEmpty);
+            ExtendDueDateCommand = ReactiveCommand.Create(ExtendDueDate, isNotEmpty);
+            ExtendTicketDueDateCommand = ReactiveCommand.Create(ExtendTicketDueDate, isNotEmpty);
             RefreshBorrowedBooksCommand = ReactiveCommand.Create(RefreshBorrowedBooks);
         }
 
@@ -68,6 +69,7 @@ namespace LibraryApplication.UI.View.Reader
 
             Context.BookItems.Remove(bookItem);
             Context.SaveChanges();
+            SelectedBorrowedBook = new BookItem();
         }
 
         private void ReturnBook()
@@ -101,6 +103,7 @@ namespace LibraryApplication.UI.View.Reader
             Context.Tickets.Add(ticket);
             Context.Entry(bookItem).CurrentValues.SetValues(bookItem);
             Context.SaveChanges();
+            SelectedBorrowedBook = new BookItem();
         }
 
         private void ReturnTicket()
@@ -124,6 +127,15 @@ namespace LibraryApplication.UI.View.Reader
             ticket.ReturnedDate = DateTime.Now;
             Context.Entry(ticket).CurrentValues.SetValues(ticket);
             Context.SaveChanges();
+            SelectedBorrowedBook = new BookItem();
+        }
+
+        private async void ExtendTicketDueDate()
+        {
+        }
+
+        private void ExtendDueDate()
+        {
         }
     }
 }
