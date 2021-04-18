@@ -1,13 +1,19 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data.Entity;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Windows.Forms;
+using DynamicData.Kernel;
+using LibraryApplication.Model;
 using LibraryApplication.Model.Book;
+using LibraryApplication.UI.Component;
 using LibraryApplication.UI.Component.Table;
 using MaterialSkin.Controls;
 using ReactiveUI;
+using Splat;
+using MessageBox = System.Windows.MessageBox;
 
 namespace LibraryApplication.UI.View.Reader
 {
@@ -52,6 +58,53 @@ namespace LibraryApplication.UI.View.Reader
                     .DisposeWith(disposable);
 
                 this.BindCommand(ViewModel, model => model.ReturnBookCommand, view => view.btnReturn)
+                    .DisposeWith(disposable);
+
+                this.BindCommand(ViewModel, model => model.ToggleBorrowBookCommand, view => view.btnBorrow)
+                    .DisposeWith(disposable);
+
+                var context = Locator.Current.GetService<ModelContext>();
+                this.WhenAnyValue(v => v.ViewModel.ShowBorrowBookDialog)
+                    .Subscribe(show =>
+                    {
+                        if (!show || !ViewModel.IsUpdating) return;
+                        ViewModel.ShowBorrowBookDialog = false;
+                        var query = PromptDialog.PromptInput(this, "Enter reader phone, email, or id:");
+                        if (query == null)
+                        {
+                            return;
+                        }
+
+                        if (string.IsNullOrWhiteSpace(query))
+                        {
+                            MessageBox.Show("Please enter something", "Error");
+                            return;
+                        }
+
+                        query = query.Trim();
+                        var reader = context.Readers.Local.FirstOrOptional(model =>
+                        {
+                            try
+                            {
+                                var id = int.Parse(query);
+                                return model.Id == id || model.PhoneNumber.Equals(query);
+                            }
+                            catch (Exception e)
+                            {
+                                return model.Email.Equals(query);
+                            }
+                        });
+
+                        if (reader.HasValue)
+                        {
+                            var form = new BorrowingManageDialog(reader.Value);
+                            form.ShowDialog(this);
+                            ViewModel.RefreshSelectionCommand.Execute();
+                            return;
+                        }
+
+                        MessageBox.Show("Reader not found!", "error");
+                    })
                     .DisposeWith(disposable);
             });
         }

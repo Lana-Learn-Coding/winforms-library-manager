@@ -4,12 +4,16 @@ using System.Reactive.Linq;
 using System.Windows.Forms;
 using LibraryApplication.Model.Book;
 using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 using ReactiveUI.Validation.Extensions;
 
 namespace LibraryApplication.UI.View.Reader
 {
     public class TicketManageViewModel : DataFormViewModel<Ticket>
     {
+        [Reactive] public bool ShowBorrowBookDialog { get; set; }
+
+        public readonly ReactiveCommand<Unit, bool> ToggleBorrowBookCommand;
         public readonly ReactiveCommand<Unit, Unit> ReturnBookCommand;
 
         public TicketManageViewModel()
@@ -24,6 +28,10 @@ namespace LibraryApplication.UI.View.Reader
             var isReturnable = this.WhenAnyValue(model => model.SelectedItem)
                 .Select(ticket => ticket.Id != null && !ticket.ReturnedDate.HasValue);
             ReturnBookCommand = ReactiveCommand.Create(ReturnTicket, isReturnable);
+
+            var isSelected = this.WhenAnyValue(model => model.IsUpdating);
+            ToggleBorrowBookCommand =
+                ReactiveCommand.Create(() => ShowBorrowBookDialog = !ShowBorrowBookDialog, isSelected);
         }
 
         private void ReturnTicket()
