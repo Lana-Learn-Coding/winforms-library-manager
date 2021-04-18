@@ -65,6 +65,10 @@ namespace LibraryApplication.Model.Book
 
         [NotMapped] public bool IsBorrowed => BorrowingTicket != null;
 
+        [NotMapped] public DateTime? BorrowedDate => BorrowingTicket?.BorrowedDate;
+
+        [NotMapped] public DateTime? DueDate => BorrowingTicket?.DueDate;
+
         public override string ToString()
         {
             return $"Book [{Id}] - {BookMeta.Title}";
