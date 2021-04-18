@@ -56,10 +56,17 @@ namespace LibraryApplication.UI.View.Reader
             var result = MessageBox.Show($"Are you sure delete book {SelectedBorrowedBook.Id}?", "Warning",
                 MessageBoxButtons.YesNo);
             if (result != DialogResult.Yes) return;
+            var bookItem = SelectedBorrowedBook;
+            var borrowingTicket = bookItem.BorrowingTicket;
 
-            SelectedBorrowedBook.BorrowingTicket.BookItems.Remove(SelectedBorrowedBook);
             BorrowedBooks.Remove(SelectedBorrowedBook);
-            Context.BookItems.Remove(SelectedBorrowedBook);
+            borrowingTicket.BookItems.Remove(bookItem);
+            if (borrowingTicket.BookItems.Count == 0)
+            {
+                Context.Tickets.Remove(borrowingTicket);
+            }
+
+            Context.BookItems.Remove(bookItem);
             Context.SaveChanges();
         }
 
