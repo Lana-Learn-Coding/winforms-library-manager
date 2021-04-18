@@ -32,8 +32,15 @@ namespace LibraryApplication.UI.View.Reader
         {
             if (id <= 0) return;
             var bookItem = BorrowableBooks.First(book => book.Id == id);
+            if (bookItem.IsBorrowed)
+            {
+                bookItem.BorrowingTicket = null;
+                NewTicket.BookItems.Remove(bookItem);
+                return;
+            }
+
+            bookItem.BorrowingTicket = NewTicket;
             NewTicket.BookItems.Add(bookItem);
-            BorrowableBooks.Remove(bookItem);
         }
 
         private void SaveNewTicket()
@@ -56,12 +63,17 @@ namespace LibraryApplication.UI.View.Reader
             Context.SaveChanges();
             MessageBox.Show($"Ticket {NewTicket.Id} created. Due date: {NewTicket.DueDate.Value:yyyy-MM-dd}",
                 "Success");
-            NewTicket = new Ticket();
+            BorrowableBooks.RemoveMany(NewTicket.BookItems);
+            ClearNewTicket();
         }
 
         private void ClearNewTicket()
         {
-            BorrowableBooks.AddRange(NewTicket.BookItems);
+            foreach (var bookItem in NewTicket.BookItems)
+            {
+                bookItem.BorrowingTicket = null;
+            }
+
             NewTicket = new Ticket();
         }
     }

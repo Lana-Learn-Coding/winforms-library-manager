@@ -1,8 +1,10 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Reactive;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Windows.Forms;
+using LibraryApplication.Model.Book;
 using LibraryApplication.UI.Component.Table;
 using ReactiveUI;
 
@@ -28,6 +30,10 @@ namespace LibraryApplication.UI.View.Reader
                     .DisposeWith(disposable);
                 this.BindCommand(ViewModel, vm => vm.ClearNewTicketCommand, v => v.btnClearNewTicket)
                     .DisposeWith(disposable);
+                this.WhenAnyValue(v => v.ViewModel.NewTicket.BookItems)
+                    .Select(value => ((ObservableCollection<BookItem>) value).ToBindingList())
+                    .BindTo(this, v => v.addedBBookList.DataSource)
+                    .DisposeWith(disposable);
 
                 tabControl.Events().SelectedIndexChanged
                     .Where(x => tabControl.SelectedTab == tabNewTicket)
@@ -38,7 +44,8 @@ namespace LibraryApplication.UI.View.Reader
                 availableBookTable.Grid.Events().CellClick
                     .Select(e =>
                     {
-                        if (e.RowIndex < 0 || e.ColumnIndex != availableBookTable.Grid.Columns["Add"]?.Index) return 0;
+                        if (e.RowIndex < 0 || e.ColumnIndex != availableBookTable.Grid.Columns["Action"]?.Index)
+                            return 0;
                         var row = availableBookTable.Grid.SelectedRows[0];
                         return int.Parse(row.Cells[0]?.Value?.ToString() ?? "0");
                     })
@@ -57,7 +64,13 @@ namespace LibraryApplication.UI.View.Reader
                     AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
                 },
                 new DataGridViewDateTimeColumn {Name = "Updated", DataPropertyName = "UpdatedAt", Width = 120},
-                new DataGridViewButtonColumn {Name = "Add", Text = "Add", UseColumnTextForButtonValue = true}
+                new DataGridViewTextBoxColumn {Name = "Borrowed", DataPropertyName = "BorrowingTicket", Width = 100},
+                new DataGridViewButtonColumn
+                {
+                    Name = "Action",
+                    Text = "Toggle",
+                    UseColumnTextForButtonValue = true, Width = 60
+                }
             );
         }
     }
