@@ -36,6 +36,16 @@ namespace LibraryApplication.UI.View.Reader
                         reader => $"{reader.Id} -  {reader.Name}")
                     .DisposeWith(disposable);
 
+                this.WhenAnyValue(v => v.ViewModel.SelectedItem)
+                    .Select(value => !value.isReturned)
+                    .BindTo(this, v => v.datePickerDueDate.Enabled)
+                    .DisposeWith(disposable);
+
+                this.WhenAnyValue(v => v.ViewModel.SelectedItem)
+                    .Select(value => !value.isReturned)
+                    .BindTo(this, v => v.btnReturn.Enabled)
+                    .DisposeWith(disposable);
+
                 this.WhenAnyValue(v => v.ViewModel.SelectedItem.BookItems)
                     .Select(value => ((ObservableCollection<BookItem>) value).ToBindingList())
                     .BindTo(this, v => v.borrowingList.DataSource)
@@ -89,8 +99,8 @@ namespace LibraryApplication.UI.View.Reader
         public TicketManageViewModel ViewModel { get; set; } = new();
 
         public MaterialButton BtnSave => btnSave;
-        public MaterialButton BtnDelete { get; } = new();
-        public MaterialButton BtnClear { get; } = new();
+        public MaterialButton BtnDelete => btnDelete;
         public SearchableDataGridViewControl Table => table;
+        public MaterialButton BtnClear { get; } = new();
     }
 }

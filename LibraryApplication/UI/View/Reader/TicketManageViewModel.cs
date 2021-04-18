@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reactive;
 using System.Reactive.Linq;
+using System.Windows.Forms;
 using LibraryApplication.Model.Book;
 using ReactiveUI;
 using ReactiveUI.Validation.Extensions;
@@ -27,9 +28,19 @@ namespace LibraryApplication.UI.View.Reader
 
         private void ReturnTicket()
         {
-            if (SelectedItem.ReturnedDate != null)
+            if (SelectedItem.isReturned)
             {
+                MessageBox.Show("Ticket already returned!", "Info");
                 return;
+            }
+
+            var result = MessageBox.Show($"Are you sure return ticket {SelectedItem.Id}?", "Warning",
+                MessageBoxButtons.YesNo);
+            if (result != DialogResult.Yes) return;
+
+            foreach (var bookItem in SelectedItem.BookItems)
+            {
+                bookItem.BorrowingTicket = null;
             }
 
             SelectedItem.ReturnedDate = DateTime.Now;
@@ -40,15 +51,14 @@ namespace LibraryApplication.UI.View.Reader
 
         protected override void OnSaving()
         {
-            if (SelectedItem.Id == null)
-            {
-                throw new Exception("Please select a ticket");
-            }
+            if (SelectedItem.Id != null) return;
+            throw new Exception("Please select a ticket");
         }
 
         protected override void OnDeleting()
         {
-            throw new Exception("Cannot delete a ticket");
+            if (SelectedItem.isReturned) return;
+            throw new Exception("Cannot delete a borrowing ticket");
         }
     }
 }
