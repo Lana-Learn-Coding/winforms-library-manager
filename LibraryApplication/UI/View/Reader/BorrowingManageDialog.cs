@@ -19,6 +19,7 @@ namespace LibraryApplication.UI.View.Reader
 
             ViewModel = new BorrowingManageDialogModel(reader);
             BindingTabNewTicket();
+            BindingTabBorrowManage();
         }
 
         object IViewFor.ViewModel

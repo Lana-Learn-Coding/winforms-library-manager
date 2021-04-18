@@ -15,6 +15,7 @@ namespace LibraryApplication.UI.View.Reader
             Reader = reader;
             Context = Locator.Current.GetService<ModelContext>();
             InitializeNewTicketTab();
+            InitializeBorrowManageTab();
         }
     }
 }
