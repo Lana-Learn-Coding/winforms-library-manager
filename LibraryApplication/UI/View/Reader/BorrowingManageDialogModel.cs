@@ -8,7 +8,7 @@ namespace LibraryApplication.UI.View.Reader
     {
         public ViewModelActivator Activator { get; } = new();
         protected ModelContext Context { get; }
-        protected Model.Book.Reader Reader { get; }
+        public Model.Book.Reader Reader { get; }
 
         public BorrowingManageDialogModel(Model.Book.Reader reader)
         {

@@ -1,7 +1,10 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
+using System.Linq;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Windows.Forms;
+using LibraryApplication.Model.Book;
 using LibraryApplication.UI.Component.Table;
 using ReactiveUI;
 
@@ -13,15 +16,24 @@ namespace LibraryApplication.UI.View.Reader
         {
             this.WhenActivated(disposable =>
             {
-                var selectedId = borrowedBookTable.Grid.Events().SelectionChanged
-                    .Select(_ =>
+                borrowedBookTable.Grid.Events().SelectionChanged.Select(_ =>
                     {
                         var selectedRows = borrowedBookTable.Grid.SelectedRows;
                         var rowsCount = selectedRows.Count;
-                        if (rowsCount is 0 or > 1) return 0;
+                        if (rowsCount is 0 or > 1) return new BookItem();
                         var row = selectedRows[0];
-                        return int.Parse(row.Cells[0]?.Value?.ToString() ?? "0");
-                    });
+                        var id = int.Parse(row.Cells[0]?.Value?.ToString() ?? "0");
+                        if (id == 0) return new BookItem();
+                        return ViewModel.Reader.Tickets.Where(ticket => !ticket.isReturned)
+                            .SelectMany(ticket => ticket.BookItems)
+                            .First(item => item.Id == id);
+                    })
+                    .BindTo(this, v => v.ViewModel.SelectedBorrowedBook)
+                    .DisposeWith(disposable);
+
+                borrowedBookTable.Grid.Events().DataBindingComplete
+                    .Subscribe(_ => { borrowedBookTable.Grid.ClearSelection(); })
+                    .DisposeWith(disposable);
 
                 this.WhenAnyValue(v => v.ViewModel.BorrowedBooks)
                     .Select(value => value.ToBindingList())
@@ -31,22 +43,22 @@ namespace LibraryApplication.UI.View.Reader
                 this.Bind(ViewModel, vm => vm.IsSafeModeEnabled,
                     v => v.checkSafe.Checked).DisposeWith(disposable);
 
-                this.BindCommand(ViewModel, vm => vm.ReturnTicketCommand,
-                        v => v.btnReturnBook, selectedId)
-                    .DisposeWith(disposable);
                 this.BindCommand(ViewModel, vm => vm.ReturnBookCommand,
-                        v => v.btnReturnTicket, selectedId)
+                        v => v.btnReturnBook)
+                    .DisposeWith(disposable);
+                this.BindCommand(ViewModel, vm => vm.ReturnTicketCommand,
+                        v => v.btnReturnTicket)
                     .DisposeWith(disposable);
                 this.BindCommand(ViewModel, vm => vm.RemoveBookCommand,
-                        v => v.btnRemoveBook, selectedId)
+                        v => v.btnRemoveBook)
                     .DisposeWith(disposable);
 
                 this.BindCommand(ViewModel, vm => vm.ExtendDueDateCommand,
-                        v => v.btnExtendDueDate, selectedId)
+                        v => v.btnExtendDueDate)
                     .DisposeWith(disposable);
 
                 this.BindCommand(ViewModel, vm => vm.ExtendTicketDueDateCommand,
-                        v => v.btnExtendTicketDueDate, selectedId)
+                        v => v.btnExtendTicketDueDate)
                     .DisposeWith(disposable);
             });
 
