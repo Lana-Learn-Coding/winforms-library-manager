@@ -119,12 +119,12 @@ namespace LibraryApplication.UI.Component
                 var date = DateTime.Now;
                 if (date < MinDate)
                 {
-                    date = MinDate;
+                    date = MinDate.AddSeconds(1);
                 }
 
                 if (date > MaxDate)
                 {
-                    date = MaxDate;
+                    date = MaxDate.AddSeconds(-1);
                 }
 
                 datePicker.Value = date;
