@@ -31,7 +31,7 @@ namespace LibraryApplication.UI.View.Reader
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TicketManageView));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.bookListControl1 = new LibraryApplication.UI.Component.Table.BookListControl();
+            this.borrowingList = new LibraryApplication.UI.Component.Table.BookListControl();
             this.datePickerReturn = new LibraryApplication.UI.Component.DatePickerControl();
             this.datePickerBorrow = new LibraryApplication.UI.Component.DatePickerControl();
             this.btnReturn = new MaterialSkin.Controls.MaterialButton();
@@ -59,7 +59,7 @@ namespace LibraryApplication.UI.View.Reader
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.bookListControl1);
+            this.splitContainer1.Panel1.Controls.Add(this.borrowingList);
             this.splitContainer1.Panel1.Controls.Add(this.datePickerReturn);
             this.splitContainer1.Panel1.Controls.Add(this.datePickerBorrow);
             this.splitContainer1.Panel1.Controls.Add(this.btnReturn);
@@ -79,14 +79,15 @@ namespace LibraryApplication.UI.View.Reader
             this.splitContainer1.SplitterDistance = 350;
             this.splitContainer1.TabIndex = 0;
             // 
-            // bookListControl1
+            // borrowingList
             // 
-            this.bookListControl1.Location = new System.Drawing.Point(445, 58);
-            this.bookListControl1.MaximumSize = new System.Drawing.Size(275, 500);
-            this.bookListControl1.Name = "bookListControl1";
-            this.bookListControl1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.bookListControl1.Size = new System.Drawing.Size(275, 215);
-            this.bookListControl1.TabIndex = 59;
+            this.borrowingList.DataSource = null;
+            this.borrowingList.Location = new System.Drawing.Point(445, 58);
+            this.borrowingList.MaximumSize = new System.Drawing.Size(275, 500);
+            this.borrowingList.Name = "borrowingList";
+            this.borrowingList.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.borrowingList.Size = new System.Drawing.Size(275, 215);
+            this.borrowingList.TabIndex = 59;
             // 
             // datePickerReturn
             // 
@@ -307,7 +308,7 @@ namespace LibraryApplication.UI.View.Reader
         private Component.DatePickerControl datePickerBorrow;
         private MaterialSkin.Controls.MaterialButton btnReturn;
         private Component.DatePickerControl datePickerReturn;
-        private Component.Table.BookListControl bookListControl1;
+        private Component.Table.BookListControl borrowingList;
         private Component.Table.SearchableDataGridViewControl table;
     }
 }

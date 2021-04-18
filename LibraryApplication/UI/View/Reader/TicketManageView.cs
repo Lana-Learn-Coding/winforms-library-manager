@@ -1,5 +1,8 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Data.Entity;
 using System.Reactive.Disposables;
+using System.Reactive.Linq;
 using System.Windows.Forms;
 using LibraryApplication.Model.Book;
 using LibraryApplication.UI.Component.Table;
@@ -33,9 +36,52 @@ namespace LibraryApplication.UI.View.Reader
                         reader => $"{reader.Id} -  {reader.Name}")
                     .DisposeWith(disposable);
 
+                this.WhenAnyValue(v => v.ViewModel.SelectedItem.BookItems)
+                    .Select(value => ((ObservableCollection<BookItem>) value).ToBindingList())
+                    .BindTo(this, v => v.borrowingList.DataSource)
+                    .DisposeWith(disposable);
+
                 this.BindCommand(ViewModel, model => model.ReturnBookCommand, view => view.btnReturn)
                     .DisposeWith(disposable);
             });
+        }
+
+        public void Setup()
+        {
+            Table.Grid.AutoGenerateColumns = false;
+            Table.Grid.Columns.AddRange(
+                new DataGridViewTextBoxColumn {Name = "ID", DataPropertyName = "Id", Width = 80},
+                new DataGridViewTextBoxColumn
+                {
+                    Name = "Borrower",
+                    DataPropertyName = "Reader",
+                    MinimumWidth = 150,
+                    AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                },
+                new DataGridViewDateTimeColumn
+                {
+                    Name = "Borrowed Date",
+                    DataPropertyName = "BorrowedDate",
+                    Width = 150,
+                    Format = "yyyy-MM-dd"
+                },
+                new DataGridViewDateTimeColumn
+                {
+                    Name = "Due Date",
+                    DataPropertyName = "DueDate",
+                    Width = 150,
+                    Format = "yyyy-MM-dd"
+                },
+                new DataGridViewDateTimeColumn
+                {
+                    Name = "Returned Date",
+                    DataPropertyName = "ReturnedDate",
+                    Width = 150,
+                    Format = "yyyy-MM-dd"
+                },
+                new DataGridViewDateTimeColumn {Name = "Updated", DataPropertyName = "UpdatedAt", Width = 120},
+                new DataGridViewTextBoxColumn {Name = "Parent", DataPropertyName = "Parent"}
+            );
         }
 
         [Browsable(false)]
