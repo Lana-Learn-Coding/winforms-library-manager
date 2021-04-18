@@ -45,8 +45,8 @@ namespace LibraryApplication.Model.Book
             }
 
             return ReturnedDate.HasValue
-                ? $"Ticket {Id} from {BorrowedDate:yyyy-MM-dd} due at {DueDate:yyyy-MM-dd}"
-                : $"Ticket {Id} from {BorrowedDate:yyyy-MM-dd} to {ReturnedDate:yyyy-MM-dd}";
+                ? $"Ticket {Id} from {BorrowedDate:yyyy-MM-dd} to {ReturnedDate:yyyy-MM-dd}"
+                : $"Ticket {Id} from {BorrowedDate:yyyy-MM-dd} due at {DueDate:yyyy-MM-dd}";
         }
     }
 }
