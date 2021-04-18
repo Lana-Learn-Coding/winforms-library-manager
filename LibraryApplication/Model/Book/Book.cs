@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using LibraryApplication.Model.Meta;
@@ -59,7 +60,7 @@ namespace LibraryApplication.Model.Book
 
         [Reactive] public string Image { get; set; }
 
-        public virtual ICollection<Ticket> Tickets { get; set; }
+        public virtual ICollection<Ticket> Tickets { get; set; } = new ObservableCollection<Ticket>();
 
         [Reactive] public virtual Ticket BorrowingTicket { get; set; }
 
@@ -68,6 +69,8 @@ namespace LibraryApplication.Model.Book
         [NotMapped] public DateTime? BorrowedDate => BorrowingTicket?.BorrowedDate;
 
         [NotMapped] public DateTime? DueDate => BorrowingTicket?.DueDate;
+
+        [NotMapped] public int BorrowedTimes => Tickets.Count;
 
         public override string ToString()
         {
