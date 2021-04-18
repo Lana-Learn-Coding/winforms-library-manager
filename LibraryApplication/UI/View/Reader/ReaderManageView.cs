@@ -70,6 +70,23 @@ namespace LibraryApplication.UI.View.Reader
             });
         }
 
+        public void Setup()
+        {
+            Table.Grid.AutoGenerateColumns = false;
+            Table.Grid.Columns.AddRange(
+                new DataGridViewTextBoxColumn {Name = "ID", DataPropertyName = "Id", Width = 80},
+                new DataGridViewTextBoxColumn {Name = "Name", DataPropertyName = "Name", MinimumWidth = 150,},
+                new DataGridViewTextBoxColumn {Name = "Phone", DataPropertyName = "PhoneNumber", MinimumWidth = 150,},
+                new DataGridViewTextBoxColumn {Name = "Email", DataPropertyName = "Email", MinimumWidth = 150},
+                new DataGridViewTextBoxColumn {Name = "Gender", DataPropertyName = "Gender", Width = 80},
+                new DataGridViewTextBoxColumn {Name = "Limit", DataPropertyName = "Limit", Width = 80},
+                new DataGridViewDateTimeColumn {Name = "Birth", DataPropertyName = "Birth", Width = 120},
+                new DataGridViewDateTimeColumn
+                    {Name = "Updated", DataPropertyName = "UpdatedAt", Width = 120, Format = "yyyy-MM-dd"},
+                new DataGridViewTextBoxColumn {Name = "Address", DataPropertyName = "Address", Width = 180}
+            );
+        }
+
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ReaderManageViewModel ViewModel { get; set; } = new();
