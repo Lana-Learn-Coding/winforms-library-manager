@@ -13,13 +13,14 @@ namespace LibraryApplication.UI.View.Reader
             StartPosition = FormStartPosition.CenterParent;
             Text = $"Borrow Manage - {reader.Name}";
             txtReader.Value = $"{reader.Id} - {reader.Name}";
+            txtReaderHistory.Value = $"{reader.Id} - {reader.Name}";
             txtReaderEmail.Value = $"{reader.Email}";
             datePickerDueDate.Required = true;
             datePickerDueDate.MinDate = DateTime.Today.AddDays(1);
-
             ViewModel = new BorrowingManageDialogModel(reader);
             BindingTabNewTicket();
             BindingTabBorrowManage();
+            BindingTabHistory();
         }
 
         object IViewFor.ViewModel

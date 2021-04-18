@@ -45,7 +45,17 @@ namespace LibraryApplication.UI.View.Reader
             this.txtReader = new LibraryApplication.UI.Component.TextboxControl();
             this.headingNewTicket = new MaterialSkin.Controls.MaterialLabel();
             this.availableBookTable = new LibraryApplication.UI.Component.Table.SearchableDataGridViewControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabHistory = new System.Windows.Forms.TabPage();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.bookTicketList = new LibraryApplication.UI.Component.Table.TicketListControl();
+            this.txtLastBorrowHistory = new LibraryApplication.UI.Component.TextboxControl();
+            this.txtLastReturnHistory = new LibraryApplication.UI.Component.TextboxControl();
+            this.txtCountHistory = new LibraryApplication.UI.Component.TextboxControl();
+            this.txtIdHistory = new LibraryApplication.UI.Component.TextboxControl();
+            this.txtBookHistory = new LibraryApplication.UI.Component.TextboxControl();
+            this.txtReaderHistory = new LibraryApplication.UI.Component.TextboxControl();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.bookHistoryTable = new LibraryApplication.UI.Component.Table.SearchableDataGridViewControl();
             this.tabBorrowManage = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
@@ -63,6 +73,11 @@ namespace LibraryApplication.UI.View.Reader
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tabHistory.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
             this.tabBorrowManage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -265,16 +280,152 @@ namespace LibraryApplication.UI.View.Reader
             this.availableBookTable.Size = new System.Drawing.Size(816, 323);
             this.availableBookTable.TabIndex = 0;
             // 
-            // tabPage2
+            // tabHistory
             // 
-            this.tabPage2.ImageKey = "baseline_history_black_24dp.png";
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(836, 607);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Borrowing History";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabHistory.BackColor = System.Drawing.Color.White;
+            this.tabHistory.Controls.Add(this.splitContainer3);
+            this.tabHistory.ImageKey = "baseline_history_black_24dp.png";
+            this.tabHistory.Location = new System.Drawing.Point(4, 24);
+            this.tabHistory.Name = "tabHistory";
+            this.tabHistory.Padding = new System.Windows.Forms.Padding(10);
+            this.tabHistory.Size = new System.Drawing.Size(836, 607);
+            this.tabHistory.TabIndex = 1;
+            this.tabHistory.Text = "Borrowing History";
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(10, 10);
+            this.splitContainer3.Name = "splitContainer3";
+            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.bookTicketList);
+            this.splitContainer3.Panel1.Controls.Add(this.txtLastBorrowHistory);
+            this.splitContainer3.Panel1.Controls.Add(this.txtLastReturnHistory);
+            this.splitContainer3.Panel1.Controls.Add(this.txtCountHistory);
+            this.splitContainer3.Panel1.Controls.Add(this.txtIdHistory);
+            this.splitContainer3.Panel1.Controls.Add(this.txtBookHistory);
+            this.splitContainer3.Panel1.Controls.Add(this.txtReaderHistory);
+            this.splitContainer3.Panel1.Controls.Add(this.materialLabel2);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.bookHistoryTable);
+            this.splitContainer3.Size = new System.Drawing.Size(816, 587);
+            this.splitContainer3.SplitterDistance = 200;
+            this.splitContainer3.TabIndex = 0;
+            // 
+            // bookTicketList
+            // 
+            this.bookTicketList.DataSource = null;
+            this.bookTicketList.Location = new System.Drawing.Point(495, 44);
+            this.bookTicketList.MaximumSize = new System.Drawing.Size(500, 500);
+            this.bookTicketList.Name = "bookTicketList";
+            this.bookTicketList.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.bookTicketList.Size = new System.Drawing.Size(321, 141);
+            this.bookTicketList.TabIndex = 19;
+            // 
+            // txtLastBorrowHistory
+            // 
+            this.txtLastBorrowHistory.Enabled = false;
+            this.txtLastBorrowHistory.Error = "";
+            this.txtLastBorrowHistory.Hint = "Last borrowed date";
+            this.txtLastBorrowHistory.Label = "Last Borrow";
+            this.txtLastBorrowHistory.Location = new System.Drawing.Point(0, 113);
+            this.txtLastBorrowHistory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtLastBorrowHistory.Name = "txtLastBorrowHistory";
+            this.txtLastBorrowHistory.Size = new System.Drawing.Size(173, 72);
+            this.txtLastBorrowHistory.TabIndex = 18;
+            this.txtLastBorrowHistory.Value = "";
+            // 
+            // txtLastReturnHistory
+            // 
+            this.txtLastReturnHistory.Enabled = false;
+            this.txtLastReturnHistory.Error = "";
+            this.txtLastReturnHistory.Hint = "Last return date";
+            this.txtLastReturnHistory.Label = "Last Return";
+            this.txtLastReturnHistory.Location = new System.Drawing.Point(194, 113);
+            this.txtLastReturnHistory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtLastReturnHistory.Name = "txtLastReturnHistory";
+            this.txtLastReturnHistory.Size = new System.Drawing.Size(183, 72);
+            this.txtLastReturnHistory.TabIndex = 17;
+            this.txtLastReturnHistory.Value = "";
+            // 
+            // txtCountHistory
+            // 
+            this.txtCountHistory.Enabled = false;
+            this.txtCountHistory.Error = "";
+            this.txtCountHistory.Hint = "";
+            this.txtCountHistory.Label = "Count";
+            this.txtCountHistory.Location = new System.Drawing.Point(397, 113);
+            this.txtCountHistory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtCountHistory.Name = "txtCountHistory";
+            this.txtCountHistory.Size = new System.Drawing.Size(75, 72);
+            this.txtCountHistory.TabIndex = 16;
+            this.txtCountHistory.Value = "";
+            // 
+            // txtIdHistory
+            // 
+            this.txtIdHistory.Enabled = false;
+            this.txtIdHistory.Error = "";
+            this.txtIdHistory.Hint = "";
+            this.txtIdHistory.Label = "ID";
+            this.txtIdHistory.Location = new System.Drawing.Point(0, 44);
+            this.txtIdHistory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtIdHistory.Name = "txtIdHistory";
+            this.txtIdHistory.Size = new System.Drawing.Size(90, 72);
+            this.txtIdHistory.TabIndex = 12;
+            this.txtIdHistory.Value = "";
+            // 
+            // txtBookHistory
+            // 
+            this.txtBookHistory.Enabled = false;
+            this.txtBookHistory.Error = "";
+            this.txtBookHistory.Hint = "";
+            this.txtBookHistory.Label = "Book";
+            this.txtBookHistory.Location = new System.Drawing.Point(303, 44);
+            this.txtBookHistory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtBookHistory.Name = "txtBookHistory";
+            this.txtBookHistory.Size = new System.Drawing.Size(169, 72);
+            this.txtBookHistory.TabIndex = 9;
+            this.txtBookHistory.Value = "";
+            // 
+            // txtReaderHistory
+            // 
+            this.txtReaderHistory.Enabled = false;
+            this.txtReaderHistory.Error = "";
+            this.txtReaderHistory.Hint = "";
+            this.txtReaderHistory.Label = "Reader";
+            this.txtReaderHistory.Location = new System.Drawing.Point(109, 44);
+            this.txtReaderHistory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtReaderHistory.Name = "txtReaderHistory";
+            this.txtReaderHistory.Size = new System.Drawing.Size(177, 72);
+            this.txtReaderHistory.TabIndex = 8;
+            this.txtReaderHistory.Value = "";
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.materialLabel2.Location = new System.Drawing.Point(0, 0);
+            this.materialLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(160, 29);
+            this.materialLabel2.TabIndex = 7;
+            this.materialLabel2.Text = "Borrow History";
+            // 
+            // bookHistoryTable
+            // 
+            this.bookHistoryTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bookHistoryTable.Location = new System.Drawing.Point(0, 0);
+            this.bookHistoryTable.Name = "bookHistoryTable";
+            this.bookHistoryTable.Size = new System.Drawing.Size(816, 383);
+            this.bookHistoryTable.TabIndex = 0;
             // 
             // tabBorrowManage
             // 
@@ -438,7 +589,7 @@ namespace LibraryApplication.UI.View.Reader
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabBorrowManage);
-            this.tabControl.Controls.Add(this.tabPage2);
+            this.tabControl.Controls.Add(this.tabHistory);
             this.tabControl.Controls.Add(this.tabNewTicket);
             this.tabControl.Depth = 0;
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -469,6 +620,12 @@ namespace LibraryApplication.UI.View.Reader
             this.splitContainer2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tabHistory.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel1.PerformLayout();
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
             this.tabBorrowManage.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -485,15 +642,13 @@ namespace LibraryApplication.UI.View.Reader
         private System.Windows.Forms.TabPage tabNewTicket;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabHistory;
         private System.Windows.Forms.TabPage tabBorrowManage;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private MaterialSkin.Controls.MaterialTabControl tabControl;
-        private MaterialSkin.Controls.MaterialLabel heading;
         private MaterialSkin.Controls.MaterialLabel headingNewTicket;
         private Component.TextboxControl txtReaderEmail;
         private Component.TextboxControl txtReader;
-        private MaterialSkin.Controls.MaterialButton btnClear;
         private MaterialSkin.Controls.MaterialButton btnSaveNewTicket;
         private Component.TextboxControl txtID;
         private Component.DatePickerControl datePickerDueDate;
@@ -509,5 +664,15 @@ namespace LibraryApplication.UI.View.Reader
         private MaterialSkin.Controls.MaterialButton btnRemoveBook;
         private System.Windows.Forms.CheckBox checkSafe;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private System.Windows.Forms.SplitContainer splitContainer3;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private Component.TextboxControl txtBookHistory;
+        private Component.TextboxControl txtReaderHistory;
+        private Component.Table.SearchableDataGridViewControl bookHistoryTable;
+        private Component.TextboxControl txtIdHistory;
+        private Component.TextboxControl txtCountHistory;
+        private Component.TextboxControl txtLastBorrowHistory;
+        private Component.TextboxControl txtLastReturnHistory;
+        private Component.Table.TicketListControl bookTicketList;
     }
 }
