@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using ReactiveUI.Fody.Helpers;
@@ -27,9 +28,10 @@ namespace LibraryApplication.Model.Book
         public DateTime? DueDate { get; set; } = DateTime.Now.AddDays(10);
 
         [Reactive] [Column(TypeName = "Date")] public DateTime? ReturnedDate { get; set; }
+        [NotMapped] public bool isReturned => ReturnedDate != null;
 
         [InverseProperty("Tickets")]
-        public virtual ICollection<BookItem> BookItems { get; set; } = new List<BookItem>();
+        public virtual ICollection<BookItem> BookItems { get; set; } = new ObservableCollection<BookItem>();
 
         public virtual Reader Reader { get; set; }
 
@@ -39,7 +41,7 @@ namespace LibraryApplication.Model.Book
         {
             if (Id == null)
             {
-                return "New unsaved ticket";
+                return "New Ticket";
             }
 
             return ReturnedDate.HasValue

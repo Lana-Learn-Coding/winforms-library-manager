@@ -61,7 +61,9 @@ namespace LibraryApplication.Model.Book
 
         public virtual ICollection<Ticket> Tickets { get; set; }
 
-        public virtual Ticket BorrowingTicket { get; set; }
+        [Reactive] public virtual Ticket BorrowingTicket { get; set; }
+
+        [NotMapped] public bool IsBorrowed => BorrowingTicket != null;
 
         public override string ToString()
         {
