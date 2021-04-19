@@ -52,6 +52,11 @@ namespace LibraryApplication.UI.View
                     .BindTo(this, view => view.Table.Grid.DataSource)
                     .DisposeWith(disposable);
 
+                this.Bind(ViewModel,
+                        model => model.Search,
+                        view => view.Table.Search)
+                    .DisposeWith(disposable);
+
                 this.WhenAnyValue(view => view.ViewModel.SelectedItem.Id)
                     .DistinctUntilChanged()
                     .Subscribe(item =>

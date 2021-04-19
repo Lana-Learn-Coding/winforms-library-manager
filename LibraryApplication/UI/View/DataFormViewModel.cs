@@ -38,7 +38,7 @@ namespace LibraryApplication.UI.View
     {
         [Reactive] public T SelectedItem { get; set; }
 
-        [Reactive] public string Search { get; set; }
+        [Reactive] public string Search { get; set; } = "";
         [Reactive] public ObservableCollection<T> Items { get; set; }
 
         [Reactive] public bool IsUpdating { get; set; }

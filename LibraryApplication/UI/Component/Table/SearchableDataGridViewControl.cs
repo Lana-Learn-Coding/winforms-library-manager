@@ -1,9 +1,10 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace LibraryApplication.UI.Component.Table
 {
-    public partial class SearchableDataGridViewControl : UserControl
+    public partial class SearchableDataGridViewControl : UserControl, INotifyPropertyChanged
     {
         public DataGridView Grid
         {
@@ -11,9 +12,20 @@ namespace LibraryApplication.UI.Component.Table
             set => grid = value;
         }
 
+        public string Search
+        {
+            get => txtSearch.Text;
+            set => txtSearch.Text = value;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public SearchableDataGridViewControl()
         {
             InitializeComponent();
+            txtSearch.TextChanged += (_, _) =>
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Search)));
+
             grid.CellFormatting += (_, e) =>
             {
                 if (grid.Rows[e.RowIndex].DataBoundItem != null &&
