@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using LibraryApplication.Model;
 using LibraryApplication.UI;
 using LibraryApplication.UI.View;
+using LibraryApplication.UI.View.App;
 using MaterialSkin;
 using ReactiveUI;
 using Splat;
@@ -63,6 +64,7 @@ namespace LibraryApplication
 
             var form = new MainForm();
             Locator.CurrentMutable.RegisterConstant(form, typeof(MainForm));
+            form.Show(new LoginForm());
             Application.Run(form);
         }
     }
