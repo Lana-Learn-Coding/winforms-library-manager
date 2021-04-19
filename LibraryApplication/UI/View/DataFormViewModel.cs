@@ -15,13 +15,30 @@ using Splat;
 
 namespace LibraryApplication.UI.View
 {
-    public class DataFormViewModel<T> : ReactiveObject, IValidatableViewModel, IActivatableViewModel
-        where T : IIdentified, new()
+    public class DataFormViewModel : ReactiveObject, IValidatableViewModel, IActivatableViewModel
     {
         protected readonly ModelContext Context;
         public ValidationContext ValidationContext { get; } = new();
 
+        public ViewModelActivator Activator { get; } = new();
+
+        protected DataFormViewModel()
+        {
+            Context = Locator.Current.GetService<ModelContext>();
+            LoadData();
+        }
+
+        public virtual void LoadData()
+        {
+        }
+    }
+
+    public class DataFormViewModel<T> : DataFormViewModel
+        where T : IIdentified, new()
+    {
         [Reactive] public T SelectedItem { get; set; }
+
+        [Reactive] public string Search { get; set; }
         [Reactive] public ObservableCollection<T> Items { get; set; }
 
         [Reactive] public bool IsUpdating { get; set; }
@@ -36,8 +53,6 @@ namespace LibraryApplication.UI.View
         protected DataFormViewModel()
         {
             SelectedItem = new T();
-            Context = Locator.Current.GetService<ModelContext>();
-
             this.WhenActivated(disposable =>
             {
                 this.WhenAnyValue(model => model.SelectedItem)
@@ -166,7 +181,5 @@ namespace LibraryApplication.UI.View
         protected virtual void OnDeleting()
         {
         }
-
-        public ViewModelActivator Activator { get; } = new();
     }
 }

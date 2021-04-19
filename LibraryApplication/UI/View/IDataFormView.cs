@@ -12,12 +12,21 @@ using ReactiveUI;
 
 namespace LibraryApplication.UI.View
 {
-    public interface IDataFormView : IActivatableView
+    public interface IDataFormView : IViewFor
     {
         public MaterialButton BtnSave { get; }
         public MaterialButton BtnDelete { get; }
         public MaterialButton BtnClear { get; }
         public SearchableDataGridViewControl Table { get; }
+
+        public void Refresh()
+        {
+            Table.Refresh();
+            if (ViewModel is DataFormViewModel dataFormViewModel)
+            {
+                dataFormViewModel.LoadData();
+            }
+        }
     }
 
     public interface IDataFormView<TE, TVm> : IDataFormView, IViewFor<TVm>

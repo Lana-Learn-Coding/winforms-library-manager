@@ -20,7 +20,7 @@ namespace LibraryApplication.UI.View.App
                     .Select(_ => mainTabControl.SelectedTab.Controls)
                     .Where(controls => controls.Count > 0 && controls[0] is IDataFormView)
                     .Select(controls => controls[0] as IDataFormView)
-                    .Subscribe(form => { form.Table.Refresh(); })
+                    .Subscribe(form => { form.Refresh(); })
                     .DisposeWith(disposables);
             });
         }
