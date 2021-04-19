@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Reactive;
 using LibraryApplication.Model.Book;
 using ReactiveUI;
@@ -15,7 +16,6 @@ namespace LibraryApplication.UI.View.Book
 
         public BookManageViewModel()
         {
-            Items = Context.Books.Local;
             this.ValidationRule(
                 model => model.SelectedItem.Title,
                 title => !string.IsNullOrWhiteSpace(title),
@@ -52,6 +52,12 @@ namespace LibraryApplication.UI.View.Book
             var isSelected = this.WhenAnyValue(model => model.IsUpdating);
             ToggleViewBooksDialogCommand =
                 ReactiveCommand.Create(() => ShowViewBooksDialog = !ShowViewBooksDialog, isSelected);
+        }
+
+        public override void LoadData()
+        {
+            Context.Books.Load();
+            Items = Context.Books.Local;
         }
     }
 }

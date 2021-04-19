@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Windows.Forms;
@@ -18,7 +19,6 @@ namespace LibraryApplication.UI.View.Reader
 
         public TicketManageViewModel()
         {
-            Items = Context.Tickets.Local;
             this.ValidationRule(
                 model => model.SelectedItem.Id,
                 id => id is > 0,
@@ -32,6 +32,12 @@ namespace LibraryApplication.UI.View.Reader
             var isSelected = this.WhenAnyValue(model => model.IsUpdating);
             ToggleBorrowBookCommand =
                 ReactiveCommand.Create(() => ShowBorrowBookDialog = !ShowBorrowBookDialog, isSelected);
+        }
+
+        public override void LoadData()
+        {
+            Context.Tickets.Load();
+            Items = Context.Tickets.Local;
         }
 
         private void ReturnTicket()

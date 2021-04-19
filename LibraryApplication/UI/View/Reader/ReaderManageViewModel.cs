@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Reactive;
 using System.Reactive.Linq;
@@ -18,7 +19,6 @@ namespace LibraryApplication.UI.View.Reader
 
         public ReaderManageViewModel()
         {
-            Items = Context.Readers.Local;
             this.ValidationRule(
                 model => model.SelectedItem.Name,
                 title => !string.IsNullOrWhiteSpace(title),
@@ -53,6 +53,12 @@ namespace LibraryApplication.UI.View.Reader
             var isSelected = this.WhenAnyValue(model => model.IsUpdating);
             ToggleBorrowBookCommand =
                 ReactiveCommand.Create(() => ShowBorrowBookDialog = !ShowBorrowBookDialog, isSelected);
+        }
+
+        public override void LoadData()
+        {
+            Context.Readers.Load();
+            Items = Context.Readers.Local;
         }
 
         private static ValidationState ValidateEmail(string email)
