@@ -2,12 +2,11 @@
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Windows.Forms;
-using MaterialSkin.Controls;
 using ReactiveUI;
 
 namespace LibraryApplication.UI.View.App
 {
-    public partial class AppView : MaterialForm, IViewFor<AppViewModel>
+    public partial class AppView : NavigateForm, IViewFor<AppViewModel>
     {
         public AppView()
         {

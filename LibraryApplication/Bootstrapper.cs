@@ -2,8 +2,8 @@
 using System.Windows.Forms;
 using LibraryApplication.Model;
 using LibraryApplication.UI;
+using LibraryApplication.UI.View;
 using MaterialSkin;
-using MaterialSkin.Controls;
 using ReactiveUI;
 using Splat;
 
@@ -50,13 +50,8 @@ namespace LibraryApplication
 
         public void Run()
         {
-            var viewModel = new AppViewModel();
-            Locator.CurrentMutable.RegisterConstant(viewModel, typeof(IAppViewModel));
-
-            var view = ViewLocator.Current.ResolveView(viewModel);
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.EnforceBackcolorOnAllComponents = true;
-            materialSkinManager.AddFormToManage((MaterialForm) view);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(
                 Primary.Indigo500,
@@ -66,8 +61,9 @@ namespace LibraryApplication
                 TextShade.WHITE
             );
 
-            view.ViewModel = viewModel;
-            Application.Run((Form) view);
+            var form = new MainForm();
+            Locator.CurrentMutable.RegisterConstant(form, typeof(MainForm));
+            Application.Run(form);
         }
     }
 }
