@@ -12,6 +12,13 @@ namespace LibraryApplication.UI.Component
             set => textBox.Hint = value;
         }
 
+        [Description("Password"), Category("Material Skin"), DefaultValue(false)]
+        public bool Password
+        {
+            get => textBox.Password;
+            set => textBox.Password = value;
+        }
+
         [Description("Enable"), Category("Material Skin")]
         public bool Enabled
         {
