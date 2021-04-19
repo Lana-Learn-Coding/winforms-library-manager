@@ -5,6 +5,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Reactive;
 using System.Reactive.Disposables;
+using System.Reactive.Linq;
 using System.Windows.Forms;
 using LibraryApplication.Model;
 using ReactiveUI;
@@ -22,6 +23,8 @@ namespace LibraryApplication.UI.View
 
         public ViewModelActivator Activator { get; } = new();
 
+        [Reactive] public string Search { get; set; } = "";
+
         protected DataFormViewModel()
         {
             Context = Locator.Current.GetService<ModelContext>();
@@ -36,9 +39,9 @@ namespace LibraryApplication.UI.View
     public class DataFormViewModel<T> : DataFormViewModel
         where T : IIdentified, new()
     {
+        protected ObservableCollection<T> OriginalItems { get; set; }
         [Reactive] public T SelectedItem { get; set; }
 
-        [Reactive] public string Search { get; set; } = "";
         [Reactive] public ObservableCollection<T> Items { get; set; }
 
         [Reactive] public bool IsUpdating { get; set; }
@@ -58,6 +61,25 @@ namespace LibraryApplication.UI.View
                 this.WhenAnyValue(model => model.SelectedItem)
                     .Subscribe(item => IsUpdating = item?.Id != null)
                     .DisposeWith(disposable);
+
+                this.WhenAnyValue(model => model.Search)
+                    .DistinctUntilChanged()
+                    .Throttle(TimeSpan.FromMilliseconds(500))
+                    .Subscribe(keyword =>
+                    {
+                        if (string.IsNullOrWhiteSpace(keyword))
+                        {
+                            Items = OriginalItems;
+                            return;
+                        }
+
+                        Items = new ObservableCollection<T>(
+                            OriginalItems
+                                .Where(item => Filter(item, keyword))
+                                .ToList()
+                        );
+                    })
+                    .DisposeWith(disposable);
             });
 
             SaveCommand = ReactiveCommand.Create(Save, ValidationContext.Valid);
@@ -67,6 +89,7 @@ namespace LibraryApplication.UI.View
             var isSelected = this.WhenAnyValue(model => model.IsUpdating);
             DeleteCommand = ReactiveCommand.Create(DeleteSelection, isSelected);
             RefreshSelectionCommand = ReactiveCommand.Create(RefreshSelection, isSelected);
+            Items = OriginalItems;
         }
 
         private void OnSelected(int id)
@@ -78,7 +101,7 @@ namespace LibraryApplication.UI.View
             }
 
             ReloadSelection();
-            SelectedItem = Items.First(book => book.Id == id);
+            SelectedItem = OriginalItems.First(book => book.Id == id);
         }
 
         protected void ClearSelection()
@@ -164,13 +187,13 @@ namespace LibraryApplication.UI.View
 
         protected virtual void CreateNewItem(T item)
         {
-            Items.Add(item);
+            OriginalItems.Add(item);
             Context.SaveChanges();
         }
 
         protected virtual void DeleteItem(T item)
         {
-            Items.Remove(item);
+            OriginalItems.Remove(item);
             Context.SaveChanges();
         }
 
@@ -180,6 +203,11 @@ namespace LibraryApplication.UI.View
 
         protected virtual void OnDeleting()
         {
+        }
+
+        protected virtual bool Filter(T item, string filter)
+        {
+            return true; // disable search
         }
     }
 }

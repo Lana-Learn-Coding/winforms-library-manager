@@ -37,7 +37,16 @@ namespace LibraryApplication.UI.View.Reader
         public override void LoadData()
         {
             Context.Tickets.Load();
-            Items = Context.Tickets.Local;
+            OriginalItems = Context.Tickets.Local;
+        }
+
+        protected override bool Filter(Ticket item, string filter)
+        {
+            return item.Parent.ToString().Contains(filter) ||
+                   item.ToString().Contains(filter) ||
+                   item.isReturned
+                ? filter.Contains("returned")
+                : filter.Contains("non returned");
         }
 
         private void ReturnTicket()

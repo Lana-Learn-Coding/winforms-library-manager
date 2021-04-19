@@ -22,10 +22,9 @@ namespace LibraryApplication.UI.View
         public void Refresh()
         {
             Table.Refresh();
-            if (ViewModel is DataFormViewModel dataFormViewModel)
-            {
-                dataFormViewModel.LoadData();
-            }
+            if (ViewModel is not DataFormViewModel dataFormViewModel) return;
+            dataFormViewModel.LoadData();
+            dataFormViewModel.Search = "";
         }
     }
 

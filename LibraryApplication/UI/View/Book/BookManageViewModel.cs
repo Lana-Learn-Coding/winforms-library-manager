@@ -57,7 +57,17 @@ namespace LibraryApplication.UI.View.Book
         public override void LoadData()
         {
             Context.Books.Load();
-            Items = Context.Books.Local;
+            OriginalItems = Context.Books.Local;
+        }
+
+        protected override bool Filter(BookMeta item, string filter)
+        {
+            return
+                item.Title.Contains(filter) ||
+                item.Publisher.Name.Contains(filter) ||
+                item.Author.Name.Contains(filter) ||
+                item.Category.Name.Contains(filter) ||
+                item.Series.Name.Contains(filter);
         }
     }
 }

@@ -58,7 +58,14 @@ namespace LibraryApplication.UI.View.Reader
         public override void LoadData()
         {
             Context.Readers.Load();
-            Items = Context.Readers.Local;
+            OriginalItems = Context.Readers.Local;
+        }
+
+        protected override bool Filter(Model.Book.Reader item, string filter)
+        {
+            return item.Name.Contains(filter) ||
+                   item.PhoneNumber.Contains(filter) ||
+                   item.Email.Contains(filter);
         }
 
         private static ValidationState ValidateEmail(string email)
